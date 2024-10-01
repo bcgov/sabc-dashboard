@@ -1,0 +1,144 @@
+// Bootstrap Overrides
+
+.navbar-nav {
+
+  // Modification for two line navigation item
+  .business-name {
+    color: $white;
+    margin-top: -3px;
+    display: block;
+    font-size: $font-size-sm;
+  }
+  .user-name {
+    margin-top: -12px;
+    display: block;
+    font-size: $font-size-sm;
+  }
+
+  .nav-item {
+    &:hover {
+      background: lighten($blue-500, 5%);
+    }
+  }
+
+}
+
+// Full-width navbar divider with centered tabs
+.nav-wrapper {
+   border-bottom: ($nav-tabs-border-width / 2) solid $nav-tabs-border-color;
+}
+
+
+/* Numbered tab steps */
+.nav-number {
+    font-size: 1.2rem;
+    font-weight: 600;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 2rem;
+    flex: 0 0 2rem;
+    height: 2rem;
+    width: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: rgba(44, 119, 244, 0.08);
+    color: #2c77f4;
+    margin-right: 1rem;
+    border-radius: 6.25rem;
+
+    .icon {
+	    display: none;
+    }
+}
+
+.active {
+	.nav-number {
+		background: $blue-300;
+		color: $white;
+	}
+}
+
+.error {
+	.nav-number {
+		background: $red-050;
+		color: $red-300;
+	}
+}
+
+.done {
+	.nav-number {
+		background: $green-300;
+		color: $white;
+		.number { display: none }
+		.icon {
+			display: inline-block;
+			stroke: $white;
+		}
+	}
+}
+
+/* Change the style of the nav tabs */
+.nav-tabs-line {
+  border-bottom: 0;
+
+  .nav-link {
+    transition: .2s linear;
+    border-width: 0 0 4px 0;
+    padding: $nav-link-padding-y $nav-link-padding-x;
+    margin-right: 1rem;
+    color: $gray-400;
+
+    @include hover-focus {
+      border-color: $gray-200;
+      color: $gray-600;
+    }
+
+    &.disabled {
+      color: $gray-300;
+      img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
+    }
+
+    small {
+      color: inherit;
+      vertical-align: center;
+      opacity: 0.7;
+    }
+
+    .avatar {
+      background: transparent;
+      img {
+        border-radius: 0;
+       }
+    }
+
+    // Make the font and margin size smaller for mobile devices
+    @include media-down(sm) {
+      font-size: 0.75em;
+      margin-right: 1rem;
+    }
+
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    border-color: $component-active-bg;
+    background-color: transparent;
+    color: $gray-800;
+  }
+
+  @each $color, $value in $theme-colors {
+    .nav-link-#{$color} {
+      @include navlink-variant(theme-color-level($color), theme-color-level($color), theme-color-level($color));
+    }
+  }
+
+}

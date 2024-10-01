@@ -1,0 +1,138 @@
+//Bootstrap overrides
+.dropdown-menu {
+	border-top: 0;
+}
+// If the dropdown is in the navbar, change the style //
+.navbar {
+  .dropdown-menu {
+    /* Position in center instead of left/right */
+    left: 50%;
+    transform: translateX(-50%) !important;
+
+    /* Add top arrow */
+    &:before {
+      top: -11px;
+      border-bottom-color: #f1f2f3;
+      border-width: 0 11px 11px 11px;
+    }
+
+    &:after {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-color: transparent;
+      border-style: solid;
+      content: '';
+      height: 0;
+      width: 0;
+      top: -9px;
+      border-bottom-color: #fff;
+      border-width: 0 9px 9px 9px;
+    }
+  }
+}
+
+// Remove padding for fit
+.dropdown-menu-fit {
+	padding: 0
+}
+
+// Some additional sizes
+.dropdown-menu-sm { width: 240px }
+.dropdown-menu-md { width: 260px }
+.dropdown-menu-lg { width: 320px }
+.dropdown-menu-xl { width: 380px }
+
+// Animation
+.dropdown-menu.dropdown-menu-anim {
+	-webkit-animation:dropdown-menu-fade-in .3s ease 1, dropdown-menu-move-up .3s ease-out 1;
+	animation:dropdown-menu-fade-in .3s ease 1, dropdown-menu-move-up .3s ease-out 1
+}
+.dropup .dropdown-menu.dropdown-menu-anim,
+.dropdown-menu .dropdown-menu-anim-down.dropdown-menu-anim {
+	-webkit-animation:dropdown-menu-fade-in .3s ease 1, dropdown-menu-move-down .3s ease-out 1;
+	animation:dropdown-menu-fade-in .3s ease 1, dropdown-menu-move-down .3s ease-out 1
+}
+
+@-webkit-keyframes dropdown-menu-fade-in {
+	from{opacity:0}
+	to{opacity:1}
+}
+@keyframes dropdown-menu-fade-in {
+	from{opacity:0}
+	to{opacity:1}
+}
+@-webkit-keyframes dropdown-menu-move-down {
+	from{margin-top:-10px}
+	to{margin-top:0}
+}
+@keyframes dropdown-menu-move-down {
+	from{margin-top:-10px}
+	to{margin-top:0}
+}
+@-webkit-keyframes dropdown-menu-move-up {
+	from{margin-top:10px}
+	to{margin-top:0}
+}
+@keyframes dropdown-menu-move-up {
+	from{margin-top:10px}
+	to{margin-top:0}
+}
+
+
+.kt-user-card {
+    position: relative;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 1rem 1rem;
+    min-height: 65px;
+    margin-bottom: 32.5px;
+}
+
+.kt-user-card .kt-user-card__wrapper {
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    height: 100%;
+    bottom: -32.5px;
+    padding: 0 1.75rem;
+    }
+
+// Make sure linked headings aren't underlined and make the font size a bit bigger
+.dropdown-header {
+  font-weight: 600;
+  text-transform: uppercase !important;
+	/* Not as much padding */
+	&.collapsed {
+		padding: 0.5em $dropdown-padding-y;
+	}
+  a {
+    text-decoration: none;
+    color: $dropdown-header-color;
+    &:hover {
+      color: darken($dropdown-header-color, 15%);
+    }
+  }
+  //font-size: ($font-size-sm * 1.05);
+}

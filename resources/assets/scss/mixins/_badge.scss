@@ -1,0 +1,13 @@
+@mixin badge-variant($bg) {
+  //@include color-yiq($bg);
+  color: darken($bg, 25%);
+  background-color: lighten($bg, 30%);
+
+  &[href] {
+    @include hover-focus {
+    //  @include color-yiq($bg);
+      text-decoration: none;
+      background-color: darken($bg, 10%);
+    }
+  }
+}

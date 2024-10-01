@@ -1,0 +1,400 @@
+// Bootstrap overrides
+
+
+.form-control {
+  font-family: $font-family-sans-serif;
+  //font-weight: 400;
+  &:disabled, &[readonly] {
+    cursor: not-allowed;
+    color: $gray-300
+  }
+}
+
+label {
+  &.small {
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+/* Remove the background x on error fields */
+.is-invalid-no-bg {
+  background-image: none !important;
+}
+
+legend {
+  font-size: 1.35rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Remove the spinner on number fields */
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Card radios */
+.card-input-label { display: block }
+	.card-input-element {
+    display: none;
+    &:hover + .card-input {
+	    border-radius: $border-radius-xl;
+	    background: $white;
+	    box-shadow: $card-box-shadow-hover;
+    }
+		&:checked + .card-input {
+	    box-shadow: 0px 0px 0px 4px $blue;
+	    background: $white;
+	    border-color: $primary;
+	    .icon {
+		    opacity: 1;
+	    }
+    }
+	}
+
+	.card-input {
+		.icon {
+			opacity: 0;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			stroke: $blue-300;
+		}
+    margin-bottom: 2rem;
+    border-radius: $border-radius-xl;
+    background: transparent;
+    font-weight: 400;
+    //padding: 0.75em;
+    &:hover {
+	    cursor: pointer;
+	    .icon {
+		   // opacity: 1;
+	    }
+    }
+	}
+
+/* Make yes/no radios large */
+.custom-radio {
+
+  &.yes-no {
+    padding-left: 1rem;
+    margin-right: 2rem;
+    .custom-control-indicator {
+      width: 60px;
+      height: 60px;
+      padding: 20px 0;
+      top: 0;
+      background-image: none !important;
+    }
+    .custom-control-description {
+      z-index: 2;
+      text-transform: uppercase;
+      line-height: 60px;
+      margin-left: 1px;
+    }
+    .custom-control-input:checked ~ .custom-control-description {
+      color: $white;
+    }
+  }
+}
+
+/* Select fields aren't quite the same height as inputs for some reason */
+select.form-control {
+  &:not([size]):not([multiple]) {
+    height: auto;
+  }
+}
+
+/* Better Switches */
+.switch {
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 0.15rem;
+
+    /* Basic style */
+    input:empty {
+        margin-left: -999px;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        position: absolute;
+        opacity: 0;
+
+        ~ span {
+          line-height: 30px;
+          margin: 2px 0;
+          height: 30px;
+          width: 57px;
+          border-radius: 15px;
+          display: inline-block;
+          position: relative;
+          float: left;
+          width: 1px;
+          text-indent: 0;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        ~ span:before,
+        ~ span:after {
+          width: 54px;
+          border-radius: 15px;
+          position: absolute;
+          display: block;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          content: ' ';
+          -webkit-transition: all 100ms ease-in;
+          transition: all 100ms ease-in;
+        }
+
+        ~ span:before {
+          background-color: #e8ebf1;
+        }
+
+        ~ span:after {
+          color: #f8f9fb;
+          background-color: #ffffff;
+          height: 24px;
+          width: 24px;
+          line-height: 26px;
+          top: 3px;
+          bottom: 3px;
+          margin-left: 3px;
+          font-size: .9em;
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+
+      input:focus, input:active {
+        ~ span:before {
+          border: $input-border-width solid $input-focus-border-color;
+        }
+      }
+
+      input:checked {
+        ~ span:before {
+          background-color: #e8ebf1;
+        }
+        ~ span:after {
+          background-color: $component-active-bg;
+          color: #fff;
+          margin-left: 26px;
+        }
+      }
+
+    /* With icon */
+    &.switch-icon {
+      input:empty {
+        ~ span:after {
+        //  font-family: "LineAwesome";
+          font-family: $font-family-base;
+          text-decoration: inherit;
+          text-rendering: optimizeLegibility;
+          text-transform: none;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+          content: "";
+        }
+      }
+      input:checked {
+        ~ span:after {
+          content: '\2713';
+        }
+      }
+    }
+
+    /* Large */
+    &.switch-lg {
+      margin-top: 0.9rem;
+
+      input:empty {
+        ~ span {
+          line-height: 40px;
+          margin: 2px 0;
+          height: 40px;
+          width: 75px;
+          border-radius: 20px;
+        }
+        ~ span:before,
+        ~ span:after {
+          width: 72px;
+          border-radius: 20px;
+        }
+        ~ span:after {
+          height: 34px;
+          width: 34px;
+          line-height: 34px;
+          top: 3px;
+          bottom: 3px;
+          margin-left: 3px;
+          font-size: 1em;
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+      input:checked {
+        ~ span:after {
+          margin-left: 34px;
+        }
+      }
+    }
+  }
+
+.required {
+  color: $red-300;
+}
+
+label,
+.label-text {
+  font-weight: 600;
+  color: $gray-400;
+  position: relative;
+  font-size: $h5-font-size;
+}
+
+.form-check-label,
+.custom-control {
+//  font-weight: 600;
+//  color: $input-color;
+}
+
+.control-box {
+  border: 2px solid $gray-200;
+  padding: 0.355rem 0.75rem;
+  border-radius: $border-radius;
+}
+
+.custom-control-label { font-weight: 400 }
+
+.custom-control {
+  margin-bottom: 0.5rem;
+}
+
+
+// Design pattern for conditional content
+// Add class .form-conditional to create grey call out
+.form-conditional {
+  background: $gray-050;
+  padding: $card-spacer-x;
+  border-radius: $border-radius-lg;
+}
+
+// Design pattern for "adding" something
+// Add class .form-additional
+.form-additional {
+  border: 2px solid $primary;
+
+  .form-group {
+    margin-bottom: $form-group-margin-bottom; // default to original when in a card
+  }
+
+  legend {
+    margin-bottom: 1rem;
+  }
+}
+
+// Design pattern for textareas for terms, consent, privacy policy
+// Add class .form-terms
+.form-terms {
+
+  // Remove grey bg to improve readability
+  &.form-control:disabled,
+  &.form-control[readonly] {
+    background-color: #fff;
+    color: $gray-500;
+    cursor: inherit;
+    margin-bottom: 1em; // spacing for checkbox
+  }
+}
+
+// By default radio/checkbox text uses label sizing
+// Added to change back to default body font size
+.custom-checkbox,
+.custom-radio {
+  label {
+    font-size: $font-size-base;
+  }
+}
+
+
+// Add .custom-form to tighten up styles for forms with a lot of fieldsets
+.custom-form {
+
+  // Create better spacing between fieldsets
+  fieldset {
+    margin-bottom: 40px;
+    border-bottom: 2px solid $gray-100;
+
+    // Remove styles off last fieldset
+    &:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 2.2rem; // 3rem without .form-conditional classes
+  }
+
+  label {
+    &.custom-control-label {
+      margin-bottom: 0;
+    }
+  }
+
+  // Chang radio error labels to grey
+  .custom-control-input:invalid~.custom-control-label {
+    //color: $gray-400;
+  }
+
+  // Align radio and checkbox validations message to label
+  .custom-radio .invalid-feedback,
+  .custom-control-input:invalid~.invalid-feedback {
+    margin-top: 0.5rem; // Add more seperation between radio buttons and text
+    margin-left: -1.7rem; // Align with radio buttons
+  }
+
+  .blockquote {
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+/* Additional style for connected fields (like login form) */
+.connected {
+   position: relative;
+  &.first {
+    margin-bottom: -2px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &.middle {
+    margin-bottom: -2px;
+    border-radius: 0;
+  }
+  &.last {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  &:focus {
+    z-index: 2;
+  }
+}

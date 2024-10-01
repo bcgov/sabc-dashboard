@@ -1,0 +1,39 @@
+
+.notification-unread {
+	//background-color: $gray-050;
+	.notification-details {
+		 font-weight: 600;
+		 color: $gray-600;
+	}
+}
+
+ .notification-details {
+	 p { margin-bottom: 0 }
+	 small { color: $gray-300 }
+}
+
+.notification-icon {
+	.icon-doc { top: 4px }
+}
+
+.list-group {
+	.list-group-item:last-child {
+	  &:hover {
+	    border-bottom-right-radius: $border-radius-xl;
+	    border-bottom-left-radius: $border-radius-xl;
+	  }
+	}
+}
+
+/* A list group item with no borders */
+.list-group-minimal {
+	.list-group-item {
+    margin-bottom: 15px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+		a {
+			color: inherit;
+		}
+	}
+}

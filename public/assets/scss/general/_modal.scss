@@ -1,0 +1,16 @@
+.modal-body {
+  padding: $modal-header-padding-y $modal-header-padding-x; // Alignment same as header padding
+}
+
+// Fix weird shifting
+.modal-open {
+//  padding-right: 0
+  overflow-y: auto;
+  padding: 0 !important;
+}
+
+// Footer (for actions)
+.modal-footer {
+  background: $card-footer-bg;
+  padding: $modal-header-padding-y 1.75rem; // Alignment same as header padding + difference button margins
+}

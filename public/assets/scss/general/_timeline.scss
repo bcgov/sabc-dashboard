@@ -1,0 +1,441 @@
+// Timelines
+// Entire container for timelines
+.timelines {
+  margin-bottom: 40px; // Mobile spacing
+}
+
+
+// Timeline heading
+.timeline-heading {
+  margin-bottom: 15px;
+
+  a, h6 {
+    color: $gray-400;
+  }
+}
+
+// Timeline body
+//
+.timeline-body {
+  margin-bottom: 15px;
+}
+
+
+// Timeline - individual
+//
+.timeline {
+  position: relative;
+  list-style: none;
+  //margin: 0 auto 30px;
+  margin: 0;
+  padding-left: 0;
+ // width: 90%;
+  width: 100%;
+  z-index: 1;
+
+  .badge-pill {
+    width: 65px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    display: inline-block;
+  }
+}
+
+// Block
+//
+.timeline-block {
+  display: flex;
+}
+
+// Details
+//
+.timeline-detail {
+  width: 110px;
+  //flex: 1;
+  padding-bottom: 30px;
+  margin-right: 15px;
+}
+
+
+@include media-down(sm) {
+  .timeline-detail {
+    display: none;
+  }
+}
+
+
+// Point
+//
+.timeline-point {
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  order: 2;
+  //width: 96px;
+  padding-bottom: 10px;
+  text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      bottom: -20px;
+      width: 3px;
+      margin-left: -2px;
+      z-index: -1;
+      background-color: $color-divider;
+    }
+
+    &.last::before {
+      bottom: 0;
+    }
+
+    .timeline .timeline-block:last-child &::before {
+  		width: 3px;
+      margin-bottom: 0;
+    }
+
+    .timeline .timeline-block:first-child &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      margin-left: -2px;
+      border-radius: 50%;
+    }
+
+    .timeline .timeline-block:last-child &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-left: -3px;
+      border-radius: 50%;
+    }
+  }
+
+
+
+// Timeline progress
+// Move progress indicators out of timeline to allow same styles on review
+.timeline-block,
+div {
+
+  /* Show the number, and hide the checkmark */
+  .avatar-progress {
+    .icon-list {
+      display: block;
+      .icon,
+      .icon-missing {
+        top: 7px;
+        display: block;
+      }
+    }
+    .icon-checked {
+      .icon,
+      .icon.missing {
+        display: none;
+        top: 7px;
+        fill: $green-300;
+      }
+
+      .icon.missing {
+        fill: $red-300;
+        top: 8px;
+      }
+    }
+  }
+
+  &.active {
+
+    .timeline-content a {
+      font-weight: 500;
+      color: $gray-500;
+    }
+
+    .avatar-progress {
+      background-color: $color-primary;
+      color: $blue-050
+    }
+
+    .timeline-subcontent a{
+      color: $gray-700;
+
+      // Program info
+      &.disabled {
+        color: $gray-400;
+      }
+    }
+
+    .timeline-subcontent a.active {
+      text-decoration: underline;
+      color: $gray-700;
+    }
+  }
+
+
+  &.incomplete {
+
+    .avatar-progress {
+      background-color: $red-050;
+      fill: $red-300;
+
+      .icon-list {
+        display: none;
+        .icon.missing {
+          display: none;
+        }
+      }
+
+      .icon-checked .icon.missing {
+        display: block;
+      }
+
+    }
+  }
+
+
+  &.done {
+
+    .avatar-progress {
+      background-color: $green-050;
+      fill: $green-300;
+
+      .icon-list {
+        display: none;
+
+        .icon,
+        .icon.missing {
+          display: none;
+        }
+      }
+      .icon-checked {
+        .icon {
+          display: block;
+
+          &.missing {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.timeline-subcontent,
+div {
+
+  li a,
+  .nav-link {
+
+    &.disabled {
+      color: $gray-300;
+    }
+
+    .icon {
+      opacity: 0;
+    }
+
+    .badge {
+      display: none;
+    }
+
+    &:hover {
+      color: $gray-600;
+      text-decoration: underline;
+    }
+    &.active {
+      text-decoration: underline;
+      color: $gray-700;
+    }
+
+    &.incomplete {
+      .badge {
+        display: inline-block;
+        margin-left: -18px;
+      }
+    }
+
+    &.done {
+      .icon { opacity: 1 }
+    }
+    &.disabled {
+      text-decoration: none;
+      cursor: default;
+      pointer-events: none;
+      color: $gray-400;
+    }
+  }
+
+}
+
+
+.timeline-block {
+  color: $gray-400;
+  a {
+    color: $gray-400;
+    display: block;
+  // Removing top margin because it pushes the card title down on the checklist
+  //  margin-top: 6px;
+  }
+}
+
+.timeline-subcontent {
+  list-style: none;
+  padding-inline-start: 0;
+  margin: 0.5em 0;
+  padding-left: 0; // Reset for IE Edge 
+
+  li {
+    font-size: $font-size-sm;
+    margin: 0.35em 0;
+
+    a {
+      font-weight: 400;
+      color: $gray-700;
+    }
+
+  }
+}
+
+@each $name, $color in $colors {
+  .timeline-point-#{$name}::before {
+    background-color: $color;
+  }
+}
+
+// Content
+//
+.timeline-content {
+  flex: 1;
+  margin-bottom: 60px;
+  margin-left: 15px;
+  margin-top: 2px;
+  //margin-top: 5px;
+
+  .disabled {
+    text-decoration: none;
+    cursor: default;
+    pointer-events: none;
+    color: $gray-400;
+  }
+
+  .card {
+    margin-bottom: 0;
+  }
+
+
+  p { line-height: 1.2rem }
+
+  time {
+    font-size: $font-size-sm;
+    color: $gray-300;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+// Period
+//
+.timeline-period {
+  position: relative;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  color: $color-text-secondary;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: $color-divider;
+    border-radius: 50%;
+  }
+
+  time {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .timeline &:first-child::after {
+    display: none;
+  }
+
+}
+
+// ------------------------------------------------------------------
+// Variations
+//
+
+
+// Left aligned content
+//
+.timeline.timeline-content-left .timeline-block {
+
+  .timeline-detail {
+    order: 3;
+    text-align: left;
+  }
+
+  .timeline-content {
+    order: 1;
+  }
+
+}
+
+
+// Right aligned content
+//
+.timeline.timeline-content-right .timeline-block {
+
+  .timeline-detail {
+    order: 1;
+    text-align: left;
+  }
+
+  .timeline-content {
+    order: 3;
+
+    h5 {
+      margin-top: 5px;
+      color: $gray-500;
+    }
+  }
+
+}
+
+
+// ------------------------------------------------------------------
+// Timeline activity
+//
+.timeline-activity {
+  .timeline-content {
+    margin-bottom: 10px;
+  }
+}
+
+
+
+// ------------------------------------------------------------------
+// Sizes
+//
+.timeline-point-xxs.timeline-point { width: 20px; }
+.timeline-point-xs.timeline-point { width: 38px; }
+.timeline-point-sm.timeline-point { width: 64px; }
+.timeline-point-lg.timeline-point { width: 128px; }
+.timeline-point-xl.timeline-point { width: 256px; }

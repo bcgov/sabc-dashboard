@@ -1,0 +1,82 @@
+
+//-----------------------------------------------------------
+// Sidebar menu
+//
+.sidebar {
+
+  .menu-item {
+
+    &.open .menu-submenu {
+      display: block;
+    }
+
+  }
+
+  .menu-link {
+    position: relative;
+  }
+
+  .open .arrow::before {
+    transform: rotate(90deg);
+  }
+
+}
+
+
+
+//-----------------------------------------------------------------
+// Toggleable size
+//
+
+.sidebar-collapse {
+  @include sidebar-expand-media-down();
+}
+
+.sidebar-expand {
+  @include sidebar-expand-media-up();
+}
+
+
+.sidebar-expand-sm {
+  @include media-down(xs) {
+    @include sidebar-expand-media-down();
+  }
+
+  @include media-up(sm) {
+    @include sidebar-expand-media-up();
+  }
+}
+
+
+.sidebar-expand-md {
+  @include media-down(sm) {
+    @include sidebar-expand-media-down();
+  }
+
+  @include media-up(md) {
+    @include sidebar-expand-media-up();
+  }
+}
+
+
+.sidebar-expand-lg {
+  @include media-down(md) {
+    @include sidebar-expand-media-down();
+  }
+
+  @include media-up(lg) {
+    @include sidebar-expand-media-up();
+  }
+}
+
+
+.sidebar-expand-xl {
+  @include media-down(lg) {
+    @include sidebar-expand-media-down();
+  }
+
+  @include media-up(xl) {
+    @include sidebar-expand-media-up();
+  }
+}
+

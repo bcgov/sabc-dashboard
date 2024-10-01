@@ -1,0 +1,238 @@
+//Bootstrap overrides for Iggy
+
+/* Move icon to align with button content */
+.btn {
+  .icon {
+    &.icon-xs { top: -2px }
+  }
+  &.btn-sm {
+    .icon {
+      &.icon-xs { top: -1px }
+    }
+  }
+}
+
+
+
+/* Styles for buttons with icons */
+.btn-icon-label {
+  position: relative;
+  /* Add some space before the button label */
+  >span {
+    padding-left: 1.5rem;
+  }
+  >.icon {
+    position: absolute;
+    left: 0;
+    //fill: $white;
+    margin-left: .5rem;
+    margin-top: .75rem;
+    &.icon-xs {
+      margin-left: .85rem;
+      margin-top: .9rem; 
+    }
+  }
+  &.btn-lg {
+    >.icon {
+      margin-top:0;
+    }
+  }
+}
+
+.btn-primary {
+		box-shadow: $btn-primary-box-shadow;
+}
+
+.btn-icon {
+//  padding-top: 0.25rem;
+//  padding-bottom: 0.25rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  >.icon {
+  //  top: 2px;
+  }
+  &.btn-sm {
+    padding-top: 0.21rem;
+    padding-bottom: 0.21rem;
+    >.icon {
+      //top: 0;
+    }
+  }
+  &.btn-lg {
+    padding-top: 0.28rem;
+    padding-bottom: 0.28rem;
+    >.icon {
+      top: 4px;
+    }
+  }
+}
+
+
+.btn {
+//  position: relative;
+//  cursor: pointer;
+}
+
+.btn-sm {
+  >.icon {
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+  }
+}
+
+.btn-lg {
+  >.icon {
+    width: $icon-size-lg;
+    height: $icon-size-lg;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-icon-variant($value, #fff);
+  }
+}
+
+/* Adjustment for light button */
+.show > .btn-outline-light.dropdown-toggle {
+  color: darken($gray-200, 15%);
+  background-color: $white;
+  border-color: $input-focus-border-color;
+  box-shadow: $input-focus-box-shadow;
+}
+
+.btn-outline-light {
+  color: $gray-300;
+  border-color: $gray-100;
+  >.icon {
+    fill: darken($gray-200, 25%);
+  }
+  &:hover,
+  &:active,
+  &.active {
+    >.icon {
+      fill: darken($gray-200, 15%);
+    }
+   color: $gray-400 !important;
+   border-color: $gray-200;
+   // background-color: $white;
+  }
+
+}
+
+/* Header action buttons */
+/* For action buttons within a page header, there's no need for a left padding */
+.btn-action {
+  padding-left: 0;
+  padding-top: 0;
+}
+
+/* Loading buttons */
+.btn-loading {
+  position: relative;
+  cursor: default;
+  text-shadow: none !important;
+  color: transparent !important;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0s linear, opacity 0.1s ease;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin: -0.64285714em 0em 0em -0.64285714em;
+    width: 1.28571429em;
+    height: 1.28571429em;
+    border-radius: 500rem;
+    border: 0.2em solid rgba(0, 0, 0, 0.15);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin: -0.64285714em 0em 0em -0.64285714em;
+    width: 1.28571429em;
+    height: 1.28571429em;
+    animation: spin 0.6s linear;
+    animation-iteration-count: infinite;
+    border-radius: 500rem;
+    border-color: #ffffff transparent transparent;
+    border-style: solid;
+    border-width: 0.2em;
+    box-shadow: 0px 0px 0px 1px transparent;
+  }
+  @-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(359deg); }
+  }
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(359deg); }
+  }
+  @-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(359deg); }
+  }
+  @keyframes spin {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(359deg); transform: rotate(359deg); }
+  }
+}
+
+//-----------------------------------------------------------------
+// Floating buttons
+//
+
+/* Floating Action Buttons */
+.fab {
+  position: relative;
+  display: inline-block;
+  z-index: $zindex-fab;
+
+  > .btn {
+    position: relative;
+    z-index: 1;
+  }
+
+}
+
+
+.fab-fixed {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+}
+
+.btn-float {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  border-radius: 100%;
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+
+	.icon {
+		stroke: $white;
+		fill: $white;
+	}
+
+  &.btn-sm {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}

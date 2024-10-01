@@ -1,0 +1,135 @@
+/**
+*/
+.sabc-file-manager-module .file-upload-list {
+    padding: 2em;
+    text-align: center;
+}
+
+/**
+*/
+.sabc-file-manager-module .upload-form form {
+    margin-bottom: 0;
+    padding: 1em;
+}
+.sabc-file-manager-module .add_files_list {
+    margin-bottom: 10px;
+}
+.sabc-file-manager-module .add_files_list li {
+    border-top: 1px solid #DDDDDD;
+    padding: 5px;
+}
+.sabc-file-manager-module .add_files_list li:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+/**
+*/
+.sabc-file-manager-module .add_files_btn {
+    color: #fff;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/**
+*/
+.sabc-file-manager-module .description {
+    background-color: #E6F3F2;
+    border-left: 3px solid #66B5B3;
+    color: #66B5B3;
+    font-size: 0.75em;
+    line-height: 100%;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+/**
+*/
+.sabc-file-manager-module #edit-file-ajax-wrapper {
+    display: none;
+}
+
+
+/* Mimic table appearance */
+div.table {
+    display: table;
+    margin-top: 12px;
+}
+div.table .file-row {
+    display: table-row;
+}
+div.table .file-row > div {
+    display: table-cell;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    padding: 8px;
+}
+div.table .file-row:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* The total progress gets shown by event listeners */
+#total-progress {
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+/* Hide the progress bar when finished */
+#previews .file-row.dz-success .progress {
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+/* Hide the delete button initially */
+#previews .file-row .delete {
+/*//  display: none;*/
+}
+
+/* Hide the start and cancel buttons and show the delete button */
+
+#previews .file-row.dz-success .start,
+#previews .file-row.dz-success .cancel {
+    display: none;
+}
+#previews .file-row.dz-success .delete {
+    display: block;
+}
+
+#document_notes textarea {
+    max-height: 200px;
+}
+
+.dropzone-container .btn.btn-success {
+    display: block;
+}
+
+.dropzone-container.dz-max-files-reached .btn.btn-success {
+    display:none;
+}
+
+.block.block-sabc-file-manager {
+    padding-top: 15px;
+}
+
+.block.block-sabc-file-manager.even {
+    padding-left: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+    .block.block-sabc-file-manager.even {
+        padding-right: 25px;
+    }
+
+    .block.block-sabc-file-manager.odd {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+.region.region-user-tools .block.block-sabc-file-manager.first.odd {
+    padding-right: 0;
+}
+
+.progress-bar-success {
+    background-color: #77a032;
+}

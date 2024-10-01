@@ -1,0 +1,224 @@
+#institution th span {
+	float:right;
+	font-size: 12px;
+}
+
+#institution tbody tr {
+	cursor: pointer;
+
+}
+
+.ajax-loading {
+
+	background: url("/dashboard/img/ajax-loader.gif") center center;
+	background-repeat: no-repeat;
+	width: 100%;
+	min-height: 300px;
+	position: relative;
+	margin: auto;
+}
+
+html.no-js #institution tbody tr {
+	cursor: auto;
+}
+
+#institution tbody tr[role="row"]:hover {
+	background: #cce5f6;
+}
+
+tbody td.dataTables_empty + thead {
+	display:none;
+}
+
+#institution tbody td a i{
+	padding-right: 10px;
+}
+
+#grants_detailed_view th.tableSortDown .icon-sortbynamedescending,
+#grants_detailed_view th.tableSortUp .icon-sortbynameascending,
+#grants_detailed_view th.tableSort .icon-sync2,
+#Grants_Grads th.tableSortDown .icon-sortbynamedescending,
+#Grants_Grads th.tableSortUp .icon-sortbynameascending,
+#Grants_Grads th.tableSort .icon-sync2,
+#institution th.tableSortDown .icon-sortbynamedescending,
+#institution th.tableSortUp .icon-sortbynameascending,
+#institution th.tableSort .icon-sync2 {
+	display:inline;
+}
+#grants_detailed_view th.tableSortDown .icon-sortbynameascending,
+#grants_detailed_view th.tableSortDown .icon-sync2,
+#grants_detailed_view th.tableSortUp .icon-sortbynamedescending,
+#grants_detailed_view  th.tableSortUp .icon-sync2,
+#grants_detailed_view  th.tableSort .icon-sortbynamedescending,
+#grants_detailed_view  th.tableSort .icon-sortbynameascending,
+#Grants_Grads th.tableSortDown .icon-sortbynameascending,
+#Grants_Grads th.tableSortDown .icon-sync2,
+#Grants_Grads th.tableSortUp .icon-sortbynamedescending,
+#Grants_Grads th.tableSortUp .icon-sync2,
+#Grants_Grads th.tableSort .icon-sortbynamedescending,
+#Grants_Grads th.tableSort .icon-sortbynameascending,
+#institution th.tableSortDown .icon-sortbynameascending,
+#institution th.tableSortDown .icon-sync2,
+#institution th.tableSortUp .icon-sortbynamedescending,
+#institution th.tableSortUp .icon-sync2,
+#institution th.tableSort .icon-sortbynamedescending,
+#institution th.tableSort .icon-sortbynameascending {
+	display:none;
+}
+
+
+#Grants_Grads tr{
+	cursor:pointer;
+}
+
+html.no-js #grants_detailed_view th .icon-sortbynameascending,
+html.no-js #grants_detailed_view th .icon-sync2,
+html.no-js #grants_detailed_view th .icon-sortbynamedescending,
+html.no-js #Grants_Grads th .icon-sortbynameascending,
+html.no-js #Grants_Grads th .icon-sync2,
+html.no-js #Grants_Grads th .icon-sortbynamedescending,
+html.no-js #institution th .icon-sortbynameascending,
+html.no-js #institution th .icon-sync2,
+html.no-js #institution th .icon-sortbynamedescending {
+	display:none;
+}
+
+#grants_detailed_view_wrapper .dataTables_info,
+#Grants_Grads_wrapper .dataTables_info,
+#institution_wrapper .dataTables_info {
+	display:inline;
+	float:left;
+}
+
+#grants_detailed_view_wrapper .dataTables_paginate,
+#Grants_Grads_wrapper .dataTables_paginate,
+#institution_wrapper .dataTables_paginate {
+	float:right;
+
+}
+#grants_detailed_view_wrapper .alphabet-filter-widgets,
+#Grants_Grads_wrapper .alphabet-filter-widgets,
+#institution_wrapper .alphabet-filter-widgets {
+	margin-bottom: 15px;
+}
+
+#grants_detailed_view_wrapper .alphabet-filter-widgets.btn-group,
+#Grants_Grads_wrapper .alphabet-filter-widgets.btn-group,
+#institution_wrapper .alphabet-filter-widgets.btn-group {
+	/*white-space:normal;*/
+	display:block;
+
+
+}
+#grants_detailed_view_wrapper .alphabet-filter-widgets .btn,
+#Grants_Grads_wrapper .alphabet-filter-widgets .btn,
+#institution_wrapper .alphabet-filter-widgets .btn {
+	padding: 4px 0px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	float: left;
+	width:3.94%;
+}
+
+#Gr
+
+@media all and (min-width: 480px) and (max-width: 959px) {
+	#institution_wrapper .alphabet-filter-widgets .btn {
+		width: 7.85%;
+	}
+
+}
+
+#grants_detailed_view_wrapper .alphabet-filter-widgets #filter_all.btn,
+#Grants_Grads_wrapper .alphabet-filter-widgets #filter_all.btn,
+#institution_wrapper .alphabet-filter-widgets #filter_all.btn {
+	width: 100% !important;
+	margin-bottom: 10px;
+}
+
+#grants_detailed_view_wrapper .dataTables_filter,
+#Grants_Grads_wrapper .dataTables_filter,
+#institution_wrapper .dataTables_filter {
+	position: relative;
+}
+#grants_detailed_view_wrapper .dataTables_filter label i.clear-input,
+#Grants_Grads_wrapper .dataTables_filter label i.clear-input,
+#institution_wrapper .dataTables_filter label i.clear-input {
+	display:none;
+	position:absolute;
+	top: 40%;
+	right: 2%;
+}
+
+#grants_detailed_view_wrapper .dataTables_filter label.active i.clear-input,
+#Grants_Grads_wrapper .dataTables_filter label.active i.clear-input,
+#institution_wrapper .dataTables_filter label.active i.clear-input {
+   display: block;
+}
+#grants_detailed_view_wrapper .dataTables_filter label a,
+#Grants_Grads_wrapper .dataTables_filter label a,
+#institution_wrapper .dataTables_filter label a {
+	border-bottom: none;
+	float:right;
+	margin-right: 2px;
+}
+#grants_detailed_view_wrapper .dataTables_filter label .popover-content,
+#Grants_Grads_wrapper .dataTables_filter label .popover-content,
+#institution_wrapper .dataTables_filter label .popover-content {
+	font-weight:normal;
+}
+
+/* Institution Details */
+
+
+
+.institution-details .assistance-feature {
+	float:left;
+	margin-right: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+	.institution-details .assistance-feature.feature {
+		margin-right: 0;
+	}
+}
+
+.institution-details .assistance-feature h2,
+.institution-details .assistance-feature h3 {
+	padding: 5px 0px;
+}
+
+.institution-details .assistance-feature .assistance-button {
+
+
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+
+
+}
+
+.institution-details .assistance-feature .content {
+	padding: 0;
+}
+
+#institution_wrapper  #institution a.no-results {
+	font-weight: normal;
+	color: #5d5d5d;
+}
+
+
+#institution_wrapper  #institution strong.no-results {
+
+	color: #0d7abf;
+
+}
+#institution_wrapper  #institution strong.no-results:hover{
+	text-decoration: underline;
+}

@@ -1,0 +1,101 @@
+
+//-----------------------------------------------------------------
+// Default skin
+//
+.sidebar {
+
+	.menu {
+		margin-top: 1em;
+	}
+
+	// Start Menu Item
+	.menu-item {
+
+		// Normal
+		.menu-link {
+			color: $sidebar-link-color;
+			height: auto;
+			padding: 0.75em 12px;
+			font-weight: 500;
+			.icon {
+				width: 20px;
+				height: 20px;
+				stroke: $sidebar-link-color;
+				fill: $sidebar-link-color;
+			}
+		}
+
+		// Hover
+		&:hover {
+			.menu-link {
+				color: $sidebar-link-color-hover;
+				background-color: $sidebar-link-bg-hover;
+				//background-color: rgba(0,0,0,0.1);
+			}
+			.icon {
+				stroke: $sidebar-link-color-active;
+				fill: $sidebar-link-color-active;
+			}
+		}
+
+		// Active
+		&.active {
+			.menu-link {
+				color: $sidebar-link-color-active;
+				background-color: $sidebar-link-bg-active;
+			}
+			.icon {
+				stroke: $sidebar-link-color-active;
+				fill: $sidebar-link-color-active;
+			}
+		}
+
+		// Small
+		&.small {
+			.menu-link {
+				font-size: $font-size-sm;
+				opacity: 0.8;
+				padding: 0.75em 12px;
+				.icon {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+
+	}
+	// End Menu Item
+
+	.divider {
+		border-top: 1px solid $sidebar-border;
+		margin: 0.75em 0;
+	}
+
+	.sidebar-footer {
+	  border-top: 1px solid $sidebar-border;
+	  text-align: center;
+	  line-height: 1em;
+	  a {
+		  font-size: $font-size-xs;
+		  color: $sidebar-link-color;
+		  opacity: 0.8;
+		  padding-left: 4px;
+		  &::before {
+	      //display: inline-block; // Suppress underlining of the separator in modern browsers
+	      padding-right: 4px;
+	      color: $sidebar-border;
+	      //opacity: 0.9;
+	      content: quote("|");
+	    }
+	    // Remove divider from first and third item
+	    &:nth-child(1), &:nth-child(4) {
+				padding-left: 0;
+		    &::before {
+			    display: none;
+		    }
+	    }
+	  }
+	}
+
+
+}

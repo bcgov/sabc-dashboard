@@ -1,0 +1,1 @@
+<dashboard-footer></dashboard-footer>

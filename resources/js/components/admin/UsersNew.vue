@@ -1,0 +1,139 @@
+<template>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title-box">New User</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div v-if="errors != ''" class="row">
+                            <div class="col-12">
+                                <div class="alert alert-danger">
+                                    <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
+                                </div>
+                            </div><!-- /.block -->
+                        </div>
+                        <form method="post" action="/dashboard/admin/users/new" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" :value="csrf">
+
+                            <div class="form-group">
+                                <label for="name">Username <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">New Password</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="status1" value="0">
+                                    <label class="form-check-label" for="status1">Disabled</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="status2" value="1">
+                                    <label class="form-check-label" for="status2">Active</label>
+                                </div>
+                            </div>
+
+                            <div v-for="(role, i) in roles" class="form-check">
+                                <input class="form-check-input" type="checkbox" :value="role.value" :id="'role' + i" name="roles[]">
+                                <label class="form-check-label" :for="'role' + i">{{role.label}}</label>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary mt-4">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<style scoped>
+
+
+</style>
+<script>
+    import axios from 'axios';
+
+    export default {
+        filters: {
+
+            formatAppNumber: function(value){
+                // let year = value.slice(0, 4);
+                // let extra = value.slice(4);
+                //
+                // return year + '-' + extra;
+            }
+        },
+
+        data: () => ({
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            loading: true,
+            loadingError: false,
+            users: '',
+            validationErrors: '',
+            userData: '',
+
+            roles: [
+                {label: 'Administrator', value: 'administrator', active: 0},
+                {label: 'App Support', value: 'app_support', active: 0},
+                {label: 'Student', value: 'student', active: 0},
+                {label: 'Spouse', value: 'spouse', active: 0},
+                {label: 'Parent', value: 'parent', active: 0},
+                {label: 'Parent No Sin', value: 'parent_no_sin', active: 0},
+                {label: 'Spouse No Sin', value: 'spouse_no_sin', active: 0},
+                {label: 'BCSC Sstudent', value: 'bcsc_student', active: 0},
+                {label: 'BCSC Spouse', value: 'bcsc_spouse', active: 0},
+                {label: 'BCSC Parent', value: 'bcsc_parent', active: 0},
+                {label: 'Reviewer', value: 'reviewer', active: 0},
+                {label: 'Editor', value: 'editor', active: 0}
+            ],
+        }),
+        props: ['errors'],
+        methods: {
+
+        },
+        computed: {
+            fullName: function(){
+                // let name = "";
+                // if(this.profile != ''){
+                //     if(this.profile.userProfile.middleName != undefined)
+                //         name = this.stripSlashes(this.profile.userProfile.firstName + " " + this.profile.userProfile.middleName + " " + this.profile.userProfile.familyName);
+                //     else
+                //         name = this.stripSlashes(this.profile.userProfile.firstName + " " + this.profile.userProfile.familyName);
+                // }
+                // return name.toUpperCase();
+            },
+
+        },
+        created() {
+
+        },
+        mounted: function () {
+            document.title = "StudentAidBC - Admin Pages - New User";
+            if(this.errors != "")
+                this.validationErrors = JSON.parse(this.errors);
+
+
+        },
+        watch: {
+        }
+
+    }
+</script>

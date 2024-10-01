@@ -1,0 +1,120 @@
+//
+// Rotating border
+//
+
+// In a button or a tag, add more space so it's not so tight
+button,
+a {
+  .spinner-border {
+    margin-right: 5px;
+
+    // align the spinner with text - not sure why it's off
+    &.spinner-border-sm {
+      margin-bottom: 3px;
+    }
+  }
+}
+
+// Create a bigger spinner for page load scenarios
+div.spinner-border {
+  width: 4rem;
+  height: 4rem;
+  border-width: 0.4rem;
+}
+
+// Sending animation graphic
+.background-cloud {
+  position: relative;
+}
+
+.background-wrapper {
+  height: 150px;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 125px;
+  top: 68px;
+  left: -127px;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.plane {
+  position: absolute;
+  width: 75px;
+  top: 40px;
+  left: 0;
+  right: -70px;
+  bottom: 0;
+  margin: 0 auto;
+  -webkit-animation: mover 1.3s infinite  alternate;
+  animation: mover 1.3s infinite  alternate;
+}
+
+.top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20px;
+  -webkit-animation: cloud_one 10s linear infinite;
+  -moz-animation: cloud_one 10s linear infinite;
+  -o-animation: cloud_one 10s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0)
+}
+
+.middle {
+  position: absolute;
+  left: 230px; // positioning graphic on IE 11 - doesn't animate 
+  top: 50px;
+  height: 30px;
+  -webkit-animation: cloud_two 10s linear infinite;
+  -moz-animation: cloud_two 10s linear infinite;
+  -o-animation: cloud_two 10s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0)
+}
+
+
+.bottom {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  height: 30px;
+  -webkit-animation: cloud_three 15s linear infinite;
+  -moz-animation: cloud_three  15s linear infinite;
+  -o-animation: cloud_three  15s  linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0)
+}
+
+/* Plane keyframes */
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@-webkit-keyframes cloud_one {
+  0% { left: -250px;}
+  100% { left: 100%; }
+}
+
+@-webkit-keyframes cloud_two {
+  0% { left: -100px;}
+  100% { left: 100%; }
+}
+
+@-webkit-keyframes cloud_three {
+  0% { left: -200px;}
+  100% { left: 100%; }
+}

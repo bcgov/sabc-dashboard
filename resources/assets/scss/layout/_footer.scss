@@ -1,0 +1,26 @@
+
+.site-footer {
+  background-color: #fff;
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  border-top: 1px solid $color-divider-light;
+
+  p {
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+
+  a {
+    color: $white;
+    padding: 0rem .5rem;
+
+    &:hover {
+      color: darken($white, 30%);
+    }
+  }
+
+  &.bg-white {
+    a { color: inherit }
+  }
+
+}

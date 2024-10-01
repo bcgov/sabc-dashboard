@@ -1,0 +1,120 @@
+// Bootstrap overrides
+
+.card {
+  //box-shadow: $card-box-shadow;
+  box-shadow: 0 0.75rem 1.5rem rgba(18,38,63,.03);
+    @include media-breakpoint-down(sm) { }
+
+   // Remove margin from card-title if it's in the card header
+   .card-header {
+    .card-title {
+      margin-bottom: 0;
+    }
+  }
+  // Horizontal lines within cards should have no margins
+  hr {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  // Get rid of the border on card headers and footers
+  .card-footer {
+    border-top: 0;
+    background: $card-footer-bg;
+  }
+  .card-header {
+    border-width: 1px;
+  //  border-bottom: 0;
+  }
+  .card-body {
+    //If the paragraph is the last, remove margin
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  // If a card has a rounded-top or rounded-bottom, it should match the card $border-radius
+  .rounded-top {
+    border-top-left-radius: $card-border-radius !important;
+    border-top-right-radius: $card-border-radius !important;
+  }
+  .rounded-bottom {
+    border-bottom-left-radius: $card-border-radius !important;
+    border-bottom-right-radius: $card-border-radius !important;
+  }
+
+	&.card-hover {
+	//	color: inherit;
+	//	text-decoration: inherit;
+		&:hover {
+      transition: .2s linear;
+			border-radius: $border-radius-xl !important;
+			box-shadow: $card-box-shadow-hover !important ;
+			text-decoration: inherit;
+      border-color: $blue-300;
+			//cursor: pointer;
+		}
+	}
+
+}
+
+/* Stacked cards*/
+.card-stacked {
+  position: relative;
+  background: #fff;
+  &::before {
+      border-radius: $card-border-radius;
+      opacity: .75;
+      content: '';
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      bottom: -8px;
+      display: block;
+      height: 100%;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      z-index: -1;
+  }
+}
+
+/* Dotted cards */
+.card-dotted {
+  border-style: dashed;
+  &:hover {
+    background: lighten($blue-100, 5%);
+    cursor: pointer;
+  }
+}
+
+[class*=shadow] {
+    transition: all .2s ease;
+}
+
+
+/* Zoom in card on hover */
+.hover-scale-110:hover {
+    z-index: 2;
+    border-radius: 1rem!important;
+    transform: scale(1.1)!important;
+}
+.shadow {
+    box-shadow: 0 0 1.25rem rgba(31,45,61,.08)!important;
+}
+
+/* Add a style for positive and negative cards */
+.card-border-top {
+  border-top-width: 12px;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0
+}
+
+/* Remove thead top border if a table is in a card */
+.card {
+  table {
+    thead th {
+      border-top: 0;
+    }
+  }
+}

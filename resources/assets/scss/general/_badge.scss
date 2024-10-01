@@ -1,0 +1,166 @@
+// Bootstrap overrides
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1.75em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  position: relative;
+  top: -1px;
+  @include border-radius($badge-border-radius);
+  &:empty { display: inline-block }
+
+  &.attached {
+    position: absolute;
+    top: -.5rem;
+    right: -.55rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+/*  &.badge-lg {
+    font-size: ($badge-font-size * 2);
+    font-weight: 700;
+    padding: $badge-padding-y ($badge-padding-x / 1.5);
+  }
+*/
+}
+
+// Quick fix for badges in buttons
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+// Pill badges
+//
+// Make them extra rounded with a modifier to replace v3's badges.
+
+.badge-pill {
+  padding-right: $badge-pill-padding-x;
+  padding-left: $badge-pill-padding-x;
+  @include border-radius($badge-pill-border-radius);
+  border: $badge-pill-border;
+}
+
+// Colors
+//
+// Contextual variations (linked badges get darker on :hover).
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    @include badge-variant($value);
+
+
+  }
+}
+
+
+// Dotted badge
+//
+.badge-dot {
+	display: inline-block !important;
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 100%;
+  vertical-align: middle;
+  top: -2px;
+
+  &.badge-sm {
+    width: 6px;
+    height: 6px;
+  }
+
+  &.badge-lg {
+    width: 10px;
+    height: 10px;
+  }
+
+  &.badge-xl {
+    width: 12px;
+    height: 12px;
+  }
+
+  &.badge-success { background: $green-300 }
+  &.badge-danger { background: $red-300 }
+  &.badge-warning { background: $orange-300 }
+  &.badge-secondary { background: $gray-300 }
+  &.badge-light { background: $gray-200 }
+  &.badge-info	{ background: $purple-300 }
+  &.badge-infoalt { background: $teal-300 }
+
+}
+
+// Ring badge
+//
+.badge-ring {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 100%;
+  vertical-align: middle;
+  top: -2px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: scale(0.75);
+    transition: .3s;
+  }
+
+  &.badge-sm {
+    width: 8px;
+    height: 8px;
+
+    &::after {
+      width: 4px;
+      height: 4px;
+    }
+  }
+
+  &.badge-lg {
+    width: 12px;
+    height: 12px;
+
+    &::after {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &.badge-xl {
+    width: 14px;
+    height: 14px;
+
+    &::after {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &.fill::after {
+    transform: scale(0);
+  }
+
+  &.badge-success { background: $green-300 }
+  &.badge-danger { background: $red-300 }
+  &.badge-warning { background: $orange-300 }
+  &.badge-secondary { background: $gray-300 }
+  &.badge-info	{ background: $purple-300 }
+  &.badge-infoalt { background: $teal-300 }
+
+}

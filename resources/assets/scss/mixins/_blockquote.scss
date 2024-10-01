@@ -1,0 +1,16 @@
+@mixin blockquote-variant($background, $border, $color) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+	.blockquote-link,
+  .icon {
+    color: darken($color, 10%);
+    font-weight: 500;
+    fill: $border;
+    &.small {
+      /* Move small links up slightly as the alignment looks strange */
+      position: relative;
+      top: -1px;
+    }
+  }
+}

@@ -1,0 +1,148 @@
+/* BOOTSTRAP OVERRIDES AND CUSTOM STYLES FOR IGGY
+
+Table of Contents
+1. Banners
+2. Contextual
+
+*/
+
+/* Default colour if no colour is selected */
+.alert {
+  background-color: $gray;
+}
+
+/* =================== 1. Banners ======================*/
+
+/* background, border, color */
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(theme-color-level($color), theme-color-level($color), theme-color-level($color, 6));
+  }
+}
+
+/* Custom style for full-width banner alerts */
+.alert-banner
+/*.alert*/ {
+  /* Remove rounded borders */
+  border-radius: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  /* Insist on white text */
+  color: #fff;
+  /* let page container take care of the padding */
+  padding-left: 0;
+  padding-right: 0;
+  a.alert-link {
+    color: rgba(255,255,255, 0.8);
+    &::after {
+      content: " →"
+    }
+  }
+}
+
+/* =================== 2. Alerts ======================*/
+
+.alert-contextual {
+  /* Insist on white background */
+  background: #fff;
+  /* Make sure the border-radius is preserved */
+  border-left-width: 2px;
+  border-right-width: 2px;
+  @include border-radius($alert-border-radius);
+  /* Increase left padding to make room for icon */
+  padding-left: 5.25rem;
+  padding-right: 1rem;
+  position: relative;
+  .alert-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    margin-top: -20px;
+    fill: #fff;
+    height: 36px;
+    width: 36px;
+  }
+
+  a.alert-link {
+    //color: rgba(255,255,255, 0.8);
+    text-decoration: underline;
+    &::after {
+      content: " →"
+    }
+  }
+
+  /* Automagically add some space and positioning for an icon */
+  &:before {
+    background-color: transparent;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 60px;
+    border-top-left-radius: ($alert-border-radius - 0.25rem);
+    border-bottom-left-radius: ($alert-border-radius - 0.25rem);
+  }
+
+  &:after {
+    top: 50%;
+    left: 12px;
+    margin-top: -20px;
+    position: absolute;
+    line-height: 1;
+  }
+  /* Danger icon */
+  &.alert-danger {
+    color: darken($red, 6%);
+    &:before {
+      background-color: $red;
+    }
+  }
+
+  /* Success icon */
+  &.alert-success {
+    color: $green;
+    &:before {
+      background-color: $green;
+    }
+  }
+
+  /* Info icon */
+  &.alert-info {
+    color: $purple;
+    &:before {
+     background-color: $purple;
+    }
+  }
+
+  /* Warning icon */
+  &.alert-warning {
+    color: darken($orange, 6%);
+    &:before {
+      background-color: $orange;
+    }
+  }
+
+  // List reset styles
+  ul {
+    margin-top: .5rem;
+    margin-bottom: 0;
+  }
+}
+
+.alert-heading {
+  /* Alert headings should always be the same size and style */
+  font-weight: 700;
+  font-size: $font-size-base;
+  margin-bottom: 0;
+}
+
+/* Reposition the close icon */
+.alert {
+  position: relative;
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

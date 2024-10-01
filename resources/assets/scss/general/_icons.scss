@@ -1,0 +1,171 @@
+
+.kt-widget-19__bg {
+  opacity: 0.08;
+  position: absolute;
+  z-index: 0;
+  width: 120px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.kt-widget-19__title {
+    position: relative;
+    left: 50%;
+    margin-left: -1rem;
+  }
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  stroke-width: 2;
+  stroke: $black;
+  fill: $black;
+  height: $icon-size;
+  width: $icon-size;
+  margin: auto;
+
+  &.icon-xxs {
+    top: -2px;
+    height: $icon-size-xxs;
+    width: $icon-size-xxs;
+  }
+  &.icon-xs {
+	  top: -4px;
+		height: $icon-size-xs;
+		width: $icon-size-xs;
+	}
+  &.icon-sm {
+    top: -2px;
+    height: $icon-size-sm;
+    width: $icon-size-sm;
+  }
+  &.icon-lg {
+    height: $icon-size-lg;
+    width: $icon-size-lg;
+  }
+  &.icon-xl {
+    height: $icon-size-xl;
+    width: $icon-size-xl;
+  }
+  &.icon-xxl {
+    height: $icon-size-xxl;
+    width: $icon-size-xxl;
+  }
+}
+
+// If the icon is inside a form-group, align it better
+.form-group, .input-group {
+//  .icon { top: -1px }
+}
+
+.hasBackdrop {
+  position: relative;
+  display: flex;
+  align-items: center;
+//  margin: spacing(tight);
+  svg { top: 1px; }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -1.25rem;
+    bottom: -1.25rem;
+    left: -1.25rem;
+    right: -1.25rem;
+    border-radius: 50%;
+  }
+}
+
+.colorWhite {
+  stroke: $white;
+  fill: $white;
+  &::after {
+    background-color: rgba(255,255,255, 0.8);
+  }
+}
+
+.colorBlack {
+  stroke: $black;
+  fill: $black;
+}
+
+.colorBlue300 {
+  stroke: $blue-300;
+  fill: $blue-300;
+  &::after {
+    background-color: $blue-100;
+  }
+}
+
+.colorGray300, .colorGrey300 {
+  stroke: $gray-300;
+  fill: $gray-300;
+  &::after {
+    background-color: $gray-200;
+  }
+}
+
+.colorGray200, .colorGrey200 {
+  stroke: $gray-200;
+  fill: $gray-200;
+}
+
+
+.colorGreen200 {
+  stroke: $green;
+  fill: $green;
+  &::after {
+    background-color: $green-050;
+  }
+}
+
+.colorGreen,
+.colorGreen300 {
+  stroke: $green;
+  fill: $green;
+  &::after {
+    background-color: $green-100;
+  }
+}
+
+.colorOrange300, .colorOrange {
+  stroke: $orange-300;
+  fill: $orange-300;
+  &::after{
+    background-color: $orange-100;
+  }
+}
+.colorRed300 {
+  stroke: $red-300;
+  fill: $red-300;
+  &::after{
+    background-color: $red-100;
+  }
+}
+.colorPurple300 {
+  stroke: $purple-300;
+  fill: $purple-300;
+  &::after{
+    background-color: $purple-100;
+  }
+}
+
+.colorTeal300 {
+  stroke: $teal-300;
+  fill: $teal-300;
+  &::after{
+    background-color: $teal-050;
+  }
+}
+
+svg {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+//  max-width: 100%;
+//  max-height: 100%;
+}

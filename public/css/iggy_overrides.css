@@ -1,0 +1,29 @@
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.card{
+    border: 1px solid #dde4e6;
+}
+.btn-light {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.bg-light {
+    background-color: #ecf0f1!important;
+}
+
+@media print {
+    .printing-area {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    fieldset{
+        padding: 15px !important;
+    }
+}

@@ -1,0 +1,27 @@
+.breadcrumb {
+  font-size: $font-size-sm;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  &.fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 20px; //0
+  }
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: $gray-300;
+  &:hover {
+    color: $gray-800;
+  }
+}
+
+.back {
+      a {
+        &::before {
+        content: "\2190  ";
+      }
+    }
+}

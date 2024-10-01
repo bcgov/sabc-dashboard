@@ -1,0 +1,68 @@
+
+/* Application progress */
+
+.nav-process {
+
+  .nav-link {
+    color: $process-link-color;
+    &:hover {
+      color: $process-link-hover-color;
+    }
+    &.disabled {
+      color: $process-link-disabled-color;
+    }
+  }
+
+  .avatar-progress {
+    border: 0px solid $gray-200;
+    background: transparent;
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  .active {
+  //  .avatar-progress {
+  //    width: 48px;
+  //    height: 48px;
+  //    line-height: 48px;
+  //    margin: -12px;
+  //  }
+  }
+
+  .complete {
+    .avatar-progress {
+      border-color: $green;
+    }
+  }
+
+
+
+}
+
+
+.nav-process-sm {
+  .nav-link {
+    position: relative;
+    padding: 0em 1em;
+    font-size: 0.95rem;
+    line-height: 1.1rem;
+
+    &.has-new::before {
+	      content: '';
+	      position: absolute;
+	      top: 22px;
+	      right: 12px;
+	      display: inline-block;
+	      width: 14px;
+	      height: 14px;
+	      border-radius: 100%;
+	      border: 2px solid $topbar-background;
+	      background-color: $danger;
+	      z-index: 999;
+    }
+
+
+   }
+}

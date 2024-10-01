@@ -1,0 +1,91 @@
+
+//
+// Misc
+//
+
+.lh-normal {
+  line-height: normal;
+}
+
+.text-highlight {
+    border-radius: 1em 0 1em 0;
+    background-image: linear-gradient(-100deg, rgba(250,247,133,0.3), rgba(250,247,133,0.7) 95%, rgba(250,247,133,0.1));
+}
+
+.text-medium {
+  font-size: $font-size-md
+}
+
+h6 {
+  text-transform: uppercase;
+  color: darken($gray-300, 10%);
+}
+
+.eyebrow {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.action {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    transition-delay: 0s;
+    display: inline-block;
+    position: relative;
+    padding-right: 2em;
+}
+
+/* Or separator */
+.or {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  color: $gray-300;
+}
+
+.or:after,
+.or:before {
+    content: "";
+    display: block;
+    background: $gray-100;
+    width: 30%;
+    height: 1px;
+    margin: 0 10px;
+}
+
+// Blockquotes
+.blockquote {
+  border-width: $blockquote-border-width;
+  border-style: solid;
+  padding: $blockquote-padding-y $blockquote-padding-x;
+  border-radius: $border-radius;
+  margin-top: 0.4rem; // Even spacing between form fields
+
+  .blockquote-link {
+	  font-weight: 600;
+    text-decoration: underline;
+  }
+  &.attached-below {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 1rem;
+    border-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  // custom
+  .icon.icon-sm {
+    margin-right: .5rem;
+  }
+}
+// Blockquote alternate styles
+@each $color, $value in $theme-colors {
+  .blockquote-#{$color} {
+    @include blockquote-variant(theme-color-level($color, -17), theme-color-level($color, -8), theme-color-level($color, 3));
+  }
+}

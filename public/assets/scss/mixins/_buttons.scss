@@ -1,0 +1,21 @@
+
+
+/* Mixin to give icons in buttons the same color as button text */
+@mixin button-outline-icon-variant($color, $color-hover: #fff) {
+  >.icon {
+    fill: $color;
+  }
+
+  @include hover {
+    >.icon {
+      fill: $color-hover;
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    >.icon {
+      fill: $color;
+    }
+  }
+}
