@@ -9,16 +9,16 @@
 
             <div class="card">
                 <div class="card-header alert-primary text-white">
-                    <div class="float-left">BC Services Card app required</div>
+                    <div class="float-left">BC Services Card account required</div>
                     <span class="icon icon-notes float-right"></span>
                 </div>
                 <div class="card-body">
 
-                    <p>As an applicant to the full-time student loan program, you will need to use the BC Services Card app to access the student loan application via the StudentAid BC dashboard.</p>
-                    <p><a href="https://id.gov.bc.ca/account/" target="_blank">Learn how to set up the BC Services Card app</a></p>
+                    <p>As an applicant to the full-time student loan program, you will need to use a BC Services Card account to access the student loan application via the StudentAid BC dashboard.</p>
+                    <p><a href="https://id.gov.bc.ca/account/" target="_blank">Learn how to set up a BC Services Card account</a></p>
 
-                    <p>Once you have completed set up of the BC Services Card app, you will use it to log into your StudentAid BC Dashboard to access the student loan application.</p>
-                    <p><a href="https://www2.gov.bc.ca/gov/content?id=B2B3A21E797A421A8FD39EEA86E245D6" target="_blank">Learn more about the BC Services Card app</a></p>
+                    <p>Once you have completed set up of a BC Services Card account, you will use it to log into your StudentAid BC Dashboard to access the student loan application.</p>
+                    <p><a href="https://www2.gov.bc.ca/gov/content?id=B2B3A21E797A421A8FD39EEA86E245D6" target="_blank">Learn more about a BC Services Card account</a></p>
 
                     <blockquote>
                         <p class="">

@@ -1494,8 +1494,8 @@ class User extends Authenticatable
                 $msg = 'SYSTEM ERROR :: failed to create account #100430.';
                 if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
                     session()->push('DEBUG', now().': fnCreateUserProfile() SYSTEM ERROR :: USER_ACCOUNT -> createUserProfile (userProfile not set). '.$createProfile->getMessage());
-                    Log::error('SYSTEM ERROR :: USER_ACCOUNT -> createUserProfile (userProfile not set). '.$createProfile->getMessage());
                 }
+                Log::error('SYSTEM ERROR :: USER_ACCOUNT -> createUserProfile (userProfile not set). '.$createProfile->getMessage());
             }
         } else {
             //WE HAVE AN ERROR AND IT IS A VALID PROFILE ERROR
@@ -1519,6 +1519,10 @@ class User extends Authenticatable
                 if ($createProfile->detail->ProfileFault->faultCode == 'SPSIM21') {
                     $msg = 'Sorry, creating your profile failed. Please contact StudentAid BC to update your records.';
                 }
+
+                Log::error('SYSTEM ERROR :: USER_ACCOUNT -> createBcscUserProfile (ProfileFault): '.$createProfile->detail->ProfileFault->faultCode.' - '.$errorMappings[$createProfile->detail->ProfileFault->faultCode].' ('.$createProfile->getMessage().').');
+                Log::error('SYSTEM ERROR :: USER_ACCOUNT -> createBcscUserProfile (#100432-4): '.$msg);
+
             } else {
                 if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
                     session()->push('DEBUG', now().': fnCreateBcscUserProfile() SYSTEM ERROR :: failed to create account #100432-1.');
@@ -1526,7 +1530,7 @@ class User extends Authenticatable
                     session()->push('DEBUG', now().': fnCreateBcscUserProfile() SYSTEM ERROR :: USER_ACCOUNT -> createBcscUserProfile: '.json_encode($createProfile));
                 }
                 $msg = 'SYSTEM ERROR :: failed to create account #100432-1.';
-                Log::error('SYSTEM ERROR :: USER_ACCOUNT -> createBcscUserProfile '.$createProfile->getMessage());
+                Log::error('SYSTEM ERROR :: USER_ACCOUNT -> createBcscUserProfile (#100432-1) '.$createProfile->getMessage());
             }
         }
 
