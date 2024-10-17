@@ -249,12 +249,13 @@ class InstitutionController extends Aeit
                 }
 
                 //check if institution is eligible for online applications
-                if (isset($institution_details->PartTimeEligible) && $institution_details->PartTimeEligible == 'true') {
-                    //if part time is available show apply for part-time financial assistance
-                    $html .= '<li class="list-group-item"><span>Start your <strong>part-time</strong> application now</span>
-												<a href="/help-centre/applying-loans/how-apply-part-time-student" id="part-time"
-												class="apply-for-assistance btn btn-primary float-right four mobile-four columns">Download part-time application</a></li>';
-                }
+                // Removed after SIMS part-time launch
+//                if (isset($institution_details->PartTimeEligible) && $institution_details->PartTimeEligible == 'true') {
+//                    //if part time is available show apply for part-time financial assistance
+//                    $html .= '<li class="list-group-item"><span>Start your <strong>part-time</strong> application now</span>
+//												<a href="/help-centre/applying-loans/how-apply-part-time-student" id="part-time"
+//												class="apply-for-assistance btn btn-primary float-right four mobile-four columns">Download part-time application</a></li>';
+//                }
 
                 $html .= '</ul>';
             }
