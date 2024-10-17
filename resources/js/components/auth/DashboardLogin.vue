@@ -6,28 +6,28 @@
                 <p v-if="passwordreset == true" class="alert alert-success">Password Reset was successful!</p>
 
                 <div v-if="maintenanceMode === false" class="card mt-3 mb-3">
-                    <h5 class="card-header text-white bg-warning">Login in with the BC Services Card app: </h5>
+                    <h5 class="card-header text-white bg-warning">Login with a BC Services Card account: </h5>
                     <div class="card-body">
                         <ul class="">
-                            <li class="mb-3">All users (students, parents, and partners) should use the BC Services Card app to log in to StudentAid BC. </li>
+                            <li class="mb-3">All users (students, parents, and partners) should use a BC Services Card account to log in to StudentAid BC. </li>
                             <li class="mb-3">Soon, StudentAid BC will stop permitting users to log in using the old user ID and password, and you may not be able to access your StudentAid BC account or our online application. </li>
-                            <li class="mb-3">To avoid potential delays in accessing your account and submitting your application, we recommend that you <a href="https://id.gov.bc.ca/account/" target="_blank">set up the BC Services Card app</a> as soon as possible.</li>
+                            <li class="mb-3">To avoid potential delays in accessing your account and submitting your application, we recommend that you <a href="https://id.gov.bc.ca/account/" target="_blank">set up a BC Services Card account</a> as soon as possible.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">Option 1 - Login with the BC Services Card app</span>
+                        <span class="text-primary text-left p-0">Option 1 - Login with a BC Services Card account</span>
                     </div>
                     <div class="collapse show">
                         <div class="card-body">
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <a :href="'https://id' + BcscEnv[0] + '.gov.bc.ca/login/saml2sso?TARGET=urn:aved:sabc:' + BcscEnv[1]" class="btn btn-primary btn-block mb-3">Log in with the BC Services Card app</a>
+                                    <a :href="'https://id' + BcscEnv[0] + '.gov.bc.ca/login/saml2sso?TARGET=urn:aved:sabc:' + BcscEnv[1]" class="btn btn-primary btn-block mb-3">Log in with a BC Services Card account</a>
                                     <p class="text-center">
-                                        <a href="https://id.gov.bc.ca/account/" target="_blank">Learn how to use the BC Services Card app to log in</a>
+                                        <a href="https://id.gov.bc.ca/account/" target="_blank">Learn how to use a BC Services Card account to log in</a>
                                         <br/>
                                         <br/>
 <!--                                        <strong>Don't have a BC Services Card?</strong> <a href="https://www2.gov.bc.ca/gov/content/governments/government-id/bc-services-card/your-card/get-a-card" target="_blank">Here's what you have to do.</a>-->
@@ -54,7 +54,7 @@
                                         <div class="col-12">
                                             <div class="alert alert-contextual alert-danger" role="alert">
                                                 <svg class="alert-icon icon-lg colorRed100" aria-hidden="true" focusable="false"><use xlink:href="/dashboard/assets/sprite/icons.svg#alert"></use></svg>
-                                                <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
+                                                <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"></p></template>
 
                                             </div><!-- /.alert -->
                                         </div><!-- /.block -->
