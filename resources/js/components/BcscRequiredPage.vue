@@ -9,21 +9,21 @@
 
             <div class="card">
                 <div class="card-header alert-primary text-white">
-                    <div class="float-left">BC Services Card app required</div>
+                    <div class="float-left">BC Services Card account required</div>
                     <span class="icon icon-notes float-right"></span>
                 </div>
                 <div class="card-body">
 
-                    <p>As an applicant to the full-time student loan program, you will need to use the BC Services Card app to access the student loan application via the StudentAid BC dashboard.</p>
-                    <p><a href="https://id.gov.bc.ca/account/" target="_blank">Learn how to set up the BC Services Card app</a></p>
+                    <p>As an applicant to the full-time student loan program, you will need to use a BC Services Card account to access the student loan application via the StudentAid BC dashboard.</p>
+                    <p><a href="https://id.gov.bc.ca/account/" target="_blank">Learn how to set up a BC Services Card account</a></p>
 
-                    <p>Once you have completed set up of the BC Services Card app, you will use it to log into your StudentAid BC Dashboard to access the student loan application.</p>
-                    <p><a href="https://www2.gov.bc.ca/gov/content?id=B2B3A21E797A421A8FD39EEA86E245D6" target="_blank">Learn more about the BC Services Card app</a></p>
+                    <p>Once you have completed set up of a BC Services Card account, you will use it to log into your StudentAid BC Dashboard to access the student loan application.</p>
+                    <p><a href="https://www2.gov.bc.ca/gov/content?id=B2B3A21E797A421A8FD39EEA86E245D6" target="_blank">Learn more about a BC Services Card account</a></p>
 
                     <blockquote>
                         <p class="">
-                            <b>How do I get the BC Services Card app if I don’t live in British Columbia and I don’t have a BC Services Card? </b><br/>
-                            If you don’t live in B.C. but have Canadian ID, like a driver’s licence, passport, or immigration document, you can set up the BC Services Card app without a BC Services Card. Visit the BC Services Card app website for a list of <a href="https://www2.gov.bc.ca/gov/content?id=5F8782A92E464066885149242E050814" target="_blank">accepted ID</a> you can use to set up your account.
+                            <b>How do I get a BC Services Card account if I don’t live in British Columbia and I don’t have a BC Services Card? </b><br/>
+                            If you don’t live in B.C. but have Canadian ID, like a driver’s licence, passport, or immigration document, you can set up a BC Services Card account without a BC Services Card. Visit a BC Services Card account website for a list of <a href="https://www2.gov.bc.ca/gov/content?id=5F8782A92E464066885149242E050814" target="_blank">accepted ID</a> you can use to set up your account.
                             <br/>
                             <br/>
                             If you are not eligible for a BC Services Card, and do not have a Canadian issued ID, please contact StudentAid BC:
