@@ -5,6 +5,8 @@
                 <dashboard-alerts @disable="disablePage" pagesTarget="login_register_pages"></dashboard-alerts>
                 <p v-if="passwordreset == true" class="alert alert-success">Password Reset was successful!</p>
 
+                <h2>Student Accounts &amp; Application</h2>
+                <p>Please select the option below that best applies to you.</p>
                 <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
                         <span class="text-primary text-left p-0">Full-Time Students</span>
@@ -21,6 +23,14 @@
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
                                             <a :href="'https://id' + BcscEnv[0] + '.gov.bc.ca/login/saml2sso?TARGET=urn:aved:sabc:' + BcscEnv[1]" class="btn btn-primary btn-block text-center p-3">Log in with a BC Services Card account</a>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="accordion mb-2" id="accordionC">
+                                        <div class="card">
+                                            <a href="https://id.gov.bc.ca/account/" class="btn btn-link btn-block text-center p-3" target="_blank">I don't have a BC Services Card account. How can I get one?</a>
                                         </div>
                                     </div>
 
@@ -70,22 +80,14 @@
                                                             <div class="col-12 text-center">
                                                                 <button type="submit" class="btn btn-primary btn-block mb-3">Login with StudentAid BC User ID</button>
 
-                                                                <!--                                    @if (Route::has('password.request'))-->
                                                                 <a v-if="accountLocked === false" class="btn btn-link" href="/dashboard/forgot/password">Forgot your StudentAid BC User ID/Password?</a>
                                                                 <br/>
                                                                 <a v-if="accountLocked === false" class="btn btn-link" href="/dashboard/create">Register</a>
-                                                                <!--                                    @endif-->
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="accordion mb-2" id="accordionC">
-                                        <div class="card">
-                                            <a href="https://id.gov.bc.ca/account/" class="btn btn-link btn-block text-center p-3" target="_blank">I don't have a BC Services Card.</a>
                                         </div>
                                     </div>
 
