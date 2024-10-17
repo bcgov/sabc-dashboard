@@ -311,13 +311,13 @@
 <!--                        &lt;!&ndash;                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>&ndash;&gt;-->
 <!--                    </div>-->
                     <div class="modal-body">
-<!--                        <p>Do you know you can use the BC Services Card app to log in and access StudentAid BC programs and services via the dashboard. Setting up the BC Services Card app is safe, quick, and easy.</p>-->
+<!--                        <p>Do you know you can use a BC Services Card account to log in and access StudentAid BC programs and services via the dashboard. Setting up the BC Services Card app is safe, quick, and easy.</p>-->
                         <ul class="">
                             <li class="mb-3">All users (students, parents, and partners) should use a BC Services Card account to log in to StudentAid BC. </li>
                             <li class="mb-3">Soon, StudentAid BC will stop permitting users to log in using the old user ID and password, and you may not be able to access your StudentAid BC account or our online application. </li>
                             <li class="mb-3">To avoid potential delays in accessing your account and submitting your application, we recommend that you <a href="https://id.gov.bc.ca/account/" target="_blank">set up a BC Services Card account</a> as soon as possible.</li>
                         </ul>
-<!--                        <p><a href="https://www2.gov.bc.ca/gov/content?id=034E906146794F84A00535A3F9354913" target="_blank">Learn how to set up the BC Services Card app</a></p>-->
+<!--                        <p><a href="https://www2.gov.bc.ca/gov/content?id=034E906146794F84A00535A3F9354913" target="_blank">Learn how to set up a BC Services Card account</a></p>-->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal" @click="openModal(0)">Close</button>
