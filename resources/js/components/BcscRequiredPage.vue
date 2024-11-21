@@ -38,34 +38,34 @@
     </div>
 </template>
 <style scoped>
-    .taskbar h4 {
-        line-height: 50px;
-        margin: 0;
-        padding: 0;
-        font-family: "Questrial", "Century Gothic", Arial, Helvetica, sans-serif;
-        font-weight: normal;
-        font-size: 16.1px;
-    }
+.taskbar h4 {
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+    font-family: "Questrial", "Century Gothic", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 16.1px;
+}
 </style>
 <script>
-    export default {
+export default {
 
-        data: () => ({
-            maintenanceMode: false,
-        }),
-        methods: {
-            disablePage: function(e){
-                if(e === true)
-                    this.maintenanceMode = true;
-            },
+    data: () => ({
+        maintenanceMode: false,
+    }),
+    methods: {
+        disablePage: function(e){
+            if(e === true)
+                this.maintenanceMode = true;
         },
-        mounted: function () {
-            document.title = "StudentAidBC - Account Verification Required";
-        },
-        watch: {
-            '$route' (to, from) {
-                // document.title = 'StudentAidBC - Apply for a student loan'
-            }
-        },
-    }
+    },
+    mounted: function () {
+        document.title = "StudentAidBC - Account Verification Required";
+    },
+    watch: {
+        '$route' (to, from) {
+            // document.title = 'StudentAidBC - Apply for a student loan'
+        }
+    },
+}
 </script>
