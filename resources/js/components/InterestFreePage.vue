@@ -30,8 +30,6 @@
                     </div>
 
                     <hr />
-                    <p class="text-muted">To put <strong>part-time</strong> Canada student loans in In-Study Payment-Free status, you must complete a paper <a href="/sites/all/files/form-library/schedule2.pdf">Confirmation of Enrolment - Schedule 2</a> form and submit it directly to the National Student Loans Service Centre (NSLSC).</p>
-
                     <p class="text-muted">If you are <strong>not attending a B.C. public</strong> post-secondary school you will need to complete a paper <a href="/sites/all/files/form-library/schedule2.pdf">Confirmation of Enrolment - Schedule 2</a> form.</p>
 
                     <p class="text-muted">If you have a <strong>grant overaward</strong>, you will need to complete a paper  <a href="/sites/all/files/form-library/cert3.pdf">Continuation of In-Study Payment-Free Status for Grant Overawards - Certificate 3</a> which will help you stay payment-free while in school.</p>
