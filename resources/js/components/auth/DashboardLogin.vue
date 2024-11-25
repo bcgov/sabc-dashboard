@@ -151,7 +151,7 @@
 
                                     <div class="accordion mb-2" id="accordionA2">
                                         <div class="card">
-                                            <a href="https://sims.studentaidbc.ca"
+                                            <a href="https://sims.studentaidbc.ca/student/login"
                                                class="btn btn-primary btn-block text-center p-3">Part-Time Students -
                                                 Log in / Create Account</a>
                                         </div>
