@@ -1,11 +1,10 @@
-# sabc-dashboard
+# SABC Dashboard
 
 <p align="center">
-<img src="https://studentaidbc.ca/sites/studentaidbc.ca/themes/nutmeg/assets/img/logo-dt.png" width="200">
-<img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="200"></p>
+<img src="https://studentaidbc.ca/themes/custom/sabc/logo-dt.png" width="200"><span>&nbsp;&nbsp;</span>
+<img src="https://laravel.com/img/logotype.min.svg" width="100"></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
