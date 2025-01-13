@@ -23,7 +23,7 @@
                     <blockquote>
                         <p class="">
                             <b>How do I get a BC Services Card account if I don’t live in British Columbia and I don’t have a BC Services Card? </b><br/>
-                            If you don’t live in B.C. but have Canadian ID, like a driver’s licence, passport, or immigration document, you can set up a BC Services Card account without a BC Services Card. Visit the BC Services Card account website for a list of <a href="https://www2.gov.bc.ca/gov/content?id=5F8782A92E464066885149242E050814" target="_blank">accepted ID</a> you can use to set up your account.
+                            If you don’t live in B.C. but have Canadian ID, like a driver’s licence, passport, or immigration document, you can set up a BC Services Card account without a BC Services Card. <a href="https://id.gov.bc.ca/account/" target="_blank">Visit the BC Services Card account website</a> for a list of <a href="https://www2.gov.bc.ca/gov/content?id=5F8782A92E464066885149242E050814" target="_blank">accepted ID</a> you can use to set up your account.
                             <br/>
                             <br/>
                             If you are not eligible for a BC Services Card, and do not have a Canadian issued ID, please contact StudentAid BC:
