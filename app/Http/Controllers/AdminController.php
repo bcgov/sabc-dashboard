@@ -51,7 +51,7 @@ class AdminController extends Aeit
 
         $user->name = $request->name;
         $user->email = strtolower($request->email);
-        $user->password = $user->user_hash_password($request->password, DRUPAL_HASH_COUNT);
+        $user->password = $user->user_hash_password($request->password, Aeit::DRUPAL_HASH_COUNT);
         $user->created = strtotime('now');
         $user->status = 1;
         $user->save();
@@ -117,7 +117,7 @@ class AdminController extends Aeit
                     'password' => 'required|string|between:8,20|regex:/^.*(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d\s])(?=.*[0-9])(?=.*[\d\x]).*$/',
                     'confirm_password' => 'required|string|same:password',
                 ]);
-                $user->password = $user->user_hash_password($request->password, DRUPAL_HASH_COUNT);
+                $user->password = $user->user_hash_password($request->password, Aeit::DRUPAL_HASH_COUNT);
             }
 
             //adds code to update user

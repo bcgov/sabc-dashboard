@@ -119,7 +119,7 @@ class UserController extends Aeit
 
             $user->name = $this->fnEncrypt($guid);
             $user->email = $request->email;
-            $user->password = $user->user_hash_password($request->password, DRUPAL_HASH_COUNT);
+            $user->password = $user->user_hash_password($request->password, Aeit::DRUPAL_HASH_COUNT);
             $user->created = strtotime('now');
             $user->status = 1;
             $user->save();
@@ -191,7 +191,7 @@ class UserController extends Aeit
                 }
 
                 $user->name = $user_profile->userProfile->userGUID;
-                $user->password = $user->user_hash_password(Str::random(DRUPAL_HASH_COUNT));
+                $user->password = $user->user_hash_password(Str::random(Aeit::DRUPAL_HASH_COUNT));
                 $user->created = strtotime('now');
                 $user->status = 1;
                 $user->save();
@@ -293,7 +293,7 @@ class UserController extends Aeit
 
         $user->name = $uid;
         $user->email = null;
-        $user->password = $user->user_hash_password(rand(), DRUPAL_HASH_COUNT);
+        $user->password = $user->user_hash_password(rand(), Aeit::DRUPAL_HASH_COUNT);
         $user->created = strtotime('now');
         $user->status = 1;
 
@@ -1144,7 +1144,7 @@ class UserController extends Aeit
 
         $user->name = $request->user_id;
         $user->email = $request->email;
-        $user->password = $user->user_hash_password($request->password, DRUPAL_HASH_COUNT);
+        $user->password = $user->user_hash_password($request->password, Aeit::DRUPAL_HASH_COUNT);
         $user->created = strtotime('now');
         $user->status = 1;
         $user->save();

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
+
 // Determine DRUPAL_ROOT.
 define('DRUPAL_ROOT', '');
 
@@ -56,6 +57,29 @@ if (! defined('SITE_URL')) {
 
 class Aeit extends Controller
 {
+
+    /**
+     * The standard log2 number of iterations for password stretching. This should
+     * increase by 1 every Drupal version in order to counteract increases in the
+     * speed and power of computers available to crack the hashes.
+     */
+    const DRUPAL_HASH_COUNT = 15;
+
+    /**
+     * The minimum allowed log2 number of iterations for password stretching.
+     */
+    const DRUPAL_MIN_HASH_COUNT = 7;
+
+    /**
+     * The maximum allowed log2 number of iterations for password stretching.
+     */
+    const DRUPAL_MAX_HASH_COUNT = 30;
+
+    /**
+     * The expected (and maximum) number of characters in a hashed password.
+     */
+    const DRUPAL_HASH_LENGTH = 55;
+
     public $WSDL; //WSDL LOCATION FOR SERVICE
 
     public $user; //DRUPAL USER OBJECT
@@ -1250,7 +1274,7 @@ class Aeit extends Controller
                         }
 
                         $user->name = $encrypted_guid;
-                        $user->password = $user->user_hash_password($p, DRUPAL_HASH_COUNT);
+                        $user->password = $user->user_hash_password($p, Aeit::DRUPAL_HASH_COUNT);
                         $user->created = strtotime('now');
                         $user->status = 1;
                         $user->save();

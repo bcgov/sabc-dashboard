@@ -11,27 +11,6 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
-/**
- * The standard log2 number of iterations for password stretching. This should
- * increase by 1 every Drupal version in order to counteract increases in the
- * speed and power of computers available to crack the hashes.
- */
-const DRUPAL_HASH_COUNT = 15;
-
-/**
- * The minimum allowed log2 number of iterations for password stretching.
- */
-const DRUPAL_MIN_HASH_COUNT = 7;
-
-/**
- * The maximum allowed log2 number of iterations for password stretching.
- */
-const DRUPAL_MAX_HASH_COUNT = 30;
-
-/**
- * The expected (and maximum) number of characters in a hashed password.
- */
-const DRUPAL_HASH_LENGTH = 55;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -2054,7 +2033,7 @@ class User extends Authenticatable
         }
         $count_log2 = $this->_password_get_count_log2($setting);
         // Hashes may be imported from elsewhere, so we allow != DRUPAL_HASH_COUNT
-        if ($count_log2 < DRUPAL_MIN_HASH_COUNT || $count_log2 > DRUPAL_MAX_HASH_COUNT) {
+        if ($count_log2 < Aeit::DRUPAL_MIN_HASH_COUNT || $count_log2 > Aeit::DRUPAL_MAX_HASH_COUNT) {
             return false;
         }
         $salt = substr($setting, 4, 8);
@@ -2079,7 +2058,7 @@ class User extends Authenticatable
         // _password_base64_encode() of a 64 byte sha512 will always be 86 characters.
         $expected = 12 + ceil((8 * $len) / 6);
 
-        return (strlen($output) == $expected) ? substr($output, 0, DRUPAL_HASH_LENGTH) : false;
+        return (strlen($output) == $expected) ? substr($output, 0, Aeit::DRUPAL_HASH_LENGTH) : false;
     }
 
     /**
@@ -2155,7 +2134,7 @@ class User extends Authenticatable
     {
         if (empty($count_log2)) {
             // Use the standard iteration count.
-            $count_log2 = DRUPAL_HASH_COUNT;
+            $count_log2 = Aeit::DRUPAL_HASH_COUNT;
         }
 
         return $this->_password_crypt('sha512', $password, $this->_password_generate_salt($count_log2));
@@ -2201,10 +2180,10 @@ class User extends Authenticatable
      */
     private function _password_enforce_log2_boundaries($count_log2)
     {
-        if ($count_log2 < DRUPAL_MIN_HASH_COUNT) {
-            return DRUPAL_MIN_HASH_COUNT;
-        } elseif ($count_log2 > DRUPAL_MAX_HASH_COUNT) {
-            return DRUPAL_MAX_HASH_COUNT;
+        if ($count_log2 < Aeit::DRUPAL_MIN_HASH_COUNT) {
+            return Aeit::DRUPAL_MIN_HASH_COUNT;
+        } elseif ($count_log2 > Aeit::DRUPAL_MAX_HASH_COUNT) {
+            return Aeit::DRUPAL_MAX_HASH_COUNT;
         }
 
         return (int) $count_log2;

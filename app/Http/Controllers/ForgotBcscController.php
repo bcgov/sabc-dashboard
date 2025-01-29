@@ -301,7 +301,7 @@ class ForgotBcscController extends Aeit
                     }
 
                     $user->name = $bcscusrProfile->userProfile->userGUID;
-                    $user->password = $user->user_hash_password(Str::random(DRUPAL_HASH_COUNT));
+                    $user->password = $user->user_hash_password(Str::random(Aeit::DRUPAL_HASH_COUNT));
                     $user->created = strtotime('now');
                     $user->status = 1;
                     $user->save();
