@@ -12,28 +12,6 @@ use Redirect;
 //use Illuminate\Support\Str;
 use Response;
 
-/**
- * The standard log2 number of iterations for password stretching. This should
- * increase by 1 every Drupal version in order to counteract increases in the
- * speed and power of computers available to crack the hashes.
- */
-const DRUPAL_HASH_COUNT = 15;
-
-/**
- * The minimum allowed log2 number of iterations for password stretching.
- */
-const DRUPAL_MIN_HASH_COUNT = 7;
-
-/**
- * The maximum allowed log2 number of iterations for password stretching.
- */
-const DRUPAL_MAX_HASH_COUNT = 30;
-
-/**
- * The expected (and maximum) number of characters in a hashed password.
- */
-const DRUPAL_HASH_LENGTH = 55;
-
 class AdminController extends Aeit
 {
     /**
