@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.main')
 
 @section('content')
@@ -11,7 +12,7 @@
                     <div class="card-body">
                         Welcome: {{$user->name}} (
                         @foreach($roles as $role)
-                            {{ $role->name }}, 
+                            {{ $role->name }},
                         @endforeach
                         )
                     </div>
