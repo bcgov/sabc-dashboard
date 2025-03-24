@@ -30,7 +30,7 @@
                     </div>
 
                     <hr />
-                    <p class="text-muted">If you are <strong>not attending a B.C. public</strong> post-secondary school you will need to complete a paper <a href="/sites/all/files/form-library/schedule2.pdf">Confirmation of Enrolment - Schedule 2</a> form.</p>
+                    <p class="text-muted">If you are <strong>not attending a B.C. public</strong> post-secondary school, you will need to confirm your enrolment with the <a href="https://www.csnpe-nslsc.canada.ca/en/home" target="_blank">National Student Loans Service Centre</a>.</p>
 
                     <p class="text-muted">If you have a <strong>grant overaward</strong>, you will need to complete a paper  <a href="/sites/all/files/form-library/cert3.pdf">Continuation of In-Study Payment-Free Status for Grant Overawards - Certificate 3</a> which will help you stay payment-free while in school.</p>
 
@@ -48,7 +48,7 @@
                     <ol class="nice p-0">
                         <li><span class="number">1</span> Your application will be sent electronically <strong>to your school</strong> for confirmation of full-time enrolment.</li>
                         <li><span class="number">2</span>  Your application will be sent electronically <strong>to your loan providers</strong> to confirm that your student loans are in good standing (not in default).</li>
-                        <li><span class="number">3</span>  You will receive confirmation from the  <a href="http://canlearn.ca/">National Student Loan Service Centre</a> and any lending institution (if applicable) that your application has been approved. </li>
+                        <li><span class="number">3</span>  You will receive confirmation from the <a href="https://www.csnpe-nslsc.canada.ca/en/home" target="_blank">National Student Loan Service Centre</a> and any lending institution (if applicable) that your application has been approved. </li>
                     </ol>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="card-body">
                     <p><strong>Yes.</strong> The online student loan application uses a secure environment to keep your information safe.</p>
-                    <p>By completing this application, you consent to sharing your information with your school and with the <a href="http://canlearn.ca/">National Student Loan Service Centre</a> (for your Canada student loans), and any lending institution (bank or credit union) that holds any of your previous student loans.</p>
+                    <p>By completing this application, you consent to sharing your information with your school and with the <a href="https://www.csnpe-nslsc.canada.ca/en/home" target="_blank">National Student Loan Service Centre</a> (for your Canada student loans), and any lending institution (bank or credit union) that holds any of your previous student loans.</p>
                 </div>
             </div>
         </div><!-- /.col-md-6-->
