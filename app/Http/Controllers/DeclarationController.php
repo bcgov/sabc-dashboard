@@ -334,8 +334,12 @@ class DeclarationController extends Aeit
             $page2_field_name = 'field_new_dec_req_agreement_text';
         }
 
-        $get_decl = Declaration::where('type', $dectype)->where('program_year', $startYear.'/'.$endYear)->where('status', 1)->with('fields')->first();
+        $get_decl = Declaration::where('type', $dectype)
+            ->where('type_id', 'sabc_'.$dec_vs_consent)
+            ->where('program_year', $startYear.'/'.$endYear)
+            ->where('status', 1)->with('fields')->first();
         if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
+            session()->push('DEBUG', now().': loadDec() Dec ID: '.$get_decl->id);
             session()->push('DEBUG', now().': loadDec() dectype: '.$dectype);
             session()->push('DEBUG', now().': loadDec() get_decl: '.is_null($get_decl));
             session()->push('DEBUG', now().': loadDec() startYear: '.$startYear);
