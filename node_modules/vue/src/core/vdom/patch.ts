@@ -878,11 +878,8 @@ export function createPatchFunction(backend) {
               const insert = ancestor.data.hook.insert
               if (insert.merged) {
                 // start at index 1 to avoid re-invoking component mounted hook
-                // clone insert hooks to avoid being mutated during iteration.
-                // e.g. for customed directives under transition group.
-                const cloned = insert.fns.slice(1)
-                for (let i = 0; i < cloned.length; i++) {
-                  cloned[i]()
+                for (let i = 1; i < insert.fns.length; i++) {
+                  insert.fns[i]()
                 }
               }
             } else {
