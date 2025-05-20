@@ -47,7 +47,7 @@ export function defineAsyncComponent(
 
   if (__DEV__ && suspensible) {
     warn(
-      `The suspensible option for async components is not supported in Vue2. It is ignored.`
+      `The suspensiblbe option for async components is not supported in Vue2. It is ignored.`
     )
   }
 

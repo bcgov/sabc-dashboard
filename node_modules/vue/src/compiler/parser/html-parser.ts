@@ -98,7 +98,7 @@ export function parseHTML(html, options: HTMLParserOptions) {
           }
         }
 
-        // https://en.wikipedia.org/wiki/Conditional_comment#Downlevel-revealed_conditional_comment
+        // http://en.wikipedia.org/wiki/Conditional_comment#Downlevel-revealed_conditional_comment
         if (conditionalComment.test(html)) {
           const conditionalEnd = html.indexOf(']>')
 
