@@ -12,8 +12,14 @@
                         <div v-if="errors != ''" class="row">
                             <div class="col-12">
                                 <div class="alert alert-danger">
-                                    <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
-                                </div>
+                                    <template v-for="(error, i) in validationErrors" :key="i">
+                                        <template v-for="(e, j) in error" :key="j">
+                                            <p class="alert-p">
+                                                <span v-html="e"></span>
+                                                <br v-if="i === 1" />
+                                            </p>
+                                        </template>
+                                    </template>                                      </div>
                             </div><!-- /.block -->
                         </div>
                         <form method="post" action="/dashboard/admin/declarations/new" enctype="multipart/form-data">
@@ -34,7 +40,7 @@
                                     <option value="Spouse - No Signature Required">Spouse - No Signature Required</option>
                                     <option value="Applicant - E-Consent">Applicant - E-Consent</option>
                                     <option value="Spouse - E-Consent">Spouse - E-Consent</option>
-                                    <option><hr></option>
+                                    <hr>
                                     <option value="Applicant Declaration 2013 - Signature Required">Applicant Declaration 2013 - Signature Required</option>
                                     <option value="Applicant Declaration 2013 - No Signature Required">Applicant Declaration 2013 - No Signature Required</option>
                                     <option value="Applicant Declaration 2012 - Signature Required">Applicant Declaration 2012 - Signature Required</option>
@@ -74,7 +80,7 @@
                                         <input type="text" class="form-control" name="field_weights[]" placeholder="Weight/Order on page" v-model="fields[i].weight" required>
                                     </div>
                                     <div class=" col-md-3 form-group">
-                                        <textarea class="form-control" name="field_data[]" rows="3" required placeholder="Field Data" v-model="fields[i].data" required>{{ fields[i].data }}</textarea>
+                                        <textarea class="form-control" name="field_data[]" rows="3" placeholder="Field Data" v-model="fields[i].data" required>{{ fields[i].data }}</textarea>
                                     </div>
                                     <div class=" col-md-1 form-group">
                                         <button type="button" class="btn btn-sm btn-outline-danger" @click="deleteRow(i)">X</button>

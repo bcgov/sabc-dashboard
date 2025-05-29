@@ -14,15 +14,29 @@
                     <div class="">
                         <div class="">
                             <div class="">
-                                <table id="institution" class="table table-bordered"><thead class="thead-dark">
-                            <tr><th>Institution<span class="icon-sortbynamedescending"></span><span class="icon-sortbynameascending"></span><span class="icon-sync2"></span></th>
-                                <th>City<span class="icon-sortbynamedescending"></span><span class="icon-sortbynameascending"></span><span class="icon-sync2"></span></th>
-                                <th>Province<span class="icon-sortbynamedescending"></span><span class="icon-sortbynameascending"></span><span class="icon-sync2"></span></th>
-                                <th>Country<span class="icon-sortbynamedescending"></span><span class="icon-sortbynameascending"></span><span class="icon-sync2"></span></th>
-                                <th>Designated<span class="icon-sortbynamedescending"></span><span class="icon-sortbynameascending"></span><span class="icon-sync2"></span></th>
-                                <noscript><th></th></noscript></tr></thead>
-                                <tbody></tbody>
+                                <table id="institution" class="table table-bordered">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>Institution<span class="icon-sortbynamedescending"></span><span
+                                            class="icon-sortbynameascending"></span><span class="icon-sync2"></span>
+                                        </th>
+                                        <th>City<span class="icon-sortbynamedescending"></span><span
+                                            class="icon-sortbynameascending"></span><span class="icon-sync2"></span>
+                                        </th>
+                                        <th>Province<span class="icon-sortbynamedescending"></span><span
+                                            class="icon-sortbynameascending"></span><span class="icon-sync2"></span>
+                                        </th>
+                                        <th>Country<span class="icon-sortbynamedescending"></span><span
+                                            class="icon-sortbynameascending"></span><span class="icon-sync2"></span>
+                                        </th>
+                                        <th>Designated<span class="icon-sortbynamedescending"></span><span
+                                            class="icon-sortbynameascending"></span><span class="icon-sync2"></span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
                                 </table>
+                                <noscript>JavaScript is disabled in your browser. Please enable it to use this feature.</noscript>
                             </div>
                         </div>
                     </div>

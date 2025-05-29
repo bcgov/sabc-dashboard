@@ -7,131 +7,179 @@ require('./bootstrap');
 require('./dynamic-events');
 
 
-//window.Vue = require('vue');
-import Vue from 'vue/dist/vue'
-import VueRouter from 'vue-router/dist/vue-router';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
-window.Vue = Vue
+// Create Vue instance
+const app = createApp({});
 
-Vue.use(VueRouter);
+// Import and register components
+import DashboardAlerts from './components/DashboardAlerts.vue';
+import DashboardLogin from './components/auth/DashboardLogin.vue';
+import DashboardRegister from './components/auth/DashboardRegister.vue';
+import DashboardCreateUser from './components/auth/DashboardCreateUser.vue';
+import DashboardCreateBcscUser from './components/auth/DashboardCreateBcscUser.vue';
+import CreateChallengeQuestions from './components/auth/CreateChallengeQuestions.vue';
+import CreateUserId from './components/auth/CreateUserId.vue';
+import PasswordStrength from './components/PasswordStrength.vue';
 
+import DashboardBcscForgot from './components/auth/DashboardBcscForgot.vue';
+import DashboardBcscForgotStep1 from './components/auth/DashboardBcscForgotStep1.vue';
+import DashboardBcscForgotStep2 from './components/auth/DashboardBcscForgotStep2.vue';
+import DashboardBcscForgotStep3 from './components/auth/DashboardBcscForgotStep3.vue';
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import DashboardForgotPassword from './components/auth/DashboardForgotPassword.vue';
+import DashboardForgotPasswordStep1 from './components/auth/DashboardForgotPasswordStep1.vue';
+import DashboardForgotPasswordStep2 from './components/auth/DashboardForgotPasswordStep2.vue';
+import DashboardForgotPasswordStep3 from './components/auth/DashboardForgotPasswordStep3.vue';
+import DashboardForgotPasswordStep4 from './components/auth/DashboardForgotPasswordStep3Reset.vue';
+import DashboardForgotPasswordStep5 from './components/auth/DashboardForgotPasswordStep3Delete.vue';
+import DashboardForgotPasswordStep51 from './components/auth/DashboardForgotPasswordStep3Removed.vue';
+import DashboardForgotPasswordStep6 from './components/auth/DashboardForgotPasswordStep6.vue';
+import DashboardForgotPasswordStep7 from './components/auth/DashboardForgotPasswordStep7.vue';
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-Vue.component('dashboard-alerts', require('./components/DashboardAlerts.vue').default);
+import Dashboard404 from './components/Dashboard404.vue';
+import Dashboard405 from './components/Dashboard405.vue';
+import Dashboard500 from './components/Dashboard500.vue';
+import Dashboard503 from './components/Dashboard503.vue';
 
-Vue.component('dashboard-login', require('./components/auth/DashboardLogin.vue').default);
-Vue.component('dashboard-register', require('./components/auth/DashboardRegister.vue').default);
-Vue.component('dashboard-create-user', require('./components/auth/DashboardCreateUser.vue').default);
-Vue.component('dashboard-create-bcsc-user', require('./components/auth/DashboardCreateBcscUser.vue').default);
-Vue.component('create-challenge-questions', require('./components/auth/CreateChallengeQuestions.vue').default);
-Vue.component('create-user-id', require('./components/auth/CreateUserId.vue').default);
-Vue.component('password-strength', require('./components/PasswordStrength.vue').default);
+import DashboardNavbarNoSin from './components/NavbarNoSin.vue';
+import DashboardNavbar from './components/Navbar.vue';
+import DashboardFooter from './components/Footer.vue';
+import DashboardFooterNoneAuth from './components/FooterNoneAuth.vue';
+import AsideComponent from './components/AsideComponent.vue';
 
-Vue.component('dashboard-bcsc-forgot', require('./components/auth/DashboardBcscForgot.vue').default);
-Vue.component('dashboard-bcsc-forgot-step-1', require('./components/auth/DashboardBcscForgotStep1.vue').default);
-Vue.component('dashboard-bcsc-forgot-step-2', require('./components/auth/DashboardBcscForgotStep2.vue').default);
-Vue.component('dashboard-bcsc-forgot-step-3', require('./components/auth/DashboardBcscForgotStep3.vue').default);
+import DashboardLinks from './components/DashboardLinks.vue';
+import DashboardApps from './components/DashboardApps.vue';
+import ApplicationPage from './components/ApplicationPage.vue';
+import ApplicationSubmitChecklistPage from './components/ApplicationSubmitChecklistPage.vue';
+import Appendix1SubmitChecklistPage from './components/Appendix1SubmitChecklistPage.vue';
+import Appendix2SubmitChecklistPage from './components/Appendix2SubmitChecklistPage.vue';
+import AppendixSubmitSuccessPage from './components/AppendixSubmitSuccessPage.vue';
+import ApplicationActionButtons from './components/ApplicationActionButtons.vue';
+import AppendixPage from './components/AppendixPage.vue';
+import AppendixActionButtons from './components/AppendixActionButtons.vue';
 
-Vue.component('dashboard-forgot-password', require('./components/auth/DashboardForgotPassword.vue').default);
-Vue.component('dashboard-forgot-password-step-1', require('./components/auth/DashboardForgotPasswordStep1.vue').default);
-Vue.component('dashboard-forgot-password-step-2', require('./components/auth/DashboardForgotPasswordStep2.vue').default);
-Vue.component('dashboard-forgot-password-step-3', require('./components/auth/DashboardForgotPasswordStep3.vue').default);
-Vue.component('dashboard-forgot-password-step-4', require('./components/auth/DashboardForgotPasswordStep3Reset.vue').default);
-Vue.component('dashboard-forgot-password-step-5', require('./components/auth/DashboardForgotPasswordStep3Delete.vue').default);
-Vue.component('dashboard-forgot-password-step-5-1', require('./components/auth/DashboardForgotPasswordStep3Removed.vue').default);
-Vue.component('dashboard-forgot-password-step-6', require('./components/auth/DashboardForgotPasswordStep6.vue').default);
-Vue.component('dashboard-forgot-password-step-7', require('./components/auth/DashboardForgotPasswordStep7.vue').default);
+import ApplicationCollapseFive from './components/ApplicationCollapseFive.vue';
+import AppendixCollapseTwo from './components/AppendixCollapseTwo.vue';
+import AppendixCollapseTwoLegacy from './components/AppendixCollapseTwoLegacy.vue';
 
-Vue.component('dashboard-404', require('./components/Dashboard404.vue').default);
-Vue.component('dashboard-405', require('./components/Dashboard405.vue').default);
-Vue.component('dashboard-500', require('./components/Dashboard500.vue').default);
-Vue.component('dashboard-503', require('./components/Dashboard503.vue').default);
+import ApplicationApply from './components/ApplicationApplyPage.vue';
 
-Vue.component('dashboard-navbar-no-sin', require('./components/NavbarNoSin.vue').default);
-Vue.component('dashboard-navbar', require('./components/Navbar.vue').default);
-Vue.component('dashboard-footer', require('./components/Footer.vue').default);
-Vue.component('dashboard-footer-none-auth', require('./components/FooterNoneAuth.vue').default);
-Vue.component('aside-component', require('./components/AsideComponent.vue').default);
+import Profile from './components/ProfilePage.vue';
+import ProfileChallengeQuestions from './components/ProfileChallengeQuestions.vue';
 
-Vue.component('dashboard-links', require('./components/DashboardLinks.vue').default);
-Vue.component('dashboard-apps', require('./components/DashboardApps.vue').default);
-Vue.component('application-page', require('./components/ApplicationPage.vue').default);
-Vue.component('application-submit-checklist-page', require('./components/ApplicationSubmitChecklistPage.vue').default);
-Vue.component('appendix1-submit-checklist-page', require('./components/Appendix1SubmitChecklistPage.vue').default);
-Vue.component('appendix2-submit-checklist-page', require('./components/Appendix2SubmitChecklistPage.vue').default);
-Vue.component('appendix-submit-success-page', require('./components/AppendixSubmitSuccessPage.vue').default);
-Vue.component('application-action-buttons', require('./components/ApplicationActionButtons.vue').default);
-Vue.component('appendix-page', require('./components/AppendixPage.vue').default);
-Vue.component('appendix-action-buttons', require('./components/AppendixActionButtons.vue').default);
+import Notifications from './components/NotificationPage.vue';
 
-Vue.component('application-collapse-five', require('./components/ApplicationCollapseFive.vue').default);
-Vue.component('appendix-collapse-two', require('./components/AppendixCollapseTwo.vue').default);
-Vue.component('appendix-collapse-two-legacy', require('./components/AppendixCollapseTwoLegacy.vue').default);
+import FileUploads from './components/FileUploadsPage.vue';
+import FileUploadsList from './components/FileUploadsList.vue';
 
-Vue.component('application-apply', require('./components/ApplicationApplyPage.vue').default);
+import StudentApply from './components/StudentApplyPage.vue';
 
-Vue.component('profile', require('./components/ProfilePage.vue').default);
-Vue.component('profile-challenge-questions', require('./components/ProfileChallengeQuestions.vue').default);
+import BcscVerificationRequired from './components/BcscRequiredPage.vue';
+import InterestFree from './components/InterestFreePage.vue';
+import Appendix1Claim from './components/Appendix1Claim.vue';
+import Appendix2Claim from './components/Appendix2Claim.vue';
+import Appendix1NoSinClaim from './components/Appendix1NoSinClaim.vue';
+import Appendix2NoSinClaim from './components/Appendix2NoSinClaim.vue';
+import NoSinDeclarationPage from './components/NoSinDeclarationPage.vue';
 
-Vue.component('notifications', require('./components/NotificationPage.vue').default);
+import FormPage from './components/FormPage.vue';
+import FormStartPage from './components/FormStartPage.vue';
+import FormNewPage from './components/FormNewPage.vue';
+import FormShowPage from './components/FormShowPage.vue';
+import FormsList from './components/FormsList.vue';
 
-Vue.component('file-uploads', require('./components/FileUploadsPage.vue').default);
-Vue.component('file-uploads-list', require('./components/FileUploadsList.vue').default);
+import AppealFormNew2021 from './components/forms/AppealFormNew2021.vue';
+import AppealFormShow2021 from './components/forms/AppealFormShow2021.vue';
+import AppealFormShow from './components/forms/AppealFormShow.vue';
 
-Vue.component('student-apply', require('./components/StudentApplyPage.vue').default);
-
-Vue.component('bcsc-verification-required', require('./components/BcscRequiredPage.vue').default);
-Vue.component('interest-free', require('./components/InterestFreePage.vue').default);
-Vue.component('appendix1-claim', require('./components/Appendix1Claim.vue').default);
-Vue.component('appendix2-claim', require('./components/Appendix2Claim.vue').default);
-Vue.component('appendix1-no-sin-claim', require('./components/Appendix1NoSinClaim.vue').default);
-Vue.component('appendix2-no-sin-claim', require('./components/Appendix2NoSinClaim.vue').default);
-Vue.component('no-sin-declaration-page', require('./components/NoSinDeclarationPage.vue').default);
-
-Vue.component('form-page', require('./components/FormPage.vue').default);
-Vue.component('form-start-page', require('./components/FormStartPage.vue').default);
-Vue.component('form-new-page', require('./components/FormNewPage.vue').default);
-Vue.component('form-show-page', require('./components/FormShowPage.vue').default);
-Vue.component('forms-list', require('./components/FormsList.vue').default);
-
-Vue.component('appeal-form-new-2021', require('./components/forms/AppealFormNew2021.vue').default);
-Vue.component('appeal-form-show-2021', require('./components/forms/AppealFormShow2021.vue').default);
-Vue.component('appeal-form-show', require('./components/forms/AppealFormShow.vue').default);
-
+app.component('dashboard-alerts', DashboardAlerts)
+    .component('dashboard-login', DashboardLogin)
+    .component('dashboard-register', DashboardRegister)
+    .component('dashboard-create-user', DashboardCreateUser)
+    .component('dashboard-create-bcsc-user', DashboardCreateBcscUser)
+    .component('create-challenge-questions', CreateChallengeQuestions)
+    .component('create-user-id', CreateUserId)
+    .component('password-strength', PasswordStrength)
+    .component('dashboard-bcsc-forgot', DashboardBcscForgot)
+    .component('dashboard-bcsc-forgot-step-1', DashboardBcscForgotStep1)
+    .component('dashboard-bcsc-forgot-step-2', DashboardBcscForgotStep2)
+    .component('dashboard-bcsc-forgot-step-3', DashboardBcscForgotStep3)
+    .component('dashboard-forgot-password', DashboardForgotPassword)
+    .component('dashboard-forgot-password-step-1', DashboardForgotPasswordStep1)
+    .component('dashboard-forgot-password-step-2', DashboardForgotPasswordStep2)
+    .component('dashboard-forgot-password-step-3', DashboardForgotPasswordStep3)
+    .component('dashboard-forgot-password-step-4', DashboardForgotPasswordStep4)
+    .component('dashboard-forgot-password-step-5', DashboardForgotPasswordStep5)
+    .component('dashboard-forgot-password-step-5-1', DashboardForgotPasswordStep51)
+    .component('dashboard-forgot-password-step-6', DashboardForgotPasswordStep6)
+    .component('dashboard-forgot-password-step-7', DashboardForgotPasswordStep7)
+    .component('dashboard-404', Dashboard404)
+    .component('dashboard-405', Dashboard405)
+    .component('dashboard-500', Dashboard500)
+    .component('dashboard-503', Dashboard503)
+    .component('dashboard-navbar-no-sin', DashboardNavbarNoSin)
+    .component('dashboard-navbar', DashboardNavbar)
+    .component('dashboard-footer', DashboardFooter)
+    .component('dashboard-footer-none-auth', DashboardFooterNoneAuth)
+    .component('aside-component', AsideComponent)
+    .component('dashboard-links', DashboardLinks)
+    .component('dashboard-apps', DashboardApps)
+    .component('application-page', ApplicationPage)
+    .component('application-submit-checklist-page', ApplicationSubmitChecklistPage)
+    .component('appendix1-submit-checklist-page', Appendix1SubmitChecklistPage)
+    .component('appendix2-submit-checklist-page', Appendix2SubmitChecklistPage)
+    .component('appendix-submit-success-page', AppendixSubmitSuccessPage)
+    .component('application-action-buttons', ApplicationActionButtons)
+    .component('appendix-page', AppendixPage)
+    .component('appendix-action-buttons', AppendixActionButtons)
+    .component('application-collapse-five', ApplicationCollapseFive)
+    .component('appendix-collapse-two', AppendixCollapseTwo)
+    .component('appendix-collapse-two-legacy', AppendixCollapseTwoLegacy)
+    .component('application-apply', ApplicationApply)
+    .component('profile', Profile)
+    .component('profile-challenge-questions', ProfileChallengeQuestions)
+    .component('notifications', Notifications)
+    .component('file-uploads', FileUploads)
+    .component('file-uploads-list', FileUploadsList)
+    .component('student-apply', StudentApply)
+    .component('bcsc-verification-required', BcscVerificationRequired)
+    .component('interest-free', InterestFree)
+    .component('appendix1-claim', Appendix1Claim)
+    .component('appendix2-claim', Appendix2Claim)
+    .component('appendix1-no-sin-claim', Appendix1NoSinClaim)
+    .component('appendix2-no-sin-claim', Appendix2NoSinClaim)
+    .component('no-sin-declaration-page', NoSinDeclarationPage)
+    .component('form-page', FormPage)
+    .component('form-start-page', FormStartPage)
+    .component('form-new-page', FormNewPage)
+    .component('form-show-page', FormShowPage)
+    .component('forms-list', FormsList)
+    .component('appeal-form-new-2021', AppealFormNew2021)
+    .component('appeal-form-show-2021', AppealFormShow2021)
+    .component('appeal-form-show', AppealFormShow);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const router = new VueRouter({
-    mode: 'history',
-    scrollBehavior (to, from, savedPosition) {
-        return { x: 0, y: 0 }
+const router = createRouter({
+    history: createWebHistory(),
+    scrollBehavior(to, from, savedPosition) {
+        return { left: 0, top: 0 }
     },
     routes: [
-        //{ path: '/dashboard', component: require('./components/LandingPage.vue').default},
     ]
 });
-if (process.env.MIX_APP_ENV === 'production') {
-    Vue.config.devtools = false;
-    Vue.config.debug = false;
-    Vue.config.silent = true;
-}
-const app = new Vue({
-    el: '#app',
-    router,
-});
 
-//https://laracasts.com/discuss/channels/vue/laravel-not-detecting-ajax-request-when-made-with-vue-axios
-//window.axios = require('axios');
-//axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+if (process.env.MIX_APP_ENV === 'production') {
+    app.config.devtools = false;
+}
+
+// Inject router
+app.use(router);
+
+// Mount app
+app.mount('#app');
