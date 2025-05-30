@@ -535,7 +535,7 @@
 </template>
 <style scoped>
     /*    to pass css to v-html child */
-    div.row >>> span.label{
+    div.row :deep(span.label) {
         cursor: default !important;
         text-transform: uppercase;
     }
