@@ -228,7 +228,7 @@
                                                 <a v-if="enableEconsent == true" class="btn btn-light btn-block" target="_blank" :href="'/dashboard/declaration/econsent/applicant/' + app.applicationDetails.applicationNumber">View Declaration</a>
                                                 <template v-else>
 
-                                                    <div v-for="event in eventItems['Submit Declaration'].events">
+                                                    <div v-for="event in eventItems['Submit Declaration'].events || []">
                                                         <template v-if="event.eventDate != undefined && event.eventDate != null">
                                                             <template v-if="eventItems['webDecStatus'] != undefined">
                                                                 <div v-if="eventItems['webDecStatus'] == 't'" class="row mt-3">
@@ -316,7 +316,7 @@
                                         </div>
                                         <div id="collapseThree" class="collapse" :class="accordion[2] === true ? 'show' : 'hide'">
                                             <div class="card-body">
-                                                <div v-for="event in eventItems['Application Review'].events" class="row">
+                                                <div v-for="event in eventItems['Application Review'].events || []" class="row">
                                                     <template v-if="event.eventIncomplete != undefined && event.eventIncomplete != null">
                                                         <div class="col-12"><p class="alert alert-contextual alert-danger">{{event.eventIncomplete}}</p></div>
                                                     </template>
@@ -349,7 +349,7 @@
                                         </div>
                                         <div id="collapseFour" class="collapse" :class="accordion[3] === true ? 'show' : 'hide'">
                                             <div class="card-body">
-                                                <div v-for="event in eventItems['Funding Decision'].events" class="row">
+                                                <div v-for="event in eventItems['Funding Decision'].events || []" class="row">
                                                     <template v-if="event.eventDate != undefined && event.eventDate != null">
                                                         <div class="col-5"><small>{{event.eventDate}}</small></div>
                                                         <div class="col-7">{{event.eventDescription}}</div>
