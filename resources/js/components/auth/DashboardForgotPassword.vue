@@ -53,9 +53,6 @@
     //import axios from 'axios
 
     export default {
-        filters: {
-
-        },
         props: ['errors', 'old', 'data', 'step'],
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),

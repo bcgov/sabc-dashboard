@@ -31,7 +31,7 @@
                 <div class="row p-3">
                     <div class="col-12 status-bar">
                         <div class="">
-                            <span>Application #{{app.applicationDetails.applicationNumber | formatAppNumber}}</span>
+                            <span>Application #{{ formatAppNumber(app.applicationDetails.applicationNumber) }}</span>
                             <span class="btn btn-sm float-right" :class="'btn-' + appStatusClass">{{appStatus}}</span>
                         </div>
                     </div>
@@ -62,22 +62,22 @@
                                 <div class="row">
                                     <div class="d-block d-md-none col-md-4"><strong>Start Date</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>Start Date</strong></div>
-                                    <div class="col-md-8">{{app.applicationDetails.applicationProfile.studySDate | formatApplicationDate}}</div>
+                                    <div class="col-md-8">{{ formatApplicationDate(app.applicationDetails.applicationProfile.studySDate) }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="d-block d-md-none col-md-4"><strong>End Date</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>End Date</strong></div>
-                                    <div class="col-md-8">{{app.applicationDetails.applicationProfile.studyEDate | formatApplicationDate}}</div>
+                                    <div class="col-md-8">{{ formatApplicationDate(app.applicationDetails.applicationProfile.studySDate) }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="d-block d-md-none col-md-4"><strong>Institution</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>Institution</strong></div>
-                                    <div class="col-md-8">{{app.applicationDetails.applicationProfile.institution.schoolName | cleanText}}</div>
+                                    <div class="col-md-8">{{ cleanText(app.applicationDetails.applicationProfile.institution.schoolName) }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="d-block d-md-none col-md-4"><strong>Program</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>Program</strong></div>
-                                    <div class="col-md-8">{{app.applicationDetails.applicationProfile.program | cleanText}}</div>
+                                    <div class="col-md-8">{{ cleanText(app.applicationDetails.applicationProfile.institution.schoolName) }}</div>
                                 </div>
                             </template>
                         </div>
@@ -137,17 +137,19 @@
 <!--                                            }-->
 
 <!--                                            $s .= '</dl>';-->
-                                            <div v-for="event in eventItems['Start/Submit Application'].events" v-if="Array.isArray(event) == false" class="row">
-                                                <template v-if="event.eventDate != undefined && event.eventDate != null">
-                                                    <div class="col-5"><small>{{event.eventDate}}</small></div>
-                                                    <div class="col-7">{{event.eventDescription}}</div>
-                                                </template>
-                                                <template v-else>
-                                                    <p class="col-12" v-if="event.eventDescription != undefined && event.eventDescription != null">- {{event.eventDescription}}</p>
-                                                </template>
-                                            </div>
+                                            <template v-for="event in eventItems['Start/Submit Application'].events || []">
+                                                <div v-if="Array.isArray(event) == false" class="row">
+                                                    <template v-if="event.eventDate != undefined && event.eventDate != null">
+                                                        <div class="col-5"><small>{{event.eventDate}}</small></div>
+                                                        <div class="col-7">{{event.eventDescription}}</div>
+                                                    </template>
+                                                    <template v-else>
+                                                        <p class="col-12" v-if="event.eventDescription != undefined && event.eventDescription != null">- {{event.eventDescription}}</p>
+                                                    </template>
+                                                </div>
+                                            </template>
 
-                                            <div v-for="event in eventItems['Start/Submit Application'].events.appendices">
+                                            <div v-for="event in eventItems['Start/Submit Application'].events.appendices || []">
 <!--                                                if(isset($event['eventDate']) && !empty($event['eventDate'])){-->
 <!--                                                $s .= '<dt class="left">';-->
 <!--                                                $s .= '<small>';-->
@@ -617,7 +619,30 @@ h4 {
     import axios from 'axios';
 
     export default {
-        filters: {
+        props: ['appno', 'resendsuccess', 'resenderror'],
+        data: () => ({
+            app: '',
+            eventItems: '',
+            loading: true,
+            loadingError: false,
+            accordion: [false, false, false, false, false],
+            statusFlags: {
+                'In Progress': {'status': 'In Progress', 'class': 'info'},
+                'Complete': {'status': 'Complete', 'class': 'success'},
+                'Waiting': {'status': 'Waiting', 'class': 'warning'},
+                'Scheduled': {'status': 'Scheduled', 'class': 'info'},
+                'Missing Info': {'status': 'Missing Info', 'class': 'important'},
+                'Missing Information': {'status': 'Missing Information', 'class': 'important'},
+                'Cancelled': {'status': 'Cancelled', 'class': 'danger'},
+                'Not Required': {'status': 'Not Required Yet', 'class': ''}
+
+            },
+            submit_date: 0,
+            econsent_rollout_date: 20200317, // 2020 Mar 17
+            maintenanceMode: false,
+
+    }),
+        methods: {
             formatAppNumber: function(value){
                 let year = value.slice(0, 4);
                 let extra = value.slice(4);
@@ -657,33 +682,7 @@ h4 {
                     return 'confirming';
                 }
                 return txt;
-            }
-
-        },
-        props: ['appno', 'resendsuccess', 'resenderror'],
-        data: () => ({
-            app: '',
-            eventItems: '',
-            loading: true,
-            loadingError: false,
-            accordion: [false, false, false, false, false],
-            statusFlags: {
-                'In Progress': {'status': 'In Progress', 'class': 'info'},
-                'Complete': {'status': 'Complete', 'class': 'success'},
-                'Waiting': {'status': 'Waiting', 'class': 'warning'},
-                'Scheduled': {'status': 'Scheduled', 'class': 'info'},
-                'Missing Info': {'status': 'Missing Info', 'class': 'important'},
-                'Missing Information': {'status': 'Missing Information', 'class': 'important'},
-                'Cancelled': {'status': 'Cancelled', 'class': 'danger'},
-                'Not Required': {'status': 'Not Required Yet', 'class': ''}
-
             },
-            submit_date: 0,
-            econsent_rollout_date: 20200317, // 2020 Mar 17
-            maintenanceMode: false,
-
-    }),
-        methods: {
             disablePage: function(e){
                 if(e === true)
                     this.maintenanceMode = true;

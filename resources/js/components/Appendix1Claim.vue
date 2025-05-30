@@ -223,16 +223,6 @@
     import ProfileChallengeQuestions from "./ProfileChallengeQuestions";
 
     export default {
-        filters: {
-
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             countries: '',
@@ -252,6 +242,11 @@
         }),
         props: ['access_code', 'submit_status', 'submit_msg', 'errors', 'program_years'],
         methods: {
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
+                return year + '-' + extra;
+            },
             disablePage: function(e){
                 if(e === true)
                     this.maintenanceMode = true;

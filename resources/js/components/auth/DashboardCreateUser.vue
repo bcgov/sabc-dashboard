@@ -89,7 +89,11 @@
     //import axios from 'axios
 
     export default {
-        filters: {
+        props: ['app', 'eventItems', 'isInkSignReq', 'processingConsent', 'showEconsent'],
+        data: () => ({
+            accordion: false,
+        }),
+        methods: {
             formatDate: function (value) {
                 if(value != undefined && value != ''){
                     var newValue = value.split(",");
@@ -111,12 +115,6 @@
                 }
                 return '-';
             },
-        },
-        props: ['app', 'eventItems', 'isInkSignReq', 'processingConsent', 'showEconsent'],
-        data: () => ({
-            accordion: false,
-        }),
-        methods: {
             //you cannot update arrays directly in JS. The DOM won't see these changes.
             //https://stackoverflow.com/questions/51412250/vue-v-if-cant-access-booleans-in-arrays
             toggleAccordion: function(){

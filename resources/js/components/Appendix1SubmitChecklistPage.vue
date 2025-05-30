@@ -168,9 +168,6 @@
 <script>
 
     export default {
-        filters: {
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,

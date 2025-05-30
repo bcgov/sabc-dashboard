@@ -13,22 +13,18 @@
     import axios from "axios";
 
     export default {
-        filters: {
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            },
-
-        },
         props: ['section', 'customurl'],
         data: () => ({
-            sidePage: '',
+            sidePage: null,
             loading: true,
             loadingError: false,
         }),
         methods:{
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
+                return year + '-' + extra;
+            },
             parseUrl: function (){
                 if(this.customurl != undefined){
                     return this.customurl;

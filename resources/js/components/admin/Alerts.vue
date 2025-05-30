@@ -29,12 +29,12 @@
                                     <td class="fit" scope="row">{{alert.name}}</td>
                                     <td class="fit"><span class="alert" :class="'alert-' + alert.type">{{alertTypes[alert.type]}}</span></td>
                                     <td class="fit">{{pages[alert.pages]}}</td>
-                                    <td class="fit">{{alert.start_time | formatDate}}</td>
-                                    <td class="fit">{{alert.end_time | formatDate}}</td>
+                                    <td class="fit">{{ formatDate(alert.start_time) }}</td>
+                                    <td class="fit">{{ formatDate(alert.end_time) }}</td>
                                     <td>{{alert.status}}</td>
                                     <td v-if="alert.disable_page === false" class="fit">{{alert.disable_page}}</td>
                                     <td v-else class="fit"><span class="alert alert-danger">{{alert.disable_page}}</span></td>
-                                    <td class="fit">{{alert.updated_at | formatDate}}</td>
+                                    <td class="fit">{{ formatDate(alert.updated_at) }}</td>
                                     <td><a :href="'/dashboard/admin/alerts/edit/' + alert.id" class="btn btn-sm btn-primary">Edit</a></td>
                                 </tr>
                             </tbody>
@@ -56,18 +56,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-            formatDate: function (value) {
-                if(value != undefined && value != ''){
-                    var newValue = value.split("T");
-
-                    return newValue[0];
-                }
-                return value;
-            },
-
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,
@@ -89,6 +77,14 @@
         }),
         props: [],
         methods: {
+            formatDate: function (value) {
+                if(value != undefined && value != ''){
+                    var newValue = value.split("T");
+
+                    return newValue[0];
+                }
+                return value;
+            },
             fetchData: function(){
                 this.loading = true;
                 var vm = this;

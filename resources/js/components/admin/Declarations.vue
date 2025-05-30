@@ -32,7 +32,7 @@
                                         <span v-if="declaration.status === 1">Active</span>
                                         <span v-else>Draft</span>
                                     </td>
-                                    <td class="fit">{{declaration.updated_at | formatDate}}</td>
+                                    <td class="fit">{{ formatDate(declaration.updated_at) }}</td>
                                     <td><a :href="'/dashboard/admin/declarations/edit/' + declaration.id" class="btn btn-sm btn-primary">Edit</a></td>
                                 </tr>
                             </tbody>
@@ -54,18 +54,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-            formatDate: function (value) {
-                if(value != undefined && value != ''){
-                    var newValue = value.split("T");
-
-                    return newValue[0];
-                }
-                return value;
-            },
-
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,
@@ -75,6 +63,14 @@
         }),
         props: [],
         methods: {
+            formatDate: function (value) {
+                if(value != undefined && value != ''){
+                    var newValue = value.split("T");
+
+                    return newValue[0];
+                }
+                return value;
+            },
             sortBy: function(clmn){
                 if(this.sortType == 'asc'){
                     this.declarations = this.declarations.sort(function(a, b){ return (a[clmn] > b[clmn]) ? -1 : 1; });

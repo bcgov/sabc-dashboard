@@ -492,10 +492,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-
-
-        },
         props: ['submit_status', 'submit_msg', 'errors'],
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
