@@ -1,8 +1,8 @@
 <template>
 <!-- Sidenav -->
     <div>
-        <small v-if="sidePage != '' && section == 'left' && sidePage.status == 'active'" v-html="sidePage.left_side"></small>
-        <small v-if="sidePage != '' && section == 'right' && sidePage.status == 'active'" v-html="sidePage.right_side"></small>
+        <small v-if="sidePage?.status === 'active' && section === 'left'" v-html="sidePage.left_side"></small>
+        <small v-if="sidePage?.status === 'active' && section === 'right'" v-html="sidePage.right_side"></small>
     </div>
 <!-- end sidenav-->
 </template>
@@ -50,7 +50,7 @@
                     .then(function (response) {
 
                         vm.loading = false;
-                        vm.sidePage = response.data.sidePage;
+                        vm.sidePage = response.data.sidePage || {};
 
                     })
                     .catch(function (error) {
