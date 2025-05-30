@@ -9,9 +9,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
-                        <table v-if="forms !== ''" class="table table-bordered">
-                            <thead>
+                        <table v-if="categories.length" class="table table-bordered">
+                        <thead>
                                 <tr>
                                     <th class="text-primary" scope="col" @click="sortBy('name')">Name</th>
                                     <th class="text-primary" scope="col" @click="sortBy('name')">Long Name</th>
