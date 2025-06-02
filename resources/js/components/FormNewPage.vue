@@ -69,10 +69,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-
-
-        },
         props: ['errors', 'submit_msg', 'submit_status', 'uuid'],
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),

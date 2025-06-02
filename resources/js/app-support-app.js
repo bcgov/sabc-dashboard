@@ -12,7 +12,30 @@ import ApplicationDetailPage from './components/app_support/ApplicationDetailPag
 import AppendixListPage from './components/app_support/AppendixListPage.vue'
 import AppendixDetailPage from './components/app_support/AppendixDetailPage.vue'
 
-const routes = []
+const routes = [
+    {
+        path: '/',
+        name: 'applications',
+        component: ApplicationsPage
+    },
+    {
+        path: '/applications/:id',
+        name: 'application-detail',
+        component: ApplicationDetailPage,
+        props: true
+    },
+    {
+        path: '/appendices',
+        name: 'appendix-list',
+        component: AppendixListPage
+    },
+    {
+        path: '/appendices/:id',
+        name: 'appendix-detail',
+        component: AppendixDetailPage,
+        props: true
+    },
+]
 
 const router = createRouter({
     history: createWebHistory(),

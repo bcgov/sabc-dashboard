@@ -50,13 +50,13 @@
                             <tbody>
                             <tr v-for="user in users">
                                 <td class="fit" scope="row">{{user.name}}</td>
-                                <td>{{user.status | formatStatus}}</td>
+                                <td>{{ formatStatus(user.status) }}</td>
                                 <td class="fit">
                                     <ul v-if="Array.isArray(user.roles) && user.roles.length > 0">
                                         <li v-for="role in user.roles">{{role.name}}</li>
                                     </ul>
                                 </td>
-                                <td class="fit">{{user.updated_at | formatDate}}</td>
+                                <td class="fit">{{ formatDate(user.updated_at) }}</td>
                                 <td><a :href="'/dashboard/admin/users/edit/' + user.uid" class="btn btn-sm btn-primary">Edit</a></td>
                             </tr>
                             </tbody>
@@ -95,24 +95,6 @@
 import axios from 'axios';
 
 export default {
-    filters: {
-        formatDate: function (value) {
-            if(value != undefined && value != ''){
-                var newValue = value.split("T");
-
-                return newValue[0];
-            }
-            return value;
-        },
-        formatStatus: function (value) {
-            if(value != undefined && value != ''){
-                return value == 1 ? 'Active' : 'Disabled';
-            }
-            return '-';
-        },
-
-    },
-
     data: () => ({
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         loading: true,
@@ -129,6 +111,20 @@ export default {
     }),
     props: [],
     methods: {
+        formatDate: function (value) {
+            if(value != undefined && value != ''){
+                var newValue = value.split("T");
+
+                return newValue[0];
+            }
+            return value;
+        },
+        formatStatus: function (value) {
+            if(value != undefined && value != ''){
+                return value == 1 ? 'Active' : 'Disabled';
+            }
+            return '-';
+        },
         filterTbl: function(clmn){
             this.tblFilter = clmn;
         },

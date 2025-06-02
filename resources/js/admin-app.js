@@ -35,7 +35,40 @@ import Settings from './components/admin/Settings.vue'
 // Create app
 const app = createApp({})
 
-const routes = []
+const routes = [
+    // Users
+    { path: '/dashboard/admin/users', component: AdminUsers },
+    { path: '/dashboard/admin/users/new', component: AdminUsersNew },
+    { path: '/dashboard/admin/users/edit/:id/', component: AdminUsersEdit, props: true },
+
+    // Side Pages
+    { path: '/dashboard/admin/side-pages', component: SidePages },
+    { path: '/dashboard/admin/side-pages/new', component: SidePagesNew },
+    { path: '/dashboard/admin/side-pages/edit/:id/', component: SidePagesEdit, props: true },
+
+    // Alerts
+    { path: '/dashboard/admin/alerts', component: Alerts },
+    { path: '/dashboard/admin/alerts/new', component: AlertsNew }, // <-- Route manquante
+    { path: '/dashboard/admin/alerts/edit/:id/', component: AlertsEdit, props: true },
+
+    // Declarations
+    { path: '/dashboard/admin/declarations', component: Declarations },
+    { path: '/dashboard/admin/declarations/new', component: DeclarationsNew },
+    { path: '/dashboard/admin/declarations/edit/:id/', component: DeclarationsEdit, props: true },
+
+    // Forms
+    { path: '/dashboard/admin/forms', component: Forms },
+    { path: '/dashboard/admin/forms/new', component: FormsNew },
+    { path: '/dashboard/admin/forms/edit/:id/', component: FormsEdit, props: true },
+
+    // Categories
+    { path: '/dashboard/admin/categories', component: Categories },
+    { path: '/dashboard/admin/categories/new', component: CategoriesNew },
+    { path: '/dashboard/admin/categories/edit/:id/', component: CategoriesEdit, props: true },
+
+    // Settings
+    { path: '/dashboard/admin/settings', component: Settings },
+]
 
 const router = createRouter({
     history: createWebHistory(),

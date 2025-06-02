@@ -57,7 +57,7 @@
                                     <template v-if="notSubmittedApps != undefined && notSubmittedApps != ''">
                                         <li class="list-group-item list-group-item-warning text-dark">Application NOT Submitted</li>
                                         <a v-for="app in notSubmittedApps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-application-status/' + app[0].ApplicationNumber">
-                                            <span class="btn btn-link">#{{ app[0].ApplicationNumber | formatAppNumber }}</span>
+                                            <span class="btn btn-link">#{{ formatAppNumber(app[0].ApplicationNumber) }}</span>
                                             <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app[0].StudyStartDate}}</span>
                                             <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app[0].StudyEndDate}}</span>
                                             <div class="float-right m-2">
@@ -71,7 +71,7 @@
                                     <template v-if="submittedApps != undefined && submittedApps != ''">
                                         <li class="list-group-item list-group-item-success text-dark">Application Submitted</li>
                                         <a v-for="app in submittedApps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-application-status/' + app[0].ApplicationNumber">
-                                            <span class="btn btn-link">#{{ app[0].ApplicationNumber | formatAppNumber }}</span>
+                                            <span class="btn btn-link">#{{ formatAppNumber(app[0].ApplicationNumber) }}</span>
                                             <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app[0].StudyStartDate}}</span>
                                             <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app[0].StudyEndDate}}</span>
                                             <div class="float-right m-2">
@@ -107,7 +107,7 @@
                                         <template v-for="apps in appx.Appendix1.NotSubmitted">
                                             <!--                                            <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber + '/' + app.FormGUID">-->
                                             <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
-                                                <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                                <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                                 <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                                 <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                                 <div class="float-right m-2">
@@ -123,7 +123,7 @@
                                         <li class="list-group-item list-group-item-success text-dark">Appendix 1 Submitted</li>
                                         <template v-for="apps in appx.Appendix1.Submitted">
                                             <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
-                                                <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                                <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                                 <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                                 <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                                 <div class="float-right m-2">
@@ -154,7 +154,7 @@
                                         <template v-for="apps in appx.Appendix2.NotSubmitted">
                                             <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
                                                 <!--                                                <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber + '/' + app.FormGUID">-->
-                                                <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                                <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                                 <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                                 <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                                 <div class="float-right m-2">
@@ -170,7 +170,7 @@
                                         <li class="list-group-item list-group-item-success text-dark">Appendix 2 Submitted</li>
                                         <template v-for="apps in appx.Appendix2.Submitted">
                                             <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
-                                                <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                                <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                                 <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                                 <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                                 <div class="float-right m-2">
@@ -208,7 +208,7 @@
                             <template v-if="notSubmittedApps != undefined && notSubmittedApps != ''">
                                 <li class="list-group-item list-group-item-warning text-dark">Application NOT Submitted</li>
                                 <a v-for="app in notSubmittedApps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-application-status/' + app[0].ApplicationNumber">
-                                    <span class="btn btn-link">#{{ app[0].ApplicationNumber | formatAppNumber }}</span>
+                                    <span class="btn btn-link">#{{ formatAppNumber(app[0].ApplicationNumber) }}</span>
                                     <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app[0].StudyStartDate}}</span>
                                     <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app[0].StudyEndDate}}</span>
                                     <div class="float-right m-2">
@@ -222,7 +222,7 @@
                             <template v-if="submittedApps != undefined && submittedApps != ''">
                                 <li class="list-group-item list-group-item-success text-dark">Application Submitted</li>
                                 <a v-for="app in submittedApps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-application-status/' + app[0].ApplicationNumber">
-                                    <span class="btn btn-link">#{{ app[0].ApplicationNumber | formatAppNumber }}</span>
+                                    <span class="btn btn-link">#{{ formatAppNumber(app[0].ApplicationNumber) }}</span>
                                     <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app[0].StudyStartDate}}</span>
                                     <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app[0].StudyEndDate}}</span>
                                     <div class="float-right m-2">
@@ -244,7 +244,7 @@
                                 <li class="list-group-item list-group-item-warning text-dark">Appendix 1 NOT Submitted</li>
                                 <template v-for="apps in appx.Appendix1.NotSubmitted">
                                     <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber + '/' + app.FormGUID">
-                                        <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                        <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                         <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                         <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                         <div class="float-right m-2">
@@ -260,7 +260,7 @@
                                 <li class="list-group-item list-group-item-success text-dark">Appendix 1 Submitted</li>
                                 <template v-for="apps in appx.Appendix1.Submitted">
                                     <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
-                                        <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                        <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                         <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                         <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                         <div class="float-right m-2">
@@ -278,7 +278,7 @@
                                 <template v-for="apps in appx.Appendix2.NotSubmitted">
                                     <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
                                         <!--                                        <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber + '/' + app.FormGUID">-->
-                                        <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                        <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                         <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                         <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                         <div class="float-right m-2">
@@ -294,7 +294,7 @@
                                 <li class="list-group-item list-group-item-success text-dark">Appendix 2 Submitted</li>
                                 <template v-for="apps in appx.Appendix2.Submitted">
                                     <a v-for="app in apps" class="list-group-item list-group-item-action" :href="'/dashboard/student-loans/check-appendix-status/' + app.ApplicationNumber">
-                                        <span class="btn btn-link">#{{ app.ApplicationNumber | formatAppNumber }}</span>
+                                        <span class="btn btn-link">#{{ formatAppNumber(app.ApplicationNumber) }}</span>
                                         <strong class="d-none d-md-inline ml-4">Start: </strong><span class="d-none d-md-inline">{{ app.StudyStartDate}}</span>
                                         <strong class="d-none d-md-inline ml-4">End: </strong><span class="d-none d-md-inline">{{ app.StudyEndDate}}</span>
                                         <div class="float-right m-2">
@@ -360,14 +360,6 @@ h4 {
 import axios from 'axios';
 
 export default {
-    filters: {
-        formatAppNumber: function(value){
-            let year = value.slice(0, 4);
-            let extra = value.slice(4);
-
-            return year + '-' + extra;
-        }
-    },
     props: ['errors'],
     data: () => ({
         dashboard: "",
@@ -383,6 +375,12 @@ export default {
         validationErrors: '',
     }),
     methods: {
+        formatAppNumber: function(value){
+            let year = value.slice(0, 4);
+            let extra = value.slice(4);
+
+            return year + '-' + extra;
+        },
         disablePage: function(e){
             if(e === true)
                 this.maintenanceMode = true;

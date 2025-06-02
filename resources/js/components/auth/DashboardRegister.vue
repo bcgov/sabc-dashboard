@@ -230,17 +230,6 @@
 
     export default {
         components: {CreateChallengeQuestions, CreateUserId},
-
-        filters: {
-
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             selectedCountry: '',

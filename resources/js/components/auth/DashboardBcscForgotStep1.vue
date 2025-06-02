@@ -87,9 +87,6 @@ fieldset{
 //import axios from 'axios
 
 export default {
-    filters: {
-
-    },
     props: ['errors', 'old'],
     data: () => ({
         loading: false,

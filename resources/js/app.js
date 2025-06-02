@@ -165,13 +165,95 @@ app.component('dashboard-alerts', DashboardAlerts)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const routes = [
+    { path: '/dashboard', component: DashboardLogin },
+    { path: '/dashboard/login', component: DashboardLogin },
+    { path: '/dashboard/register', component: DashboardRegister },
+    { path: '/dashboard/create-user', component: DashboardCreateUser },
+    { path: '/dashboard/create-bcsc-user', component: DashboardCreateBcscUser },
+    { path: '/dashboard/challenge-questions', component: CreateChallengeQuestions },
+    { path: '/dashboard/create-user-id', component: CreateUserId },
+    { path: '/dashboard/password-strength', component: PasswordStrength },
+
+    { path: '/dashboard/bcsc-forgot', component: DashboardBcscForgot },
+    { path: '/dashboard/bcsc-forgot/step-1', component: DashboardBcscForgotStep1 },
+    { path: '/dashboard/bcsc-forgot/step-2', component: DashboardBcscForgotStep2 },
+    { path: '/dashboard/bcsc-forgot/step-3', component: DashboardBcscForgotStep3 },
+
+    { path: '/dashboard/forgot-password', component: DashboardForgotPassword },
+    { path: '/dashboard/forgot-password/step-1', component: DashboardForgotPasswordStep1 },
+    { path: '/dashboard/forgot-password/step-2', component: DashboardForgotPasswordStep2 },
+    { path: '/dashboard/forgot-password/step-3', component: DashboardForgotPasswordStep3 },
+    { path: '/dashboard/forgot-password/step-4', component: DashboardForgotPasswordStep4 },
+    { path: '/dashboard/forgot-password/step-5', component: DashboardForgotPasswordStep5 },
+    { path: '/dashboard/forgot-password/step-5-1', component: DashboardForgotPasswordStep51 },
+    { path: '/dashboard/forgot-password/step-6', component: DashboardForgotPasswordStep6 },
+    { path: '/dashboard/forgot-password/step-7', component: DashboardForgotPasswordStep7 },
+
+    { path: '/dashboard/404', component: Dashboard404 },
+    { path: '/dashboard/405', component: Dashboard405 },
+    { path: '/dashboard/500', component: Dashboard500 },
+    { path: '/dashboard/503', component: Dashboard503 },
+
+    { path: '/dashboard/navbar-no-sin', component: DashboardNavbarNoSin },
+    { path: '/dashboard/navbar', component: DashboardNavbar },
+    { path: '/dashboard/footer', component: DashboardFooter },
+    { path: '/dashboard/footer-none-auth', component: DashboardFooterNoneAuth },
+    { path: '/dashboard/aside', component: AsideComponent },
+
+    { path: '/dashboard/links', component: DashboardLinks },
+    { path: '/dashboard/apps', component: DashboardApps },
+    { path: '/dashboard/application', component: ApplicationPage },
+    { path: '/dashboard/application/submit-checklist', component: ApplicationSubmitChecklistPage },
+    { path: '/dashboard/appendix1/submit-checklist', component: Appendix1SubmitChecklistPage },
+    { path: '/dashboard/appendix2/submit-checklist', component: Appendix2SubmitChecklistPage },
+    { path: '/dashboard/appendix/submit-success', component: AppendixSubmitSuccessPage },
+    { path: '/dashboard/application/action-buttons', component: ApplicationActionButtons },
+    { path: '/dashboard/appendix', component: AppendixPage },
+    { path: '/dashboard/appendix/action-buttons', component: AppendixActionButtons },
+
+    { path: '/dashboard/application/collapse-five', component: ApplicationCollapseFive },
+    { path: '/dashboard/appendix/collapse-two', component: AppendixCollapseTwo },
+    { path: '/dashboard/appendix/collapse-two-legacy', component: AppendixCollapseTwoLegacy },
+
+    { path: '/dashboard/application/apply', component: ApplicationApply },
+
+    { path: '/dashboard/profile', component: Profile },
+    { path: '/dashboard/profile/challenge-questions', component: ProfileChallengeQuestions },
+
+    { path: '/dashboard/notifications', component: Notifications },
+
+    { path: '/dashboard/file-uploads', component: FileUploads },
+    { path: '/dashboard/file-uploads/list', component: FileUploadsList },
+
+    { path: '/dashboard/student/apply', component: StudentApply },
+
+    { path: '/dashboard/bcsc-verification-required', component: BcscVerificationRequired },
+    { path: '/dashboard/interest-free', component: InterestFree },
+    { path: '/dashboard/appendix1/claim', component: Appendix1Claim },
+    { path: '/dashboard/appendix2/claim', component: Appendix2Claim },
+    { path: '/dashboard/appendix1/no-sin-claim', component: Appendix1NoSinClaim },
+    { path: '/dashboard/appendix2/no-sin-claim', component: Appendix2NoSinClaim },
+    { path: '/dashboard/no-sin-declaration', component: NoSinDeclarationPage },
+
+    { path: '/dashboard/form', component: FormPage },
+    { path: '/dashboard/form/start', component: FormStartPage },
+    { path: '/dashboard/form/new', component: FormNewPage },
+    { path: '/dashboard/form/show', component: FormShowPage },
+    { path: '/dashboard/forms', component: FormsList },
+
+    { path: '/dashboard/appeal-form/new-2021', component: AppealFormNew2021 },
+    { path: '/dashboard/appeal-form/show-2021', component: AppealFormShow2021 },
+    { path: '/dashboard/appeal-form/show', component: AppealFormShow },
+
+];
+
 const router = createRouter({
     history: createWebHistory(),
     scrollBehavior(to, from, savedPosition) {
         return { left: 0, top: 0 }
     },
-    routes: [
-    ]
+    routes,
 });
 
 if (process.env.MIX_APP_ENV === 'production') {

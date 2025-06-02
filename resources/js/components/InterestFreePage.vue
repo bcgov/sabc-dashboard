@@ -111,9 +111,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-        },
-
         data: () => ({
             maintenanceMode: false,
         }),

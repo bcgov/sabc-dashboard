@@ -36,7 +36,7 @@
                 <div class="row p-3">
                     <div class="col-12 status-bar">
                         <div class="">
-                            <span>Appendix #{{app.applicationNumber | formatAppNumber}}</span>
+                            <span>Appendix #{{ formatAppNumber(app.applicationNumber) }}</span>
                         </div>
                     </div>
 
@@ -57,12 +57,12 @@
                                 <div class="row mb-3">
                                     <div class="d-block d-md-none col-md-4"><strong>Start Date</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>Start Date</strong></div>
-                                    <div class="col-md-8">{{progStartDate | formatLetterDate}}</div>
+                                    <div class="col-md-8">{{ formatLetterDate(progStartDate) }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="d-block d-md-none col-md-4"><strong>End Date</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>End Date</strong></div>
-                                    <div class="col-md-8">{{progEndDate | formatLetterDate}}</div>
+                                    <div class="col-md-8">{{ formatLetterDate(progEndDate) }}</div>
                                 </div>
 
 
@@ -170,7 +170,7 @@
     font-size: 16.1px;
 }
     /*    to pass css to v-html child */
-    div.row >>> span.label{
+    div.row :deep(span.label) {
         cursor: default !important;
         text-transform: uppercase;
     }
@@ -254,7 +254,38 @@
     import axios from 'axios';
 
     export default {
-        filters: {
+        props: ['errors', 'appno', 'formguid'],
+        data: () => ({
+            app: '',
+            eventItems: '',
+            loading: true,
+            loadingError: false,
+            accordion: [false, false, false, false, false],
+            //TIMELINE EVENTS
+            statusFlags: {
+                'Start/Submit Appendix': {'title': 'Start/Submit Appendix', 'class': 'icon-addtolist'},
+                'Submit Appendix Declaration': {'title': 'Submit Appendix Declaration', 'class': 'icon-uniF47C'}
+            },
+            statusFlagsClass: {
+                'In Progress': {'status': 'In Progress', 'class': 'info'},
+                'Complete': {'status': 'Complete', 'class': 'success'},
+                'Waiting': {'status': 'Waiting', 'class': 'warning'},
+                'Scheduled': {'status': 'Scheduled', 'class': 'info'},
+                'Missing Info': {'status': 'Missing Info', 'class': 'important'},
+                'Missing Information': {'status': 'Missing Information', 'class': 'important'},
+                'Cancelled': {'status': 'Cancelled', 'class': 'danger'},
+                'Not Required': {'status': 'Not Required Yet', 'class': ''}
+            },
+
+            isInkSignReq: null,
+            processingConsent: null,
+            showEconsent: null,
+            econsent_rollout_date: 20200317, // 2020 Mar 17
+            maintenanceMode: false,
+            validationErrors: '',
+
+        }),
+        methods: {
             formatAppNumber: function(value){
                 let year = value.slice(0, 4);
                 let extra = value.slice(4);
@@ -294,41 +325,7 @@
                     return 'confirming';
                 }
                 return txt;
-            }
-
-        },
-        props: ['errors', 'appno', 'formguid'],
-        data: () => ({
-            app: '',
-            eventItems: '',
-            loading: true,
-            loadingError: false,
-            accordion: [false, false, false, false, false],
-            //TIMELINE EVENTS
-            statusFlags: {
-                'Start/Submit Appendix': {'title': 'Start/Submit Appendix', 'class': 'icon-addtolist'},
-                'Submit Appendix Declaration': {'title': 'Submit Appendix Declaration', 'class': 'icon-uniF47C'}
             },
-            statusFlagsClass: {
-                'In Progress': {'status': 'In Progress', 'class': 'info'},
-                'Complete': {'status': 'Complete', 'class': 'success'},
-                'Waiting': {'status': 'Waiting', 'class': 'warning'},
-                'Scheduled': {'status': 'Scheduled', 'class': 'info'},
-                'Missing Info': {'status': 'Missing Info', 'class': 'important'},
-                'Missing Information': {'status': 'Missing Information', 'class': 'important'},
-                'Cancelled': {'status': 'Cancelled', 'class': 'danger'},
-                'Not Required': {'status': 'Not Required Yet', 'class': ''}
-            },
-
-            isInkSignReq: null,
-            processingConsent: null,
-            showEconsent: null,
-            econsent_rollout_date: 20200317, // 2020 Mar 17
-            maintenanceMode: false,
-            validationErrors: '',
-
-        }),
-        methods: {
             disablePage: function(e){
                 if(e === true)
                     this.maintenanceMode = true;
