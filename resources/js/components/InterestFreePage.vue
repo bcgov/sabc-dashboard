@@ -32,7 +32,6 @@
                     <hr />
                     <p class="text-muted">If you are <strong>not attending a B.C. public</strong> post-secondary school, you will need to confirm your enrolment with the <a href="https://www.csnpe-nslsc.canada.ca/en/home" target="_blank">National Student Loans Service Centre</a>.</p>
 
-                    <p class="text-muted">If you have a <strong>grant overaward</strong>, you will need to complete a paper  <a href="/sites/all/files/form-library/cert3.pdf">Continuation of In-Study Payment-Free Status for Grant Overawards - Certificate 3</a> which will help you stay payment-free while in school.</p>
 
                 </div>
             </div>
