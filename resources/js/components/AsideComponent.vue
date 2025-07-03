@@ -31,7 +31,6 @@
                 }
                 //replace any url that contains an application number with a wildcard
                 let url = window.location.pathname;
-                console.log(url);
                 let regex = /\/\d+$/;
                 return url.replace(regex, '/*');
             },
