@@ -22,9 +22,9 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3 text-right">Start Date</div>
-                            <div class="col-sm-3">{{appendix.studyStartDate | formatApplicationDate}}</div>
+                            <div class="col-sm-3">{{ formatApplicationDate(appendix.studyStartDate) }}</div>
                             <div class="col-sm-3 text-right">End Date</div>
-                            <div class="col-sm-3">{{appendix.studyEndDate | formatApplicationDate}}</div>
+                            <div class="col-sm-3">{{ formatApplicationDate(appendix.studyEndDate) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3 text-right">Doc. ID</div>
@@ -50,7 +50,7 @@
                                         <li class="list-group-item">
                                             <template v-if="Array.isArray(e.eventItems.eventItem)">
                                                 <div v-for="item in e.eventItems.eventItem" class="row">
-                                                    <div class="col-sm-3">{{item.eventDate | formatApplicationDate}}</div>
+                                                    <div class="col-sm-3">{{ formatApplicationDate(item.eventDate) }}</div>
                                                     <div class="col-sm-3">{{item.eventCode}}</div>
                                                     <div class="col-sm-6">{{item.eventDescription}}</div>
                                                 </div>
@@ -100,7 +100,15 @@
     import axios from 'axios';
 
     export default {
-        filters: {
+        data: () => ({
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            loading: true,
+            loadingError: false,
+            appendix: '',
+            details: '',
+        }),
+        props: ['appnumber'],
+        methods: {
             formatDate: function (value) {
                 if(value != undefined && value != ''){
                     var newValue = value.split(",");
@@ -122,18 +130,6 @@
                 }
                 return '-';
             },
-
-        },
-
-        data: () => ({
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            loading: true,
-            loadingError: false,
-            appendix: '',
-            details: '',
-        }),
-        props: ['appnumber'],
-        methods: {
             fetchData: function(){
                 this.loading = true;
                 var vm = this;

@@ -148,14 +148,6 @@ h4 {
     import axios from 'axios';
 
     export default {
-        filters: {
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
         props: ['app', 'items'],
         data: () => ({
             submitting: false,
@@ -166,37 +158,12 @@ h4 {
             //accordion: [false, false, false, false, false],
         }),
         methods: {
-            //you cannot update arrays directly in JS. The DOM won't see these changes.
-            //https://stackoverflow.com/questions/51412250/vue-v-if-cant-access-booleans-in-arrays
-            // toggleAccordion: function(index){
-            //     this.$set(this.accordion, index, !this.accordion[index])
-            // },
-            // fetchData: function(){
-            //     this.loading = true;
-            //     var vm = this;
-            //     axios({
-            //         url: '/student-loans/fetch-application-status?application_number=' + this.appno,
-            //         //data: formData,
-            //         method: 'get',
-            //         //headers: {'Accept': 'application/json', 'Content-Type': 'multipart/form-data'}
-            //         headers: {'Accept': 'application/json'}
-            //     })
-            //
-            //     //axios.get( '/fetch-dashboard' )
-            //         .then(function (response) {
-            //
-            //             vm.loading = false;
-            //             vm.app = response.data.application;
-            //             vm.eventItems = response.data.details;
-            //
-            //         })
-            //         .catch(function (error) {
-            //             vm.loading = false;
-            //             vm.loadingError = true;
-            //             console.log(error);
-            //         });
-            // }
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
 
+                return year + '-' + extra;
+            }
         },
         computed: {
             submitClass: function(){

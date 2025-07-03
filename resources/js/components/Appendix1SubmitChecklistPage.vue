@@ -19,7 +19,14 @@
                     <div class="col-12">
                         <div class="alert alert-contextual alert-danger">
                             <svg class="alert-icon icon-lg" aria-hidden="true" focusable="false"><use xlink:href="/dashboard/assets/sprite/icons.svg#stopsign-alert"></use></svg>
-                            <template v-for="(error, i) in validationErrors"><p class="alert-p"v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
+                            <template v-for="(error, i) in validationErrors" :key="i">
+                                <template v-for="(e, j) in error" :key="j">
+                                    <p class="alert-p">
+                                        <span v-html="e"></span>
+                                        <br v-if="i === 1" />
+                                    </p>
+                                </template>
+                            </template>
                         </div>
                     </div><!-- /.block -->
                 </div>
@@ -44,7 +51,8 @@
                     <fieldset>
                         <div class="form-row pt-3">
                             <div class="form-group col-12">
-                                <div class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_consent_req_agreement_text.value">AGREEMENT GOES HERE</div>
+                                <!-- AGREEMENT GOES HERE -->
+                                <div class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_consent_req_agreement_text.value"></div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="declaration_confirmation" name="declaration_confirmation" required>
                                     <label class="form-check-label" for="declaration_confirmation">
@@ -60,7 +68,8 @@
                     <fieldset>
                         <div class="form-row pt-3">
                             <div class="form-group col-12">
-                                <div class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_consent2_req_agreement.value">AGREEMENT 2 GOES HERE</div>
+                                <!-- AGREEMENT 2 GOES HERE -->
+                                <div class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_consent2_req_agreement.value"></div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="declaration_cra_confirmation" name="declaration_cra_confirmation" required>
                                     <label class="form-check-label" for="declaration_cra_confirmation">
@@ -77,8 +86,9 @@
                 <fieldset v-else>
                     <div class="form-row pt-3">
                         <div class="form-group col-12">
-                            <div v-if="parsedFields.field_sig_req_agreement_text != undefined" class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_sig_req_agreement_text.value">AGREEMENT 3 GOES HERE</div>
-                            <div v-if="parsedFields.field_new_dec_req_agreement_text != undefined" class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_new_dec_req_agreement_text.value">AGREEMENT 3 GOES HERE</div>
+                            <!-- AGREEMENT 3 GOES HERE -->
+                            <div v-if="parsedFields.field_sig_req_agreement_text != undefined" class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_sig_req_agreement_text.value"></div>
+                            <div v-if="parsedFields.field_new_dec_req_agreement_text != undefined" class="p-4 mb-5" style="overflow-y:scroll; height:200px;" v-html="parsedFields.field_new_dec_req_agreement_text.value"></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="declaration_confirmation" name="declaration_confirmation" required>
                                 <label class="form-check-label" for="declaration_confirmation">
@@ -158,9 +168,6 @@
 <script>
 
     export default {
-        filters: {
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,

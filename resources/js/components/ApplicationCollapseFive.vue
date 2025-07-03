@@ -36,7 +36,7 @@
                                     </tr>
                                 <tr>
                                     <td colspan="2"><strong>Est. Earliest Disbursement:</strong></td>
-                                    <td colspan="2" class="text-right">{{value.totalFunds.earliestDate | formatApplicationDate}}</td>
+                                    <td colspan="2" class="text-right">{{ formatApplicationDate(value.totalFunds.earliestDate) }}</td>
                                     </tr>
                                 <tr>
                                     <td colspan="2"><strong>Total Funding:</strong></td>
@@ -57,7 +57,7 @@
                                                     </td>
                                                 <td>
                                                     <div v-if="e.events[f.disbursementID].eventCode == 'Complete'" class="text-right">
-                                                        {{e.events[f.disbursementID].eventDate | formatDate}}
+                                                        {{ formatDate(e.events[f.disbursementID].eventDate) }}
                                                         <i class="icon icon-uniF479 text-success" alt="Enrolment Confirmed" title="Enrolment Confirmed"></i>
                                                     </div>
                                                     <div v-else class="text-right">
@@ -80,7 +80,7 @@
                                                     </td>
                                                 <td>
                                                     <div v-if="e.events[fund.disbursementID].eventCode == 'Complete'" class="text-right">
-                                                        {{e.events[fund.disbursementID].eventDate | formatDate}}
+                                                        {{ formatDate(e.events[f.disbursementID].eventDate) }}
                                                         <i class="icon icon-uniF479 text-success" alt="Enrolment Confirmed" title="Enrolment Confirmed"></i>
                                                         </div>
                                                     <div v-else class="text-right">
@@ -121,7 +121,7 @@
                                 </tr>
                             <tr>
                                 <td colspan="2"><strong>Est. Earliest Disbursement:</strong></td>
-                                <td colspan="2" class="text-right">{{app.applicationDetails.fundingDetails.disbursementGroup.totalFunds.earliestDate | formatApplicationDate}}</td>
+                                <td colspan="2" class="text-right">{{ formatApplicationDate(app.applicationDetails.fundingDetails.disbursementGroup.totalFunds.earliestDate) }}</td>
                                 </tr>
                             <tr>
                                 <td colspan="2"><strong>Total Funding:</strong></td>
@@ -141,7 +141,7 @@
                                                 </td>
                                             <td>
                                                 <div v-if="e.events[f.disbursementID].eventCode == 'Complete'" class="text-right">
-                                                    {{e.events[f.disbursementID].eventDate | formatDate}}
+                                                    {{ formatDate(e.events[f.disbursementID].eventDate) }}
                                                     <i class="icon icon-uniF479 text-success" alt="Enrolment Confirmed" title="Enrolment Confirmed"></i>
                                                 </div>
                                                 <div v-else class="text-right">
@@ -164,7 +164,7 @@
                                                 </td>
                                             <td>
                                                 <div v-if="e.events[f.disbursementID].eventCode == 'Complete'" class="text-right">
-                                                    {{e.events[f.disbursementID].eventDate | formatDate}}
+                                                    {{ formatDate(e.events[f.disbursementID].eventDate) }}
                                                     <i class="icon icon-uniF479 text-success" alt="Enrolment Confirmed" title="Enrolment Confirmed"></i>
                                                 </div>
                                                 <div v-else class="text-right">
@@ -207,7 +207,23 @@
     //import axios from 'axios
 
     export default {
-        filters: {
+        props: ['app', 'e'],
+        data: () => ({
+
+            statusFlags: {
+                'In Progress': {'status': 'In Progress', 'class': 'info'},
+                'Complete': {'status': 'Complete', 'class': 'success'},
+                'Waiting': {'status': 'Waiting', 'class': 'warning'},
+                'Scheduled': {'status': 'Scheduled', 'class': 'info'},
+                'Missing Info': {'status': 'Missing Info', 'class': 'important'},
+                'Missing Information': {'status': 'Missing Information', 'class': 'important'},
+                'Cancelled': {'status': 'Cancelled', 'class': 'danger'},
+                'Not Required': {'status': 'Not Required Yet', 'class': ''}
+
+            },
+
+        }),
+        methods: {
             formatDate: function (value) {
                 if(value != undefined && value != ''){
                     var newValue = value.split(",");
@@ -229,27 +245,6 @@
                 }
                 return '-';
             },
-        },
-        props: ['app', 'e'],
-        data: () => ({
-
-            statusFlags: {
-                'In Progress': {'status': 'In Progress', 'class': 'info'},
-                'Complete': {'status': 'Complete', 'class': 'success'},
-                'Waiting': {'status': 'Waiting', 'class': 'warning'},
-                'Scheduled': {'status': 'Scheduled', 'class': 'info'},
-                'Missing Info': {'status': 'Missing Info', 'class': 'important'},
-                'Missing Information': {'status': 'Missing Information', 'class': 'important'},
-                'Cancelled': {'status': 'Cancelled', 'class': 'danger'},
-                'Not Required': {'status': 'Not Required Yet', 'class': ''}
-
-            },
-
-        }),
-        methods: {
-
-
-
         },
         computed: {
         },

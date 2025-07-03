@@ -22,13 +22,13 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3 text-right">Start Date</div>
-                            <div class="col-sm-3">{{application.applicationProfile.studySDate | formatApplicationDate}}</div>
+                            <div class="col-sm-3">{{ formatApplicationDate(application.applicationProfile.studySDate) }}</div>
                             <div class="col-sm-3 text-right">End Date</div>
-                            <div class="col-sm-3">{{application.applicationProfile.studyEDate | formatApplicationDate}}</div>
+                            <div class="col-sm-3">{{ formatApplicationDate(application.applicationProfile.studyEDate) }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3 text-right">Birth Date</div>
-                            <div class="col-sm-3">{{application.applicationProfile.birthDate | formatApplicationDate}}</div>
+                            <div class="col-sm-3">{{ formatApplicationDate(application.applicationProfile.birthDate) }}</div>
                             <div class="col-sm-3 text-right">Program Year</div>
                             <div class="col-sm-3">{{application.applicationProfile.programYear}}</div>
                         </div>
@@ -58,7 +58,7 @@
                                             <template v-if="Array.isArray(e.eventItems.eventItem)">
                                                 <div v-for="item in e.eventItems.eventItem" class="row">
                                                     <div class="col-sm-3">{{item.eventType}}</div>
-                                                    <div class="col-sm-2">{{item.eventDate | formatApplicationDate}}</div>
+                                                    <div class="col-sm-2">{{ formatApplicationDate(item.eventDate) }}</div>
                                                     <div class="col-sm-2">{{item.eventCode}}</div>
                                                     <div class="col-sm-5">{{item.eventDescription}}</div>
                                                 </div>
@@ -85,14 +85,14 @@
                         <template v-for="(letter, key, index) in application.pdfLetters">
                             <template v-if="Array.isArray(letter)">
                                 <div v-for="(value, name) in letter" class="row">
-                                    <div class="col-md-4 text-right"><small>{{value.sendDate | formatApplicationDate}}</small></div>
+                                    <div class="col-md-4 text-right"><small>{{ formatApplicationDate(value.sendDate) }}</small></div>
                                     <div class="col-md-8">
                                         <a :href="'/dashboard/app_support/fetch-application-notification/' + value.letterID + '/' + (application.applicationStatus == 'SUBMPROC' ? 'T' : 'R') + ''" target="_blank">{{value.letterDescription}}</a>
                                     </div>
                                 </div>
                             </template>
                             <div v-else class="row">
-                                <div class="col-md-4 text-right"><small>{{letter.sendDate | formatApplicationDate}}</small></div>
+                                <div class="col-md-4 text-right"><small>{{ formatApplicationDate(letter.sendDate) }}</small></div>
                                 <div class="col-md-8">
                                     <a :href="'/dashboard/app_support/fetch-application-notification/' + letter.letterID + '/' + (application.applicationStatus == 'SUBMPROC' ? 'T' : 'R') + ''" target="_blank">{{letter.letterDescription}}</a>
                                 </div>
@@ -118,7 +118,14 @@
     import axios from 'axios';
 
     export default {
-        filters: {
+        data: () => ({
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            loading: true,
+            loadingError: false,
+            application: '',
+        }),
+        props: ['appnumber'],
+        methods: {
             formatDate: function (value) {
                 if(value != undefined && value != ''){
                     var newValue = value.split(",");
@@ -140,17 +147,6 @@
                 }
                 return '-';
             },
-
-        },
-
-        data: () => ({
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            loading: true,
-            loadingError: false,
-            application: '',
-        }),
-        props: ['appnumber'],
-        methods: {
             fetchData: function(){
                 this.loading = true;
                 var vm = this;

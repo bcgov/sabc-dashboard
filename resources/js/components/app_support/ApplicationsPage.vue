@@ -73,18 +73,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-            formatDate: function (value) {
-                if(value != undefined && value != ''){
-                    var newValue = value.split("T");
-
-                    return newValue[0];
-                }
-                return value;
-            },
-
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,

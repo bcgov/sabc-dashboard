@@ -8,7 +8,7 @@
             <template v-if="loading == false && loadingError == false">
 
                 <div class="card">
-                    <div class="card-header">Appendix #{{app_id | formatAppNumber}}</div>
+                    <div class="card-header">Appendix #{{ formatAppNumber(app_id) }}</div>
                     <div class="card-body">
                         <div class="alert alert-contextual alert-info mb-3">
                             <svg class="alert-icon icon-lg" aria-hidden="true" focusable="false"><use xlink:href="/dashboard/assets/sprite/icons.svg#info"></use></svg>
@@ -53,15 +53,6 @@
 <script>
 
     export default {
-        filters: {
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            },
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,
@@ -71,7 +62,12 @@
 
         props: ['app_id', 'document_guid', 'appendix_type'],
         methods: {
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
 
+                return year + '-' + extra;
+            },
             disablePage: function(e){
                 if(e === true)
                     this.maintenanceMode = true;

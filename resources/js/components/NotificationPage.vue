@@ -47,16 +47,6 @@
     import ProfileChallengeQuestions from "./ProfileChallengeQuestions";
 
     export default {
-        filters: {
-
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
-
         data: () => ({
             loading: true,
             loadingError: false,
@@ -64,7 +54,12 @@
             maintenanceMode: false,
         }),
         methods: {
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
 
+                return year + '-' + extra;
+            },
             disablePage: function(e){
                 if(e === true)
                     this.maintenanceMode = true;

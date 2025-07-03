@@ -21,10 +21,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-
-
-        },
         props: ['errors', 'form'],
         data: () => ({
 

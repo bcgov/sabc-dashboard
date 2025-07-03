@@ -35,7 +35,7 @@
                                         <span v-if="form.publish === 1">Published</span>
                                         <span v-else>Not Published</span>
                                     </td>
-                                    <td class="fit">{{form.updated_at | formatDate}}</td>
+                                    <td class="fit">{{ formatDate(form.updated_at) }}</td>
                                     <td><a :href="'/dashboard/admin/forms/edit/' + form.id" class="btn btn-sm btn-primary">Edit</a></td>
                                 </tr>
                             </tbody>
@@ -57,18 +57,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-            formatDate: function (value) {
-                if(value != undefined && value != ''){
-                    var newValue = value.split("T");
-
-                    return newValue[0];
-                }
-                return value;
-            },
-
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,
@@ -78,6 +66,14 @@
         }),
         props: [],
         methods: {
+            formatDate: function (value) {
+                if(value != undefined && value != ''){
+                    var newValue = value.split("T");
+
+                    return newValue[0];
+                }
+                return value;
+            },
             sortBy: function(clmn){
                 if(this.sortType == 'asc'){
                     this.forms = this.forms.sort(function(a, b){ return (a[clmn] > b[clmn]) ? -1 : 1; });

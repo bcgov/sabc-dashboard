@@ -26,10 +26,6 @@
     import ProfileChallengeQuestions from "./ProfileChallengeQuestions";
 
     export default {
-        filters: {
-
-        },
-
         data: () => ({
 
         }),

@@ -420,10 +420,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-
-
-        },
         props: ['appeal', 'errors'],
         data: () => ({
             parsedAppeal: ''

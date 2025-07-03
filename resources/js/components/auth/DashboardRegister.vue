@@ -18,8 +18,14 @@
                         <div class="col-12">
                             <div class="alert alert-contextual alert-danger" role="alert">
                                 <svg class="alert-icon icon-lg colorRed100" aria-hidden="true" focusable="false"><use xlink:href="/dashboard/assets/sprite/icons.svg#alert"></use></svg>
-                                <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
-
+                                <template v-for="(error, i) in validationErrors" :key="i">
+                                    <template v-for="(e, j) in error" :key="j">
+                                        <p class="alert-p">
+                                            <span v-html="e"></span>
+                                            <br v-if="i === 1" />
+                                        </p>
+                                    </template>
+                                </template>
                             </div><!-- /.alert -->
 
                         </div><!-- /.block -->
@@ -224,17 +230,6 @@
 
     export default {
         components: {CreateChallengeQuestions, CreateUserId},
-
-        filters: {
-
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             selectedCountry: '',
