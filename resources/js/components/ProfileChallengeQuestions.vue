@@ -74,16 +74,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
-
         data: () => ({
 
             loading: true,
@@ -93,6 +83,12 @@
         }),
         props: ['profile'],
         methods: {
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
+
+                return year + '-' + extra;
+            },
             fetchData: function(){
                 this.loading = true;
                 var vm = this;

@@ -24,7 +24,14 @@
                         <div class="col-12">
                             <div class="alert alert-contextual alert-danger">
                                 <svg class="alert-icon icon-lg" aria-hidden="true" focusable="false"><use xlink:href="/dashboard/assets/sprite/icons.svg#stopsign-alert"></use></svg>
-                                <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
+                                <template v-for="(error, i) in validationErrors" :key="i">
+                                    <template v-for="(e, j) in error" :key="j">
+                                        <p class="alert-p">
+                                            <span v-html="e"></span>
+                                            <br v-if="i === 1" />
+                                        </p>
+                                    </template>
+                                </template>
                             </div>
 
                         </div><!-- /.block -->
@@ -100,10 +107,6 @@
     import ProfileChallengeQuestions from "./ProfileChallengeQuestions";
 
     export default {
-        filters: {
-
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: false,

@@ -13,10 +13,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-
-        },
-
         data: () => ({
             alerts: "",
             disablePage: false,

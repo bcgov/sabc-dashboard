@@ -9,9 +9,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
-                        <table v-if="forms !== ''" class="table table-bordered">
-                            <thead>
+                        <table v-if="categories.length" class="table table-bordered">
+                        <thead>
                                 <tr>
                                     <th class="text-primary" scope="col" @click="sortBy('name')">Name</th>
                                     <th class="text-primary" scope="col" @click="sortBy('name')">Long Name</th>
@@ -30,7 +29,7 @@
                                         <span v-else>Draft</span>
                                     </td>
                                     <td class="fit"><input type="number" @keyup="updateWeight(cat)" v-model="cat.weight"/></td>
-                                    <td class="fit">{{cat.updated_at | formatDate}}</td>
+                                    <td class="fit">{{ formatDate(cat.updated_at) }}</td>
                                     <td><a :href="'/dashboard/admin/categories/edit/' + cat.id" class="btn btn-sm btn-primary">Edit</a></td>
                                 </tr>
                             </tbody>
@@ -52,7 +51,15 @@
     import axios from 'axios';
 
     export default {
-        filters: {
+        data: () => ({
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            loading: true,
+            loadingError: false,
+            categories: [],
+            sortType: 'asc',
+        }),
+        props: [],
+        methods: {
             formatDate: function (value) {
                 if(value != undefined && value != ''){
                     var newValue = value.split("T");
@@ -61,18 +68,6 @@
                 }
                 return value;
             },
-
-        },
-
-        data: () => ({
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            loading: true,
-            loadingError: false,
-            categories: '',
-            sortType: 'asc',
-        }),
-        props: [],
-        methods: {
             sortBy: function(clmn){
                 if(this.sortType == 'asc'){
                     this.categories = this.categories.sort(function(a, b){ return (a[clmn] > b[clmn]) ? -1 : 1; });

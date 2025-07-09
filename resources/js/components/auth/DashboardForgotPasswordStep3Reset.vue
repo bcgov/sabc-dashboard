@@ -45,9 +45,6 @@
     //import axios from 'axios
 
     export default {
-        filters: {
-
-        },
         props: ['errors', 'old', 'data'],
         data: () => ({
             loading: false,
