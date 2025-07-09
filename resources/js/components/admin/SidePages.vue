@@ -27,7 +27,7 @@
                                     <td class="fit">{{page.url}}</td>
                                     <td>{{page.status}}</td>
                                     <td class="fit">{{page.modified_by}}</td>
-                                    <td class="fit">{{page.updated_at | formatDate}}</td>
+                                    <td class="fit">{{ formatDate(page.updated_at) }}</td>
                                     <td><a :href="'/dashboard/admin/side-pages/edit/' + page.id" class="btn btn-sm btn-primary">Edit</a></td>
                                 </tr>
                             </tbody>
@@ -49,18 +49,6 @@
     import axios from 'axios';
 
     export default {
-        filters: {
-            formatDate: function (value) {
-                if(value != undefined && value != ''){
-                    var newValue = value.split("T");
-
-                    return newValue[0];
-                }
-                return value;
-            },
-
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,
@@ -70,6 +58,14 @@
         }),
         props: [],
         methods: {
+            formatDate: function (value) {
+                if(value != undefined && value != ''){
+                    var newValue = value.split("T");
+
+                    return newValue[0];
+                }
+                return value;
+            },
             fetchData: function(){
                 this.loading = true;
                 var vm = this;

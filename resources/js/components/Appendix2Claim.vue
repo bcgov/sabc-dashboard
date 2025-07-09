@@ -37,7 +37,14 @@
                         <div class="col-12">
                             <div class="alert alert-contextual alert-danger">
                                 <svg class="alert-icon icon-lg" aria-hidden="true" focusable="false"><use xlink:href="/dashboard/assets/sprite/icons.svg#stopsign-alert"></use></svg>
-                                <template v-for="(error, i) in validationErrors"><p v-for="e in error" v-html="e"><br v-if="i==1"></p></template>
+                                <template v-for="(error, i) in validationErrors" :key="i">
+                                    <template v-for="(e, j) in error" :key="j">
+                                        <p class="alert-p">
+                                            <span v-html="e"></span>
+                                            <br v-if="i === 1" />
+                                        </p>
+                                    </template>
+                                </template>
                             </div>
 
                         </div><!-- /.block -->
@@ -222,16 +229,6 @@
     import ProfileChallengeQuestions from "./ProfileChallengeQuestions";
 
     export default {
-        filters: {
-
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            }
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             countries: '',
@@ -251,6 +248,11 @@
         }),
         props: ['access_code', 'submit_status', 'submit_msg', 'errors', 'program_years'],
         methods: {
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
+                return year + '-' + extra;
+            },
             disablePage: function(e){
                 if(e === true)
                     this.maintenanceMode = true;

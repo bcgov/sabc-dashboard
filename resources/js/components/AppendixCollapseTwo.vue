@@ -77,7 +77,7 @@
 </template>
 <style scoped>
     /*    to pass css to v-html child */
-    div.row >>> span.label{
+    div.row :deep(span.label) {
         cursor: default !important;
         text-transform: uppercase;
     }
@@ -161,7 +161,11 @@
     //import axios from 'axios
 
     export default {
-        filters: {
+        props: ['app', 'eventItems', 'isInkSignReq', 'processingConsent', 'showEconsent'],
+        data: () => ({
+            accordion: false,
+        }),
+        methods: {
             formatDate: function (value) {
                 if(value != undefined && value != ''){
                     var newValue = value.split(",");
@@ -183,12 +187,6 @@
                 }
                 return '-';
             },
-        },
-        props: ['app', 'eventItems', 'isInkSignReq', 'processingConsent', 'showEconsent'],
-        data: () => ({
-            accordion: false,
-        }),
-        methods: {
             toggleAccordion: function(){
                 this.accordion = !this.accordion;
             },

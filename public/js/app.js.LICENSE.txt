@@ -5,6 +5,12 @@
   */
 
 /*!
+  * vue-router v4.5.1
+  * (c) 2025 Eduardo San Martin Morote
+  * @license MIT
+  */
+
+/*!
  * Sizzle CSS Selector Engine v2.3.6
  * https://sizzlejs.com/
  *
@@ -13,12 +19,6 @@
  * https://js.foundation/
  *
  * Date: 2021-02-16
- */
-
-/*!
- * Vue.js v2.7.16
- * (c) 2014-2023 Evan You
- * Released under the MIT License.
  */
 
 /*!
@@ -35,6 +35,8 @@
  * Date: 2022-08-26T17:52Z
  */
 
+/*! #__NO_SIDE_EFFECTS__ */
+
 /**
  * @license
  * Lodash <https://lodash.com/>
@@ -43,6 +45,24 @@
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
+
+/**
+* @vue/runtime-core v3.5.17
+* (c) 2018-present Yuxi (Evan) You and Vue contributors
+* @license MIT
+**/
+
+/**
+* @vue/runtime-dom v3.5.17
+* (c) 2018-present Yuxi (Evan) You and Vue contributors
+* @license MIT
+**/
+
+/**
+* @vue/shared v3.5.17
+* (c) 2018-present Yuxi (Evan) You and Vue contributors
+* @license MIT
+**/
 
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.

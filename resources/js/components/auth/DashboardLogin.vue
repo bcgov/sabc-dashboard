@@ -204,7 +204,6 @@ span.form-required {
 //import axios from 'axios
 
 export default {
-    filters: {},
     props: ['errors', 'userid', 'env', 'passwordreset'],
     data: () => ({
         validationErrors: '',

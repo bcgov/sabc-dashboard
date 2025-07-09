@@ -1,8 +1,8 @@
 <template>
 <!-- Sidenav -->
     <div>
-        <small v-if="sidePage != '' && section == 'left' && sidePage.status == 'active'" v-html="sidePage.left_side"></small>
-        <small v-if="sidePage != '' && section == 'right' && sidePage.status == 'active'" v-html="sidePage.right_side"></small>
+        <small v-if="sidePage?.status === 'active' && section === 'left'" v-html="sidePage.left_side"></small>
+        <small v-if="sidePage?.status === 'active' && section === 'right'" v-html="sidePage.right_side"></small>
     </div>
 <!-- end sidenav-->
 </template>
@@ -13,30 +13,26 @@
     import axios from "axios";
 
     export default {
-        filters: {
-            formatAppNumber: function(value){
-                let year = value.slice(0, 4);
-                let extra = value.slice(4);
-
-                return year + '-' + extra;
-            },
-
-        },
         props: ['section', 'customurl'],
         data: () => ({
-            sidePage: '',
+            sidePage: null,
             loading: true,
             loadingError: false,
         }),
         methods:{
+            formatAppNumber: function(value){
+                let year = value.slice(0, 4);
+                let extra = value.slice(4);
+                return year + '-' + extra;
+            },
             parseUrl: function (){
                 if(this.customurl != undefined){
                     return this.customurl;
                 }
                 //replace any url that contains an application number with a wildcard
-                let url = this.$route.path;
-                let regex = /\d{8,10}/;
-                return url.replace(regex, '*');
+                let url = window.location.pathname;
+                let regex = /\/\d+$/;
+                return url.replace(regex, '/*');
             },
             fetchData: function(){
                 let url = this.parseUrl();
@@ -54,7 +50,7 @@
                     .then(function (response) {
 
                         vm.loading = false;
-                        vm.sidePage = response.data.sidePage;
+                        vm.sidePage = response.data.sidePage || {};
 
                     })
                     .catch(function (error) {
