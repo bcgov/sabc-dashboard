@@ -15,7 +15,7 @@
                                     <small v-if="loadingItem === i" class="spinner-border spinner-border-sm m-1" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </small>
-                                    <a @click="loadItem(i)" :href="'/dashboard/appeal-forms/' + uploadedDoc.documentID">{{ uploadedDoc.fileName | onlyName}}</a>
+                                    <a @click="loadItem(i)" :href="'/dashboard/appeal-forms/' + uploadedDoc.documentID">{{ onlyName(uploadedDoc.fileName) }}</a>
                                 </div>
                                 <div class="float-right">
                                     <span class="badge badge-secondary">{{ uploadedDoc.dateUploaded }}</span>
@@ -40,21 +40,6 @@ a{
     import ProfileChallengeQuestions from "./ProfileChallengeQuestions";
 
     export default {
-        filters: {
-            onlyName: function (value) {
-                var name = value.split('-_-');
-                if(name[1] == undefined)
-                    return value;
-                return name[1];
-            }
-            // formatAppNumber: function(value){
-            //     let year = value.slice(0, 4);
-            //     let extra = value.slice(3);
-            //
-            //     return year + '-' + extra;
-            // }
-        },
-
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             loading: true,
@@ -65,6 +50,12 @@ a{
         }),
         props: [],
         methods: {
+            onlyName: function (value) {
+                var name = value.split('-_-');
+                if(name[1] == undefined)
+                    return value;
+                return name[1];
+            },
             loadItem: function(i){
                 this.loadingItem = i;
             },
