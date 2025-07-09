@@ -333,7 +333,7 @@
             //you cannot update arrays directly in JS. The DOM won't see these changes.
             //https://stackoverflow.com/questions/51412250/vue-v-if-cant-access-booleans-in-arrays
             toggleAccordion: function(index){
-                this.$set(this.accordion, index, !this.accordion[index])
+                this.accordion[index] = !this.accordion[index];
             },
             fetchData: function(){
                 this.loading = true;

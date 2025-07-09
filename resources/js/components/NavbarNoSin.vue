@@ -1,24 +1,22 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <template>
-            <a class="navbar-brand" href="/">Back to StudentAid BC</a>
-<!--            <button @click="mobileToggle()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--                <span class="navbar-toggler-icon"></span>-->
-<!--            </button>-->
-<!--            <div class="collapse navbar-collapse" :class="mobileDropDown" id="navbarNavDropdown">-->
-<!--                <ul class="navbar-nav ml-auto pt-1">-->
+        <a class="navbar-brand" href="/">Back to StudentAid BC</a>
+        <!--            <button @click="mobileToggle()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--                <span class="navbar-toggler-icon"></span>-->
+        <!--            </button>-->
+        <!--            <div class="collapse navbar-collapse" :class="mobileDropDown" id="navbarNavDropdown">-->
+        <!--                <ul class="navbar-nav ml-auto pt-1">-->
 
-<!--                    <li @mouseover="showDropDown" @mouseout="hideDropDown" class="nav-item pl-3">-->
-<!--                        <a class="nav-link pt-0 pb-0 dropdown-toggle" title="My Account" href="/dashboard/login" role="button" >-->
-<!--                            <div class="username">Login/Register-->
-<!--                                <span aria-hidden="true" class="icon-cog icon-2x float-right mt-n1"></span>-->
-<!--                            </div>-->
-<!--                        </a>-->
-<!--                    </li>-->
+        <!--                    <li @mouseover="showDropDown" @mouseout="hideDropDown" class="nav-item pl-3">-->
+        <!--                        <a class="nav-link pt-0 pb-0 dropdown-toggle" title="My Account" href="/dashboard/login" role="button" >-->
+        <!--                            <div class="username">Login/Register-->
+        <!--                                <span aria-hidden="true" class="icon-cog icon-2x float-right mt-n1"></span>-->
+        <!--                            </div>-->
+        <!--                        </a>-->
+        <!--                    </li>-->
 
-<!--                </ul>-->
-<!--            </div>-->
-        </template>
+        <!--                </ul>-->
+        <!--            </div>-->
 
     </nav>
 </template>
