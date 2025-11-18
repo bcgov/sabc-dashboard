@@ -1901,8 +1901,11 @@ class User extends Authenticatable
             $lname = $responsedata['surname'];
             array_push($name, $lname);
         }
+        if (env('TRACE_BCSC_LOGIN') == true) {
+            Log::warning(': bcscLogin(): begins');
+        }
 
-        if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
+        if (env('TRACE_BCSC_LOGIN') == true || (env('APP_DEBUG') == true && env('APP_ENV') != 'production')) {
             Log::warning(": fnBCSCSAMLParser(): SAML Response data 'responsedata' next line");
             Log::warning(': '.json_encode($responsedata));
         }
