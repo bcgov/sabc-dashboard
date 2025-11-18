@@ -168,6 +168,7 @@ class UserController extends Aeit
         }
 
         if (env('TRACE_BCSC_LOGIN') == true) {
+            Log::warning(': createBcscUser(): proceeding to bcscLogin. Alert #220');
             Log::warning('bcscLogin(): user: '.json_encode($user));
             Log::warning(': bcscLogin(): role: '.$role);
             Log::warning(': bcscLogin(): user_profile: '.json_encode($user_profile));
@@ -248,25 +249,25 @@ class UserController extends Aeit
             if ($this->user->isStudentSpouseParent() == true) {
                 if (empty($values)) {
                     if (env('TRACE_BCSC_LOGIN') == true) {
-                        Log::warning(': bcscLogin(): empty values and Auth check true');
+                        Log::warning(': bcscLogin(): empty values and Auth check true. Alert #221');
                     }
                     return redirect('/profile');
                 } elseif (is_array($values) && $values['status'] === false) {
                     if (env('TRACE_BCSC_LOGIN') == true) {
-                        Log::warning(': bcscLogin(): values status false and Auth check true');
+                        Log::warning(': bcscLogin(): values status false and Auth check true. Alert #222');
                     }
 
                     return redirect('/profile');
                 }
 
                 if (env('TRACE_BCSC_LOGIN') == true) {
-                    Log::warning(': bcscLogin(): redirect to dashboard');
+                    Log::warning(': bcscLogin(): redirect to dashboard. Auth check true. Alert #223');
                 }
                 return redirect('/');
             }
         } else {
             if (env('TRACE_BCSC_LOGIN') == true) {
-                Log::warning(': bcscLogin(): User account does not exist LV1');
+                Log::warning(': bcscLogin(): User account does not exist LV1. Auth check false. Alert #224');
             }
 
             if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
@@ -275,7 +276,7 @@ class UserController extends Aeit
 
             if (isset($values['status']) && $values['status'] === false) {
                 if (env('TRACE_BCSC_LOGIN') == true) {
-                    Log::warning(': bcscLogin(): values status false and Auth check false');
+                    Log::warning(': bcscLogin(): values status false and Auth check false. Alert #225');
                 }
 
                 return redirect('/login')->withErrors(['username' => $values['username']]);
@@ -285,7 +286,7 @@ class UserController extends Aeit
         // to login and redirect the user back to the login form.
 
         if (env('TRACE_BCSC_LOGIN') == true) {
-            Log::warning(': bcscLogin(): redirect to /login?msg=invalid');
+            Log::warning(': bcscLogin(): redirect to /login?msg=invalid. Alert #226');
         }
         return redirect('/login?msg=invalid');
     }
