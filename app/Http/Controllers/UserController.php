@@ -167,6 +167,14 @@ class UserController extends Aeit
             Log::warning(': bcscLogin(): is_null(user_profile): '.is_null($user_profile));
         }
 
+        if (env('TRACE_BCSC_LOGIN') == true) {
+            Log::warning('bcscLogin(): user: '.json_encode($user));
+            Log::warning(': bcscLogin(): role: '.$role);
+            Log::warning(': bcscLogin(): user_profile: '.json_encode($user_profile));
+            Log::warning(': bcscLogin(): uid: '.$uid);
+            Log::warning(': bcscLogin(): is_null(user_profile): '.is_null($user_profile));
+        }
+
         $values = [];
         //GET USER ACCOUNT DETAILS - LOOKING FOR FIRSTNAME AND FAMILY NAME TO DISPLAY ON THE DASHBOARD
 
@@ -239,24 +247,46 @@ class UserController extends Aeit
         if (Auth::check() && ! is_null(Auth::user()) && Auth::user()->id == $this->user->id) {
             if ($this->user->isStudentSpouseParent() == true) {
                 if (empty($values)) {
+                    if (env('TRACE_BCSC_LOGIN') == true) {
+                        Log::warning(': bcscLogin(): empty values and Auth check true');
+                    }
                     return redirect('/profile');
                 } elseif (is_array($values) && $values['status'] === false) {
+                    if (env('TRACE_BCSC_LOGIN') == true) {
+                        Log::warning(': bcscLogin(): values status false and Auth check true');
+                    }
+
                     return redirect('/profile');
                 }
 
+                if (env('TRACE_BCSC_LOGIN') == true) {
+                    Log::warning(': bcscLogin(): redirect to dashboard');
+                }
                 return redirect('/');
             }
         } else {
+            if (env('TRACE_BCSC_LOGIN') == true) {
+                Log::warning(': bcscLogin(): User account does not exist LV1');
+            }
+
             if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
                 session()->push('DEBUG', now().'bcscLogin(): User account does not exist LV1');
             }
 
             if (isset($values['status']) && $values['status'] === false) {
+                if (env('TRACE_BCSC_LOGIN') == true) {
+                    Log::warning(': bcscLogin(): values status false and Auth check false');
+                }
+
                 return redirect('/login')->withErrors(['username' => $values['username']]);
             }
         }
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form.
+
+        if (env('TRACE_BCSC_LOGIN') == true) {
+            Log::warning(': bcscLogin(): redirect to /login?msg=invalid');
+        }
         return redirect('/login?msg=invalid');
     }
 
@@ -312,6 +342,10 @@ class UserController extends Aeit
         [$status, $msg, $guid] = $user->fnCreateBcscUserProfile($request);
 
         if ($status == false) {
+            if (env('TRACE_BCSC_LOGIN') == true) {
+                Log::warning(': createBcscUser(): failed to create account');
+            }
+
             return redirect('/login')->withErrors(['username' => 'SYSTEM ERROR :: failed to create account. Profile Fault error #100431-3.']);
         }
 
@@ -342,6 +376,10 @@ class UserController extends Aeit
         }
         //flush the session output
         Session::save();
+
+        if (env('TRACE_BCSC_LOGIN') == true) {
+            Log::warning(': createBcscUser(): proceeding to bcscLogin');
+        }
 
         return $this->bcscLogin($request, $user, $bcsc_profile, $uid3, $role);
     }
