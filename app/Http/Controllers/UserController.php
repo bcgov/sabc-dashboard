@@ -246,6 +246,10 @@ class UserController extends Aeit
 
         //if DEBUG is ON authentication will fail because there should not be any output before
         if (Auth::check() && ! is_null(Auth::user()) && Auth::user()->id == $this->user->id) {
+            if (env('TRACE_BCSC_LOGIN') == true) {
+                Log::warning(': bcscLogin(): User account exists LV1. Auth check true. Alert #220.1');
+                Log::warning(': bcscLogin(): User ID: '.Auth::user()->id);
+            }
             if ($this->user->isStudentSpouseParent() == true) {
                 if (empty($values)) {
                     if (env('TRACE_BCSC_LOGIN') == true) {
@@ -264,6 +268,10 @@ class UserController extends Aeit
                     Log::warning(': bcscLogin(): redirect to dashboard. Auth check true. Alert #223');
                 }
                 return redirect('/');
+            }else{
+                if (env('TRACE_BCSC_LOGIN') == true) {
+                    Log::warning(': bcscLogin(): Auth check true but not student/spouse/parent. Alert #223.1');
+                }
             }
         } else {
             if (env('TRACE_BCSC_LOGIN') == true) {
