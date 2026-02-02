@@ -7,24 +7,69 @@
 
                 <h2>Student Accounts &amp; Application</h2>
                 <p>Please select the option below that best applies to you.</p>
+
+
                 <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">Full-Time Student</span>
+                        <span class="text-primary text-left p-0">New Student Account and Application Access</span>
                     </div>
                     <div class="collapse show">
                         <div class="card-body">
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <p>A student who is enrolled in a minimum of 60 percent of a full course load (40
-                                        percent for students with a permanent disability, or a persistent or prolonged
-                                        disability) at a designated public or private post-secondary institution.</p>
+                                    <p>Login for <strong>all part-time students.</strong></p>
+                                    <p>Login for <strong>full-time students studying at:</strong></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li>British Columbia Institute of Technology (BCIT)</li>
+                                                <li>Discovery College</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li>Langara College</li>
+                                                <li>North Island College</li>
+                                                <li>Sprott Shaw College</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion mb-2" id="accordionA2">
+                                        <div class="card">
+                                            <a href="https://sims.studentaidbc.ca/student"
+                                                class="btn btn-primary btn-block text-center p-3">New Student Account
+                                                and Application Access</a>
+                                        </div>
+                                    </div>
+                                    <small>*A select number of full-time programs are available in the new application 
+                                        system at this time. If you begin an application for the 2025/2026 program year 
+                                        and your program is unavailable, apply using the ‘Full-Time Student Dashboard’ below.</small>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="maintenanceMode === false" class="card mb-3">
+                    <div class="card-header text-dark bg-light">
+                        <span class="text-primary text-left p-0">Full-Time Student Dashboard</span>
+                    </div>
+                    <div class="collapse show">
+                        <div class="card-body">
+
+                            <div class="form-group row mb-0">
+                                <div class="col-12">
+                                    <p>If you are studying full-time and your institution or program is not yet available in the new 
+                                        application system above, please apply using our Full-Time Student Dashboard.</p>
 
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
                                             <a :href="'https://id' + BcscEnv[0] + '.gov.bc.ca/login/saml2sso?TARGET=urn:aved:sabc:' + BcscEnv[1]"
-                                               class="btn btn-primary btn-block text-center p-3">Log in with a BC
-                                                Services Card account</a>
+                                                class="btn btn-primary btn-block text-center p-3">Log in with a BC
+                                                Services Card Account</a>
                                         </div>
                                     </div>
 
@@ -32,8 +77,8 @@
                                     <div class="accordion mb-2" id="accordionC">
                                         <div class="card">
                                             <a href="https://id.gov.bc.ca/account/"
-                                               class="btn btn-link btn-block text-center p-3" target="_blank">Learn how
-                                                to use a BC Services Card account to log in</a>
+                                                class="btn btn-link btn-block text-center p-3" target="_blank">Learn how
+                                                to use a BC Services Card Account to log in</a>
                                         </div>
                                     </div>
 
@@ -42,23 +87,25 @@
                                             <div class="card-header p-2" id="headingB">
                                                 <h2 class="mb-0">
                                                     <button @click="toggleCollapse('collapseB')"
-                                                            class="btn btn-link btn-block text-center" type="button">
+                                                        class="btn btn-link btn-block text-center" type="button">
                                                         I’m not eligible for a BC Services Card Account. What can I do?
                                                     </button>
                                                 </h2>
                                             </div>
 
                                             <div id="collapseB" class="collapse" aria-labelledby="headingB"
-                                                 data-parent="#accordionB">
+                                                data-parent="#accordionB">
                                                 <div class="card-body">
                                                     <p>Using a BC Services Card account is the easiest, most secure way
                                                         to apply for student financial aid. However, we understand not
-                                                        everyone is eligible for the BC Services Card account.<br/>To
+                                                        everyone is eligible for the BC Services Card account.<br />To
                                                         inquire about alternate login options, please email a request to
-                                                        <a href="mailto:StudentAidBC@gov.bc.ca" target="_blank">StudentAidBC@gov.bc.ca</a>
+                                                        <a href="mailto:StudentAidBC@gov.bc.ca"
+                                                            target="_blank">StudentAidBC@gov.bc.ca</a>
                                                         and provide a detailed explanation why you are not eligible for
                                                         a BC Services Card account. StudentAid BC will review your
-                                                        request and provide further instructions via email.</p>
+                                                        request and provide further instructions via email.
+                                                    </p>
                                                     <label class="mb-3 mt-3">Log in with StudentAid BC User ID</label>
                                                     <form method="POST" action="/dashboard/login">
                                                         <input type="hidden" name="_token" :value="csrf">
@@ -66,14 +113,16 @@
                                                         <div v-if="errors != ''" class="row">
                                                             <div class="col-12">
                                                                 <div class="alert alert-contextual alert-danger"
-                                                                     role="alert">
+                                                                    role="alert">
                                                                     <svg class="alert-icon icon-lg colorRed100"
-                                                                         aria-hidden="true" focusable="false">
+                                                                        aria-hidden="true" focusable="false">
                                                                         <use
-                                                                            xlink:href="/dashboard/assets/sprite/icons.svg#alert"></use>
+                                                                            xlink:href="/dashboard/assets/sprite/icons.svg#alert">
+                                                                        </use>
                                                                     </svg>
-                                                                    <template v-for="(error, i) in validationErrors"><p
-                                                                        v-for="e in error" v-html="e"></p></template>
+                                                                    <template v-for="(error, i) in validationErrors">
+                                                                        <p v-for="e in error" v-html="e"></p>
+                                                                    </template>
 
                                                                 </div><!-- /.alert -->
                                                             </div><!-- /.block -->
@@ -81,47 +130,47 @@
 
                                                         <div class="form-group">
                                                             <label for="user_id" class="">User ID <span
-                                                                class="form-required"
-                                                                title="This field is required.">*</span></label>
+                                                                    class="form-required"
+                                                                    title="This field is required.">*</span></label>
                                                             <input id="user_id" type="text" class="form-control"
-                                                                   :class="(errors !== '' && validationErrors.username != undefined) ? 'is-invalid' : ''"
-                                                                   name="user_id" :value="userid" required
-                                                                   autocomplete="user_id" autofocus>
+                                                                :class="(errors !== '' && validationErrors.username != undefined) ? 'is-invalid' : ''"
+                                                                name="user_id" :value="userid" required
+                                                                autocomplete="user_id" autofocus>
                                                             <span
                                                                 v-if="errors !== '' && validationErrors.username != undefined"
                                                                 class="invalid-feedback" role="alert">
-                                            <strong>{{ validationErrors.username[0] }}</strong><br>
-                                        </span>
+                                                                <strong>{{ validationErrors.username[0] }}</strong><br>
+                                                            </span>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="password">Password <span class="form-required"
-                                                                                                 title="This field is required.">*</span></label>
+                                                                    title="This field is required.">*</span></label>
                                                             <input id="password" type="password" class="form-control"
-                                                                   :class="(errors !== '' && validationErrors.password != undefined) ? 'is-invalid' : ''"
-                                                                   name="password" required
-                                                                   autocomplete="current-password">
+                                                                :class="(errors !== '' && validationErrors.password != undefined) ? 'is-invalid' : ''"
+                                                                name="password" required
+                                                                autocomplete="current-password">
 
                                                             <span
                                                                 v-if="errors !== '' && validationErrors.password != undefined"
                                                                 class="invalid-feedback" role="alert">
-                                            <strong>{{ validationErrors.password[0] }}</strong><br>
-                                        </span>
+                                                                <strong>{{ validationErrors.password[0] }}</strong><br>
+                                                            </span>
                                                         </div>
 
                                                         <div class="form-group row mb-0">
                                                             <div class="col-12 text-center">
                                                                 <button type="submit"
-                                                                        class="btn btn-primary btn-block mb-3">Login
+                                                                    class="btn btn-primary btn-block mb-3">Login
                                                                     with StudentAid BC User ID
                                                                 </button>
 
                                                                 <a v-if="accountLocked === false" class="btn btn-link"
-                                                                   href="/dashboard/forgot/password">Forgot your
+                                                                    href="/dashboard/forgot/password">Forgot your
                                                                     StudentAid BC User ID/Password?</a>
-                                                                <br/>
+                                                                <br />
                                                                 <a v-if="accountLocked === false" class="btn btn-link"
-                                                                   href="/dashboard/create">Register</a>
+                                                                    href="/dashboard/create">Register</a>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -137,41 +186,15 @@
                 </div>
 
 
-                <div v-if="maintenanceMode === false" class="card mb-3">
-                    <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">Part-Time Student</span>
-                    </div>
-                    <div class="collapse show">
-                        <div class="card-body">
-
-                            <div class="form-group row mb-0">
-                                <div class="col-12">
-                                    <p>A student who is enrolled in at least 20 to 59 percent of a full course load at a
-                                        designated public or private post-secondary institution.</p>
-
-                                    <div class="accordion mb-2" id="accordionA2">
-                                        <div class="card">
-                                            <a href="https://sims.studentaidbc.ca/student"
-                                               class="btn btn-primary btn-block text-center p-3">Part-Time Students -
-                                                Log in / Create Account</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
                 <div v-if="maintenanceMode === false" class="p-4">
                     <p>
                         <strong>Minimum system requirements.</strong>
-                        <br/>
+                        <br />
                         You can access our full-time student account using a desktop computer or mobile device with a
                         current web browser, including Google Chrome, Safari, Firefox, or Edge. However, to complete the
                         full-time application, you must use a desktop computer with the latest version of Adobe Reader.
-                        <br/>
+                        <br />
                         The student account for part-time students works best on a desktop computer with up-to-date web
                         browsers, including Google Chrome, Safari, Firefox, or Edge.
                     </p>
@@ -198,7 +221,6 @@ button.btn-link {
 span.form-required {
     color: red;
 }
-
 </style>
 <script>
 //import axios from 'axios
