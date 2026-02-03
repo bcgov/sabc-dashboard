@@ -67,7 +67,7 @@
                                 <div class="row">
                                     <div class="d-block d-md-none col-md-4"><strong>End Date</strong></div>
                                     <div class="d-none d-md-block col-md-4 text-right"><strong>End Date</strong></div>
-                                    <div class="col-md-8">{{ formatApplicationDate(app.applicationDetails.applicationProfile.studySDate) }}</div>
+                                    <div class="col-md-8">{{ formatApplicationDate(app.applicationDetails.applicationProfile.studyEDate) }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="d-block d-md-none col-md-4"><strong>Institution</strong></div>
