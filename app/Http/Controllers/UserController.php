@@ -1357,7 +1357,8 @@ class UserController extends Aeit
             $updateProfile = [];
 
             $fname = (isset($bcscusrProfile->userProfile->firstName)) ? strtolower($bcscusrProfile->userProfile->firstName) : null;
-            $trimmedFirstName = substr(trim($_SESSION['bcsc_profile']['givenname']), 0, 15);
+            //to solve Undefined array key "givenname"
+            $trimmedFirstName = (isset($_SESSION['bcsc_profile']['givenname'])) ? substr(trim($_SESSION['bcsc_profile']['givenname']), 0, 15) : '';
             if (strtolower($trimmedFirstName) != $fname) {
                 $updateProfile['first_name'] = $trimmedFirstName;
             }
@@ -1368,7 +1369,7 @@ class UserController extends Aeit
                 $updateProfile['last_name'] = $trimmedLastName;
             }
 
-            $middleName = str_replace($_SESSION['bcsc_profile']['givenname'], '', $_SESSION['bcsc_profile']['givennames']);
+            $middleName = str_replace($trimmedFirstName, '', $_SESSION['bcsc_profile']['givennames']);
             $currentMiddleName = (isset($bcscusrProfile->userProfile->middleName)) ? $bcscusrProfile->userProfile->middleName : null;
             $trimmedMiddleName = substr(trim($middleName), 0, 15);
             if (strtolower(trim($trimmedMiddleName)) != strtolower(trim($currentMiddleName))) {
