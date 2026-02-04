@@ -1369,7 +1369,8 @@ class UserController extends Aeit
                 $updateProfile['last_name'] = $trimmedLastName;
             }
 
-            $middleName = str_replace($trimmedFirstName, '', $_SESSION['bcsc_profile']['givennames']);
+            //to solve Undefined array key "givennames"
+            $middleName = (isset($_SESSION['bcsc_profile']['givennames'])) ? str_replace($trimmedFirstName, '', $_SESSION['bcsc_profile']['givennames']) : '';
             $currentMiddleName = (isset($bcscusrProfile->userProfile->middleName)) ? $bcscusrProfile->userProfile->middleName : null;
             $trimmedMiddleName = substr(trim($middleName), 0, 15);
             if (strtolower(trim($trimmedMiddleName)) != strtolower(trim($currentMiddleName))) {
