@@ -187,6 +187,7 @@
 
 
 
+                <!-- SD-917590 - removed minimum system requirements section
                 <div v-if="maintenanceMode === false" class="p-4">
                     <p>
                         <strong>Minimum system requirements.</strong>
@@ -198,7 +199,7 @@
                         The student account for part-time students works best on a desktop computer with up-to-date web
                         browsers, including Google Chrome, Safari, Firefox, or Edge.
                     </p>
-                </div>
+                </div> -->
                 <div v-if="maintenanceMode === false" class="p-4">
                     <small>Collection and Use of Information. The information included in this form is collected under
                         ss. 26(c) and 26(e) of the Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996,
