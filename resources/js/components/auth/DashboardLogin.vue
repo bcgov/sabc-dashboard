@@ -8,62 +8,18 @@
                 <h2>Student Accounts &amp; Application</h2>
                 <p>Please select the option below that best applies to you.</p>
 
-
                 <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">New Student Account and Application Access</span>
+                        <span class="text-primary text-left p-0">Full-Time Student</span>
                     </div>
                     <div class="collapse show">
                         <div class="card-body">
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <p>Login for <strong>all part-time students.</strong></p>
-                                    <p>Login for <strong>full-time students studying at:</strong></p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul>
-                                                <li>British Columbia Institute of Technology (BCIT)</li>
-                                                <li>Discovery College</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul>
-                                                <li>Langara College</li>
-                                                <li>North Island College</li>
-                                                <li>Sprott Shaw College</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="accordion mb-2" id="accordionA2">
-                                        <div class="card">
-                                            <a href="https://sims.studentaidbc.ca/student"
-                                                class="btn btn-primary btn-block text-center p-3">New Student Account
-                                                and Application Access</a>
-                                        </div>
-                                    </div>
-                                    <small>*A select number of full-time programs are available in the new application 
-                                        system at this time. If you begin an application for the 2025/2026 program year 
-                                        and your program is unavailable, apply using the ‘Full-Time Student Dashboard’ below.</small>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div v-if="maintenanceMode === false" class="card mb-3">
-                    <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">Full-Time Student Dashboard</span>
-                    </div>
-                    <div class="collapse show">
-                        <div class="card-body">
-
-                            <div class="form-group row mb-0">
-                                <div class="col-12">
-                                    <p>If you are studying full-time and your institution or program is not yet available in the new 
-                                        application system above, please apply using our Full-Time Student Dashboard.</p>
+                                    <p>A student who is enrolled in a minimum of 60 percent of a full course load (40
+                                        percent for students with a permanent disability, or a persistent or prolonged
+                                        disability) at a designated public or private post-secondary institution.</p>
 
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
@@ -185,9 +141,33 @@
                     </div>
                 </div>
 
+                <div v-if="maintenanceMode === false" class="card mb-3">
+                    <div class="card-header text-dark bg-light">
+                        <span class="text-primary text-left p-0">Part-Time Student</span>
+                    </div>
+                    <div class="collapse show">
+                        <div class="card-body">
+
+                            <div class="form-group row mb-0">
+                                <div class="col-12">
+                                    <p>A student who is enrolled in at least 20 to 59 percent of a full course load at a
+                                        designated public or private post-secondary institution.</p>
+
+                                    <div class="accordion mb-2" id="accordionA2">
+                                        <div class="card">
+                                            <a href="https://sims.studentaidbc.ca/student"
+                                               class="btn btn-primary btn-block text-center p-3">Part-Time Students -
+                                                Log in / Create Account</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-                <!-- SD-917590 - removed minimum system requirements section
                 <div v-if="maintenanceMode === false" class="p-4">
                     <p>
                         <strong>Minimum system requirements.</strong>
@@ -199,7 +179,7 @@
                         The student account for part-time students works best on a desktop computer with up-to-date web
                         browsers, including Google Chrome, Safari, Firefox, or Edge.
                     </p>
-                </div> -->
+                </div>
                 <div v-if="maintenanceMode === false" class="p-4">
                     <small>Collection and Use of Information. The information included in this form is collected under
                         ss. 26(c) and 26(e) of the Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996,
