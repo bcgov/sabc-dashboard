@@ -2914,7 +2914,7 @@ $sessionValue = $matches[1] ?? null;
         'session_id' => request()->session()->getId(),
     ]));
 
-                $call = $this->fnGetCurlRequest($htmlURL, $get_vars = false, $cid = null, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false, $trace = false, $header = ['Cookie: ' . $sessionValue]);
+                $call = $this->fnGetCurlRequest($htmlURL, false, null, 7200, '', false, false, ['Cookie: ' . $sessionValue]);
 
                 if (! empty($call['response'])) {
                     //return HTML5 form for any modern browser
