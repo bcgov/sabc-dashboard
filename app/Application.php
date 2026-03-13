@@ -2899,6 +2899,14 @@ class Application extends Aeit
                 return $rq;
             } else {
 //                $call = $this->fnGetCurlRequest($htmlURL);
+    session()->push('DEBUG', now().': fnApply() making curl request with following params: '.json_encode([
+        'auth' => auth()->check(),
+        'user_id' => auth()->id(),
+        'session_cookie_name' => config('session.cookie'),
+        'session_cookie_value' => $request->cookie(config('session.cookie')),
+        'session_id' => $request->session()->getId(),
+    ]));
+
                 $call = $this->fnGetCurlRequest($htmlURL, $get_vars = false, $cid = null, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false, $trace = false, $header = ['Cookie: ' . Str::slug(env('APP_NAME', 'laravel'), '_').'_session='.request()->cookie(Str::slug(env('APP_NAME', 'laravel'), '_').'_session')]);
 
                 if (! empty($call['response'])) {
