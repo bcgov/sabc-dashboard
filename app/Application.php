@@ -2905,6 +2905,7 @@ preg_match('/' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=([^;]+)/
 $sessionValue = $matches[1] ?? null;
 //                $call = $this->fnGetCurlRequest($htmlURL);
     session()->push('DEBUG', now().': fnApply() making curl request with following params: '.json_encode([
+        'sessionValue' => $sessionValue,
         'raw_cookie_header' => request()->header('Cookie'),
         'auth' => auth()->check(),
         'user_id' => auth()->id(),
