@@ -617,6 +617,7 @@ class Aeit extends Controller
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
                 //session()->push('DEBUG', now() . ": fnGetCurlRequest() ret: " . json_encode($ret));
+                session()->push('DEBUG', now().': fnGetCurlRequest() header: '.json_encode($header));
                 session()->push('DEBUG', now().': fnGetCurlRequest() url: '.$url);
                 session()->push('DEBUG', now().': fnGetCurlRequest() httpcode: '.json_encode($httpcode));
             }
