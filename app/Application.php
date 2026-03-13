@@ -2900,6 +2900,7 @@ class Application extends Aeit
             } else {
 //                $call = $this->fnGetCurlRequest($htmlURL);
     session()->push('DEBUG', now().': fnApply() making curl request with following params: '.json_encode([
+        'raw_cookie_header' => request()->header('Cookie'),
         'auth' => auth()->check(),
         'user_id' => auth()->id(),
         'session_cookie_name' => config('session.cookie'),
