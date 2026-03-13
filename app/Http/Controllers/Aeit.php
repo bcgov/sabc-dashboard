@@ -596,11 +596,11 @@ class Aeit extends Controller
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-        if ($trace == true) {
-            curl_setopt($ch, CURLOPT_HEADER, 1);
-        } else {
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-        }
+        // if ($trace == true) {
+        //     curl_setopt($ch, CURLOPT_HEADER, 1);
+        // } else {
+        //     curl_setopt($ch, CURLOPT_HEADER, 0);
+        // }
 
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
