@@ -2898,6 +2898,11 @@ class Application extends Aeit
 
                 return $rq;
             } else {
+                $cookieHeader = request()->header('Cookie');
+
+preg_match('/' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=([^;]+)/', $cookieHeader, $matches);
+
+$sessionValue = $matches[1] ?? null;
 //                $call = $this->fnGetCurlRequest($htmlURL);
     session()->push('DEBUG', now().': fnApply() making curl request with following params: '.json_encode([
         'raw_cookie_header' => request()->header('Cookie'),
@@ -2908,7 +2913,7 @@ class Application extends Aeit
         'session_id' => request()->session()->getId(),
     ]));
 
-                $call = $this->fnGetCurlRequest($htmlURL, $get_vars = false, $cid = null, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false, $trace = false, $header = ['Cookie: ' . Str::slug(env('APP_NAME', 'laravel'), '_').'_session='.request()->cookie(Str::slug(env('APP_NAME', 'laravel'), '_').'_session')]);
+                $call = $this->fnGetCurlRequest($htmlURL, $get_vars = false, $cid = null, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false, $trace = false, $header = ['Cookie: ' . $sessionValue]);
 
                 if (! empty($call['response'])) {
                     //return HTML5 form for any modern browser
