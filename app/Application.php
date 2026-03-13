@@ -2899,7 +2899,7 @@ class Application extends Aeit
                 return $rq;
             } else {
 //                $call = $this->fnGetCurlRequest($htmlURL);
-                $call = $this->fnGetCurlRequest($htmlURL, $get_vars = false, $cid = null, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false, $trace = false, $header = ['Cookie: ' . Str::slug(env('APP_NAME', 'laravel'), '_').'_session='.Cookie::get(Str::slug(env('APP_NAME', 'laravel'), '_').'_session')]);
+                $call = $this->fnGetCurlRequest($htmlURL, $get_vars = false, $cid = null, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false, $trace = false, $header = ['Cookie: ' . Str::slug(env('APP_NAME', 'laravel'), '_').'_session='.\Cookie::get(Str::slug(env('APP_NAME', 'laravel'), '_').'_session')]);
 
                 if (! empty($call['response'])) {
                     //return HTML5 form for any modern browser
