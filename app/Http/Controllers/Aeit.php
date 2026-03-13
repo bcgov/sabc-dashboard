@@ -616,15 +616,8 @@ class Aeit extends Controller
             $ret = curl_exec($ch);
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
-                //show all the details for the curl request in session for debugging
-                session()->push('DEBUG', now().': fnGetCurlRequest() ret: '.json_encode($ret));
-                session()->push('DEBUG', now().': fnGetCurlRequest() cookie: '.json_encode($cookie));
-                session()->push('DEBUG', now().': fnGetCurlRequest() trace: '.json_encode($trace));
-                session()->push('DEBUG', now().': fnGetCurlRequest() cacheExpire: '.json_encode($cacheExpire));
-                
 
-
-                session()->push('DEBUG', now().': fnGetCurlRequest() header: '.json_encode($header));
+                // session()->push('DEBUG', now().': fnGetCurlRequest() header: '.json_encode($header));
                 session()->push('DEBUG', now().': fnGetCurlRequest() url: '.$url);
                 session()->push('DEBUG', now().': fnGetCurlRequest() httpcode: '.json_encode($httpcode));
             }

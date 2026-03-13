@@ -2900,20 +2900,10 @@ class Application extends Aeit
             } else {
                 $cookieHeader = request()->header('Cookie');
 
-preg_match('/' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=([^;]+)/', $cookieHeader, $matches);
+                preg_match('/' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=([^;]+)/', $cookieHeader, $matches);
 
-$sessionValue = $matches[1] ?? null;
+                $sessionValue = $matches[1] ?? null;
 //                $call = $this->fnGetCurlRequest($htmlURL);
-    session()->push('DEBUG', now().': fnApply() making curl request with following params: '.json_encode([
-        'sessionValue' => $sessionValue,
-        'raw_cookie_header' => request()->header('Cookie'),
-        'auth' => auth()->check(),
-        'user_id' => auth()->id(),
-        'session_cookie_name' => config('session.cookie'),
-        'session_cookie_value' => request()->cookie(config('session.cookie')),
-        'session_id' => request()->session()->getId(),
-    ]));
-
                 $call = $this->fnGetCurlRequest($htmlURL, false, null, 7200, '', false, false, ['Cookie: ' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=' . $sessionValue]);
 
                 if (! empty($call['response'])) {
