@@ -79,13 +79,6 @@ Route::get('/institution-data-load-p', 'InstitutionController@instDataLoadPublic
 Route::get('/institution-details-p/{id}', 'InstitutionController@instDetailsPublic')->name('institution-details-p');
 
 Route::middleware(['auth'])->group(function () {
-    
-    Route::match(
-        ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
-        '/lc/{any?}',
-        [App\Http\Controllers\LcProxyController::class, 'handle']
-    )->where('any', '.*');
-
     Route::get('/logout', 'UserController@logoutUser')->name('logout-user');
 
     //authenticated Student OR Spouse OR Parent

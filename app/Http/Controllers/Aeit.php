@@ -596,11 +596,11 @@ class Aeit extends Controller
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-        // if ($trace == true) {
-        //     curl_setopt($ch, CURLOPT_HEADER, 1);
-        // } else {
-        //     curl_setopt($ch, CURLOPT_HEADER, 0);
-        // }
+        if ($trace == true) {
+            curl_setopt($ch, CURLOPT_HEADER, 1);
+        } else {
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+        }
 
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
@@ -616,8 +616,7 @@ class Aeit extends Controller
             $ret = curl_exec($ch);
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if (env('APP_DEBUG') == true && env('APP_ENV') != 'production') {
-
-                // session()->push('DEBUG', now().': fnGetCurlRequest() header: '.json_encode($header));
+                //session()->push('DEBUG', now() . ": fnGetCurlRequest() ret: " . json_encode($ret));
                 session()->push('DEBUG', now().': fnGetCurlRequest() url: '.$url);
                 session()->push('DEBUG', now().': fnGetCurlRequest() httpcode: '.json_encode($httpcode));
             }

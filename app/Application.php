@@ -5,7 +5,6 @@ namespace App;
 use App\Http\Controllers\Aeit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 class Application extends Aeit
 {
@@ -2898,13 +2897,7 @@ class Application extends Aeit
 
                 return $rq;
             } else {
-                $cookieHeader = request()->header('Cookie');
-
-                preg_match('/' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=([^;]+)/', $cookieHeader, $matches);
-
-                $sessionValue = $matches[1] ?? null;
-//                $call = $this->fnGetCurlRequest($htmlURL);
-                $call = $this->fnGetCurlRequest($htmlURL, false, null, 7200, '', false, false, ['Cookie: ' . Str::slug(env('APP_NAME', 'laravel'), '_') . '_session=' . $sessionValue]);
+                $call = $this->fnGetCurlRequest($htmlURL);
 
                 if (! empty($call['response'])) {
                     //return HTML5 form for any modern browser
