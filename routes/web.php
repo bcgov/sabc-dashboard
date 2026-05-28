@@ -120,9 +120,9 @@ Route::middleware(['auth'])->group(function () {
             // Route::get('/student-loans/interest-free', 'UserController@interestFree')->name('interest-free');
             //redirect /student-loans/interest-free to external page https://studentaidbc.ca/maintain/when-payments-are-not-required
             Route::get('/student-loans/interest-free', function () {
-                return redirect()->away('https://studentaidbc.ca/maintain/when-payments-are-not-required');
+                return redirect()->away(env('APP_URL').'/maintain/when-payments-are-not-required');
             })->name('interest-free');
-            
+
 
             Route::get('/appendix/claim/{appendix_type}/{access_code?}', 'AppendixController@appendixClaim')->name('appendix-claim');
             Route::get('/fetch-appendix-claim', 'AppendixController@appendixClaimData')->name('fetch-appendix-claim-data');

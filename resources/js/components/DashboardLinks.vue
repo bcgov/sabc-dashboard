@@ -53,7 +53,7 @@
                     <span class="float-right icon icon-supportrequest"></span>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <a href="https://studentaidbc.ca/maintain/when-payments-are-not-required" target="_blank" class="list-group-item">
+                    <a href="/dashboard/student-loans/interest-free" target="_blank" class="list-group-item">
                         <li>
                             <div class="float-left">Student</div>
                             <div class="float-right">Apply for In-Study Payment-Free status</div>
