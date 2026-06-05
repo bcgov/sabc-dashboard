@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7 mt-3">
+                <h2>Old Student Dashboard Account</h2>
                 <dashboard-alerts @disable="disablePage" pagesTarget="login_register_pages"></dashboard-alerts>
                 <p v-if="passwordreset == true" class="alert alert-success">Password Reset was successful!</p>
 
-                <h2>Old Student Dashboard Account</h2>
                 <!-- <p>Please select the option below that best applies to you.</p> -->
 
                 <div v-if="maintenanceMode === false" class="card mb-3">
