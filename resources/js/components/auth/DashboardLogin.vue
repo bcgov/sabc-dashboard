@@ -17,7 +17,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <p><strong>If you applied before 2026-06-19, you can access your existing application</strong> information using the original StudentAid BC dashboard below</p>
+                                    <p><strong>If you applied before June 19, 2026, you can access your existing application</strong> information using the original StudentAid BC dashboard below</p>
 
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
@@ -166,7 +166,7 @@
                 </div> -->
 
 
-                <div v-if="maintenanceMode === false" class="p-4">
+                <!-- <div v-if="maintenanceMode === false" class="p-4">
                     <p>
                         <strong>Minimum system requirements.</strong>
                         <br />
@@ -177,7 +177,7 @@
                         The student account for part-time students works best on a desktop computer with up-to-date web
                         browsers, including Google Chrome, Safari, Firefox, or Edge.
                     </p>
-                </div>
+                </div> -->
                 <div v-if="maintenanceMode === false" class="p-4">
                     <small>Collection and Use of Information. The information included in this form is collected under
                         ss. 26(c) and 26(e) of the Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996,
