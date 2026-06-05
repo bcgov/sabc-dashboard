@@ -5,21 +5,19 @@
                 <dashboard-alerts @disable="disablePage" pagesTarget="login_register_pages"></dashboard-alerts>
                 <p v-if="passwordreset == true" class="alert alert-success">Password Reset was successful!</p>
 
-                <h2>Student Accounts &amp; Application</h2>
-                <p>Please select the option below that best applies to you.</p>
+                <h2>Old Student Dashboard Account</h2>
+                <!-- <p>Please select the option below that best applies to you.</p> -->
 
                 <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">Full-Time Student</span>
+                        <span class="text-primary text-left p-0">Old Student Dashboard for full-time students</span>
                     </div>
                     <div class="collapse show">
                         <div class="card-body">
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <p>A student who is enrolled in a minimum of 60 percent of a full course load (40
-                                        percent for students with a permanent disability, or a persistent or prolonged
-                                        disability) at a designated public or private post-secondary institution.</p>
+                                    <p><strong>If you applied before 2026-06-19, you can access your existing application</strong> information using the original StudentAid BC dashboard below</p>
 
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
@@ -141,7 +139,7 @@
                     </div>
                 </div>
 
-                <div v-if="maintenanceMode === false" class="card mb-3">
+                <!-- <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
                         <span class="text-primary text-left p-0">Part-Time Student</span>
                     </div>
@@ -165,7 +163,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
                 <div v-if="maintenanceMode === false" class="p-4">
