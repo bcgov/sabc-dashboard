@@ -2,24 +2,23 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7 mt-3">
+                <h2>Old Student Dashboard Account</h2>
                 <dashboard-alerts @disable="disablePage" pagesTarget="login_register_pages"></dashboard-alerts>
                 <p v-if="passwordreset == true" class="alert alert-success">Password Reset was successful!</p>
 
-                <h2>Student Accounts &amp; Application</h2>
-                <p>Please select the option below that best applies to you.</p>
+                <!-- <p>Please select the option below that best applies to you.</p> -->
 
                 <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
-                        <span class="text-primary text-left p-0">Full-Time Student</span>
+                        <span class="text-primary text-left p-0">Old Student Dashboard for full-time students</span>
                     </div>
                     <div class="collapse show">
                         <div class="card-body">
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <p>A student who is enrolled in a minimum of 60 percent of a full course load (40
-                                        percent for students with a permanent disability, or a persistent or prolonged
-                                        disability) at a designated public or private post-secondary institution.</p>
+                                    <p><strong>If you applied before June 19, 2026, you can access and manage your application</strong> 
+                                        by logging in to the old StudentAid BC Dashboard below.<br/><strong>*Not available to submit new applications</strong></p>
 
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
@@ -141,7 +140,7 @@
                     </div>
                 </div>
 
-                <div v-if="maintenanceMode === false" class="card mb-3">
+                <!-- <div v-if="maintenanceMode === false" class="card mb-3">
                     <div class="card-header text-dark bg-light">
                         <span class="text-primary text-left p-0">Part-Time Student</span>
                     </div>
@@ -165,10 +164,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
-                <div v-if="maintenanceMode === false" class="p-4">
+                <!-- <div v-if="maintenanceMode === false" class="p-4">
                     <p>
                         <strong>Minimum system requirements.</strong>
                         <br />
@@ -179,7 +178,7 @@
                         The student account for part-time students works best on a desktop computer with up-to-date web
                         browsers, including Google Chrome, Safari, Firefox, or Edge.
                     </p>
-                </div>
+                </div> -->
                 <div v-if="maintenanceMode === false" class="p-4">
                     <small>Collection and Use of Information. The information included in this form is collected under
                         ss. 26(c) and 26(e) of the Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996,

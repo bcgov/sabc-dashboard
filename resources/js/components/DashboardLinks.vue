@@ -53,30 +53,13 @@
                     <span class="float-right icon icon-supportrequest"></span>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <a href="/dashboard/student-loans/apply" class="list-group-item">
-                        <li>
-                            <div class="float-left">Student</div>
-                            <div class="float-right">Apply for a student loan</div>
-                        </li>
-                    </a>
-                    <a href="/dashboard/student-loans/interest-free" class="list-group-item">
+                    <a href="/dashboard/student-loans/interest-free" target="_blank" class="list-group-item">
                         <li>
                             <div class="float-left">Student</div>
                             <div class="float-right">Apply for In-Study Payment-Free status</div>
                         </li>
                     </a>
-                    <a href="/dashboard/appendix/claim/APPENDIX1/" class="list-group-item">
-                        <li>
-                            <div class="float-left">Parent</div>
-                            <div class="float-right">Complete an Appendix 1</div>
-                        </li>
-                    </a>
-                    <a href="/dashboard/appendix/claim/APPENDIX2/" class="list-group-item">
-                        <li>
-                            <div class="float-left">Spouse</div>
-                            <div class="float-right">Complete an Appendix 2</div>
-                        </li>
-                    </a>
+                    
                 </ul>
             </div>
 
