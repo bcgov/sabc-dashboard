@@ -8,11 +8,7 @@
             <template v-if="loading == false && loadingError == false">
 
             <form
-                @submit="submitFom"
-                :action="'/dashboard/application-submit-checklist/' + program_year + '/' + app_id + '/' + document_guid"
                 method="post" id="sabc-form-builder" accept-charset="UTF-8">
-                <input type="hidden" name="_token" :value="csrf">
-                <input type="hidden" name="hpot" value="">
                 <input type="hidden" name="decRequired" :value="parsedDecl.inkSignatureRequired">
                 <div v-if="errors != ''" class="row">
                     <div class="col-12">
@@ -116,7 +112,7 @@
                     <div class="col-md-6">
                         <a :href="'/dashboard/student-loans/check-application-status/' + app_id" class="btn btn-link text-left">Cancel</a>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <button v-if="submitting == true" type="button" class="btn btn-block btn-success disabled">
                             <small class="spinner-border" role="status">
                                 <span class="sr-only">Loading...</span>
@@ -125,7 +121,7 @@
                         <template v-else>
                             <button type="submit" class="btn btn-block btn-success">Submit my Application</button>
                         </template>
-                    </div>
+                    </div> -->
                 </div>
 
             </form>
