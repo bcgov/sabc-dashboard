@@ -17,7 +17,8 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-12">
-                                    <p><strong>If you applied before June 19, 2026, you can access your existing application</strong> information using the original StudentAid BC dashboard below</p>
+                                    <p><strong>If you applied before June 19, 2026, you can access and manage your application</strong> 
+                                        by logging in to the old StudentAid BC Dashboard below.<br/><strong>*Not available to submit new applications</strong></p>
 
                                     <div class="accordion mb-2" id="accordionA">
                                         <div class="card">
