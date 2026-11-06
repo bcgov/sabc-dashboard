@@ -15,7 +15,7 @@
 <div id="app">
 
     <main class="py-4">
-            Hello, SFAS is gone. 
+            <strong>Important: SFAS access through Inventu will end November 24, 2026.</strong> After this date, you must use PuTTY to access SFAS. If you have not received PuTTY setup instructions, contact Designat@gov.bc.ca.
     </main>
 </div>
 
