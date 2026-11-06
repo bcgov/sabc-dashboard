@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 $env = env('APP_ENV_SHORT');
 
+Route::view('/sfas', 'temp');
+
 Route::get('/clear-debugger', 'UserController@clearDebugger')->name('clear-debugger');
 
 Route::get('/forgot/password', function () use ($env) {
