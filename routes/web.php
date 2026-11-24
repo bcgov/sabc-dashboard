@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 $env = env('APP_ENV_SHORT');
 
-Route::view('/sfas', 'temp');
+
+//redirect to /policy-and-procedures/partner-portal-information
+Route::redirect('/sfas', '/policy-and-procedures/partner-portal-information');
 
 Route::get('/clear-debugger', 'UserController@clearDebugger')->name('clear-debugger');
 
